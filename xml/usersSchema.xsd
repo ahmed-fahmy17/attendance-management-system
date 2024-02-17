@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xs:simpleType name="EmailType">
+		<xs:restriction base="xs:string">
+		  <xs:pattern value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"/>
+		</xs:restriction>
+	 </xs:simpleType>
+	 
+	 <xs:simpleType name="IDType">
+		<xs:restriction base="xs:string">
+		  <xs:pattern value="[st]\d+"/>
+		</xs:restriction>
+     </xs:simpleType>
+     
+     <xs:simpleType name="NameType">
+		<xs:restriction base="xs:string">
+		  <xs:pattern value="[a-zA-Z ]+"/>
+		</xs:restriction>
+	  </xs:simpleType>
+	  
+	  <xs:simpleType name="AgeType">
+		<xs:restriction base="xs:string">
+		  <xs:pattern value="[1-9]\d*"/>
+		</xs:restriction>
+	  </xs:simpleType>
+	  
+	  <xs:simpleType name="PhoneType">
+		<xs:restriction base="xs:string">
+		  <xs:pattern value="\d{11}"/>
+		</xs:restriction>
+	  </xs:simpleType>	  
+	  
+	  <xs:simpleType name="RoleType">
+		<xs:restriction base="xs:string">
+		  <xs:enumeration value="student"/>
+		  <xs:enumeration value="teacher"/>
+		</xs:restriction>
+	  </xs:simpleType>
+	  
+	  <xs:simpleType name="PasswordType">
+		<xs:restriction base="xs:string">
+		  <xs:minLength value="8"/>
+		</xs:restriction>
+	  </xs:simpleType>
+  
+	<xs:element name="users">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="admin">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="email" type="EmailType"></xs:element>
+							<xs:element name="password" type="PasswordType"></xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="user" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="id" type="IDType"></xs:element>
+							<xs:element name="name" type="NameType"></xs:element>
+							<xs:element name="email" type="EmailType"></xs:element>
+							<xs:element name="age" type="AgeType"></xs:element>
+							<xs:element name="classes">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="classID" type="xs:string"></xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="phone" type="PhoneType"></xs:element>
+							<xs:element name="password" type="PasswordType"></xs:element>
+							<xs:element name="role" type="RoleType"></xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
