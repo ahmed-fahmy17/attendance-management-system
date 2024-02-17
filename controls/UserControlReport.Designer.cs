@@ -31,7 +31,7 @@
             label1 = new Label();
             Class = new Label();
             label2 = new Label();
-            comboBox1 = new ComboBox();
+            StartDateComboBox = new ComboBox();
             comboBox2 = new ComboBox();
             dataGridView1 = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
@@ -41,7 +41,7 @@
             Column4 = new DataGridViewTextBoxColumn();
             pictureBox1 = new PictureBox();
             label3 = new Label();
-            comboBox3 = new ComboBox();
+            EndDateComboBox = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -79,13 +79,13 @@
             label2.TabIndex = 4;
             label2.Text = "Class";
             // 
-            // comboBox1
+            // StartDateComboBox
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(41, 124);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 28);
-            comboBox1.TabIndex = 5;
+            StartDateComboBox.FormattingEnabled = true;
+            StartDateComboBox.Location = new Point(41, 124);
+            StartDateComboBox.Name = "StartDateComboBox";
+            StartDateComboBox.Size = new Size(151, 28);
+            StartDateComboBox.TabIndex = 5;
             // 
             // comboBox2
             // 
@@ -111,6 +111,7 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(761, 303);
             dataGridView1.TabIndex = 7;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // Column1
             // 
@@ -158,6 +159,7 @@
             pictureBox1.Size = new Size(64, 64);
             pictureBox1.TabIndex = 8;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // label3
             // 
@@ -170,30 +172,31 @@
             label3.TabIndex = 9;
             label3.Text = "End Date";
             // 
-            // comboBox3
+            // EndDateComboBox
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(262, 124);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(151, 28);
-            comboBox3.TabIndex = 10;
+            EndDateComboBox.FormattingEnabled = true;
+            EndDateComboBox.Location = new Point(262, 124);
+            EndDateComboBox.Name = "EndDateComboBox";
+            EndDateComboBox.Size = new Size(151, 28);
+            EndDateComboBox.TabIndex = 10;
             // 
             // UserControlReport
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLight;
-            Controls.Add(comboBox3);
+            Controls.Add(EndDateComboBox);
             Controls.Add(label3);
             Controls.Add(pictureBox1);
             Controls.Add(dataGridView1);
             Controls.Add(comboBox2);
-            Controls.Add(comboBox1);
+            Controls.Add(StartDateComboBox);
             Controls.Add(label2);
             Controls.Add(Class);
             Controls.Add(label1);
             Name = "UserControlReport";
             Size = new Size(873, 547);
+            Load += UserControlReport_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -205,7 +208,7 @@
         private Label label1;
         private Label Class;
         private Label label2;
-        private ComboBox comboBox1;
+        private ComboBox StartDateComboBox;
         private ComboBox comboBox2;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn Column1;
@@ -215,6 +218,6 @@
         private DataGridViewTextBoxColumn Column4;
         private PictureBox pictureBox1;
         private Label label3;
-        private ComboBox comboBox3;
+        private ComboBox EndDateComboBox;
     }
 }
