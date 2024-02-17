@@ -150,7 +150,7 @@
             Controls.Add(AttendanceLabel);
             Controls.Add(dataGridView1);
             Name = "UserControlAttendance";
-            Size = new Size(795, 450);
+            Size = new Size(809, 548);
             Load += UserControl1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);

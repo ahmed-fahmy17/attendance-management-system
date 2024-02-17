@@ -39,7 +39,11 @@
             ClassName = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
+            pictureBox1 = new PictureBox();
+            label3 = new Label();
+            comboBox3 = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -60,16 +64,16 @@
             Class.ForeColor = Color.IndianRed;
             Class.Location = new Point(60, 83);
             Class.Name = "Class";
-            Class.Size = new Size(52, 25);
+            Class.Size = new Size(99, 25);
             Class.TabIndex = 1;
-            Class.Text = "Date";
+            Class.Text = "Start Date";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.IndianRed;
-            label2.Location = new Point(290, 83);
+            label2.Location = new Point(494, 83);
             label2.Name = "label2";
             label2.Size = new Size(54, 25);
             label2.TabIndex = 4;
@@ -86,7 +90,7 @@
             // comboBox2
             // 
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(290, 124);
+            comboBox2.Location = new Point(494, 124);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(151, 28);
             comboBox2.TabIndex = 6;
@@ -105,7 +109,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(760, 303);
+            dataGridView1.Size = new Size(761, 303);
             dataGridView1.TabIndex = 7;
             // 
             // Column1
@@ -144,11 +148,44 @@
             Column4.Name = "Column4";
             Column4.ReadOnly = true;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox1.Cursor = Cursors.Hand;
+            pictureBox1.Image = Properties.Resources.icons8_save_64;
+            pictureBox1.Location = new Point(724, 24);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(64, 64);
+            pictureBox1.TabIndex = 8;
+            pictureBox1.TabStop = false;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.IndianRed;
+            label3.Location = new Point(262, 83);
+            label3.Name = "label3";
+            label3.Size = new Size(89, 25);
+            label3.TabIndex = 9;
+            label3.Text = "End Date";
+            // 
+            // comboBox3
+            // 
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Location = new Point(262, 124);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(151, 28);
+            comboBox3.TabIndex = 10;
+            // 
             // UserControlReport
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLight;
+            Controls.Add(comboBox3);
+            Controls.Add(label3);
+            Controls.Add(pictureBox1);
             Controls.Add(dataGridView1);
             Controls.Add(comboBox2);
             Controls.Add(comboBox1);
@@ -156,8 +193,9 @@
             Controls.Add(Class);
             Controls.Add(label1);
             Name = "UserControlReport";
-            Size = new Size(872, 504);
+            Size = new Size(873, 547);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -175,5 +213,8 @@
         private DataGridViewTextBoxColumn ClassName;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
+        private PictureBox pictureBox1;
+        private Label label3;
+        private ComboBox comboBox3;
     }
 }

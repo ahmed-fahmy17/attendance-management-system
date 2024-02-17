@@ -83,7 +83,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(280, 626);
+            panel1.Size = new Size(280, 724);
             panel1.TabIndex = 0;
             // 
             // pictureBox5
@@ -375,7 +375,7 @@
             // 
             AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1329, 626);
+            ClientSize = new Size(1329, 724);
             Controls.Add(userControlReport1);
             Controls.Add(userControl11);
             Controls.Add(panel3);
