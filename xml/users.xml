@@ -5,12 +5,60 @@
 		<password>12345678</password>
 	</admin>
 	<user>
-		<id>s0</id>
+		<id>1</id>
 		<name>Ahmed Fahmy</name>
 		<email>ahmed@yahoo.com</email>
 		<age>23</age>
 		<classes>
 			<classID>Maths</classID>
+		</classes>
+		<phone>01065632156</phone>
+		<password>12345678</password>
+		<role>student</role>
+	</user>
+	<user>
+		<id>2</id>
+		<name>esraa</name>
+		<email>esraa@yahoo.com</email>
+		<age>23</age>
+		<classes>
+			<classID>physics</classID>
+		</classes>
+		<phone>01065632156</phone>
+		<password>12345678</password>
+		<role>student</role>
+	</user>
+	<user>
+		<id>5</id>
+		<name>muhammed</name>
+		<email>muhammed@yahoo.com</email>
+		<age>25</age>
+		<classes>
+			<classID>Maths</classID>
+		</classes>
+		<phone>01065632156</phone>
+		<password>12345678</password>
+		<role>student</role>
+	</user>
+	<user>
+		<id>3</id>
+		<name>omar</name>
+		<email>omar@yahoo.com</email>
+		<age>20</age>
+		<classes>
+			<classID>Maths</classID>
+		</classes>
+		<phone>01065632156</phone>
+		<password>12345678</password>
+		<role>student</role>
+	</user>
+	<user>
+		<id>7</id>
+		<name>sara</name>
+		<email>sara@yahoo.com</email>
+		<age>24</age>
+		<classes>
+			<classID>physics</classID>
 		</classes>
 		<phone>01065632156</phone>
 		<password>12345678</password>
@@ -23,6 +71,7 @@
 		<age>40</age>
 		<classes>
 			<classID>Maths</classID>
+			<classID>physics</classID>
 		</classes>
 		<phone>01065632156</phone>
 		<password>12345678</password>

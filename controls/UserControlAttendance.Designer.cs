@@ -28,65 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            studentId = new DataGridViewTextBoxColumn();
-            StudentName = new DataGridViewTextBoxColumn();
-            studentEmail = new DataGridViewTextBoxColumn();
-            studentStaus = new DataGridViewTextBoxColumn();
             AttendanceLabel = new Label();
             label1 = new Label();
             label2 = new Label();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
+            teacherClasses = new ComboBox();
+            dataGridView1 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.BackgroundColor = Color.Gainsboro;
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { studentId, StudentName, studentEmail, studentStaus });
-            dataGridView1.Location = new Point(26, 134);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(766, 262);
-            dataGridView1.TabIndex = 0;
-            // 
-            // studentId
-            // 
-            studentId.HeaderText = "Id";
-            studentId.MinimumWidth = 6;
-            studentId.Name = "studentId";
-            studentId.ReadOnly = true;
-            studentId.Resizable = DataGridViewTriState.False;
-            // 
-            // StudentName
-            // 
-            StudentName.HeaderText = "Student Name";
-            StudentName.MinimumWidth = 6;
-            StudentName.Name = "StudentName";
-            StudentName.ReadOnly = true;
-            // 
-            // studentEmail
-            // 
-            studentEmail.HeaderText = "Email";
-            studentEmail.MinimumWidth = 6;
-            studentEmail.Name = "studentEmail";
-            studentEmail.ReadOnly = true;
-            studentEmail.Resizable = DataGridViewTriState.False;
-            // 
-            // studentStaus
-            // 
-            studentStaus.HeaderText = "status";
-            studentStaus.MinimumWidth = 6;
-            studentStaus.Name = "studentStaus";
-            studentStaus.ReadOnly = true;
             // 
             // AttendanceLabel
             // 
@@ -121,36 +69,43 @@
             label2.TabIndex = 3;
             label2.Text = "Date";
             // 
-            // comboBox1
+            // teacherClasses
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "pick date" });
-            comboBox1.Location = new Point(26, 100);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 28);
-            comboBox1.TabIndex = 4;
+            teacherClasses.FormattingEnabled = true;
+            teacherClasses.Location = new Point(478, 100);
+            teacherClasses.Name = "teacherClasses";
+            teacherClasses.Size = new Size(151, 28);
+            teacherClasses.TabIndex = 5;
+            teacherClasses.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
-            // comboBox2
+            // dataGridView1
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(478, 100);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(151, 28);
-            comboBox2.TabIndex = 5;
+            dataGridView1.AllowUserToResizeColumns = false;
+            dataGridView1.AllowUserToResizeRows = false;
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
+            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(26, 171);
+            dataGridView1.Margin = new Padding(4);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(995, 440);
+            dataGridView1.TabIndex = 6;
             // 
             // UserControlAttendance
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Gainsboro;
-            Controls.Add(comboBox2);
-            Controls.Add(comboBox1);
+            BackColor = Color.White;
+            Controls.Add(dataGridView1);
+            Controls.Add(teacherClasses);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(AttendanceLabel);
-            Controls.Add(dataGridView1);
             Name = "UserControlAttendance";
-            Size = new Size(809, 548);
+            Size = new Size(1092, 629);
             Load += UserControl1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
@@ -158,16 +113,10 @@
         }
 
         #endregion
-
-        private DataGridView dataGridView1;
         private Label AttendanceLabel;
         private Label label1;
         private Label label2;
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
-        private DataGridViewTextBoxColumn studentId;
-        private DataGridViewTextBoxColumn StudentName;
-        private DataGridViewTextBoxColumn studentEmail;
-        private DataGridViewTextBoxColumn studentStaus;
+        private ComboBox teacherClasses;
+        private DataGridView dataGridView1;
     }
 }

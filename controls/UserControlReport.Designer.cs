@@ -86,6 +86,7 @@
             StartDateComboBox.Name = "StartDateComboBox";
             StartDateComboBox.Size = new Size(151, 28);
             StartDateComboBox.TabIndex = 5;
+            StartDateComboBox.SelectedIndexChanged += StartDateComboBox_SelectedIndexChanged;
             // 
             // comboBox2
             // 
@@ -101,7 +102,7 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.BackgroundColor = SystemColors.ControlLight;
+            dataGridView1.BackgroundColor = Color.White;
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, ClassName, Column3, Column4 });
@@ -184,7 +185,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlLight;
+            BackColor = Color.White;
             Controls.Add(EndDateComboBox);
             Controls.Add(label3);
             Controls.Add(pictureBox1);

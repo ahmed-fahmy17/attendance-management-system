@@ -69,7 +69,7 @@ namespace attendance_management_system.controls
 
         private void UserControlReport_Load(object sender, EventArgs e)
         {
-            string xmlFilePath = "C:\\Users\\USER\\Desktop\\cProject2\\attendance-management-system\\xml\\attendance.xml";
+            string xmlFilePath = "C:\\Users\\USER\\Desktop\\c#proj4\\attendance-management-system\\xml\\attendance.xml";
 
             if (File.Exists(xmlFilePath))
             {
@@ -99,6 +99,11 @@ namespace attendance_management_system.controls
             {
                 MessageBox.Show("XML file not found.");
             }
+        }
+
+        private void StartDateComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

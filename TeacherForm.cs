@@ -36,20 +36,12 @@ namespace attendance_management_system
 
         }
 
-        private void closeExpandedPanelBtn_Click(object sender, EventArgs e)
-        {
-            expandedBanel.Hide();
-        }
-
-        private void expandPanelBtn_Click(object sender, EventArgs e)
-        {
-            expandedBanel.Show();
-        }
+       
 
         private void TeacherForm_Load(object sender, EventArgs e)
         {
             //hide expanded banel on form load
-            expandedBanel.Hide();
+           
             //display date 
             dateLabel.Text = DateTime.Now.ToString("dddd, MMMM dd, yyyy");
 
