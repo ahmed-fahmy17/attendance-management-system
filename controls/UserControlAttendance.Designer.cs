@@ -28,13 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            dataGridView1 = new DataGridView();
             AttendanceLabel = new Label();
             label1 = new Label();
             label2 = new Label();
             teacherClasses = new ComboBox();
-            dataGridView1 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AllowUserToResizeColumns = false;
+            dataGridView1.AllowUserToResizeRows = false;
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridView1.CausesValidation = false;
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
+            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
+            dataGridView1.EnableHeadersVisualStyles = false;
+            dataGridView1.Location = new Point(26, 171);
+            dataGridView1.Margin = new Padding(4);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            dataGridView1.ShowCellToolTips = false;
+            dataGridView1.ShowEditingIcon = false;
+            dataGridView1.Size = new Size(995, 440);
+            dataGridView1.TabIndex = 6;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // AttendanceLabel
             // 
@@ -77,22 +101,6 @@
             teacherClasses.Size = new Size(151, 28);
             teacherClasses.TabIndex = 5;
             teacherClasses.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.AllowUserToResizeColumns = false;
-            dataGridView1.AllowUserToResizeRows = false;
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
-            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(26, 171);
-            dataGridView1.Margin = new Padding(4);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(995, 440);
-            dataGridView1.TabIndex = 6;
             // 
             // UserControlAttendance
             // 

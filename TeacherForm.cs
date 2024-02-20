@@ -60,6 +60,7 @@ namespace attendance_management_system
                 //current thread is the main UI thread
                 labelTime.Text = DateTime.Now.ToString("h:mm:ss tt");
             }
+         
 
         }
 
