@@ -1,4 +1,6 @@
-﻿using System;
+﻿using iText.StyledXmlParser.Jsoup.Nodes;
+using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using System.Xml.Linq;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -16,6 +19,7 @@ namespace attendance_management_system.controls
     public partial class UserControlAttendance : UserControl
     {
         System.Data.DataTable dataTable;
+        XmlDocument xmlDocument = new XmlDocument();
         public UserControlAttendance()
         {
             InitializeComponent();
@@ -29,13 +33,13 @@ namespace attendance_management_system.controls
             dateTimePicker1.Location = new System.Drawing.Point(100, 100);
             this.Controls.Add(dateTimePicker1);
             dateTimePicker1.Format = DateTimePickerFormat.Short; // Set the display format
-            dateTimePicker1.MinDate = new DateTime(2023, 1, 1); // Set the minimum date
-            dateTimePicker1.MaxDate = new DateTime(2025, 12, 31); // Set the maximum date
+            dateTimePicker1.MinDate = new DateTime(2024, 1, 1); // Set the minimum date
+            dateTimePicker1.MaxDate = new DateTime(2024, 3, 1); // Set the maximum date
             dateTimePicker1.Value = DateTime.Today;
             teacherClasses.SelectedIndex = 0;
-          
-            
-          
+
+
+
         }
         public void print()
         {
@@ -47,27 +51,27 @@ namespace attendance_management_system.controls
 
 
             // Load XML file
-            XmlDocument xmlDocument = new XmlDocument();
+      
             xmlDocument.Load("C:\\Users\\USER\\Desktop\\c#proj4\\attendance-management-system\\xml\\users.xml");
             dataTable = new System.Data.DataTable();
             //add headers of 2 cols
             dataTable.Columns.Add("Student ID");
             dataTable.Columns.Add("name");
-           
+
             // Create checkbox column if it's not already added
-         if (dataGridView1.Columns["checkBoxColumn"] == null)
-           {
+            if (dataGridView1.Columns["checkBoxColumn"] == null)
+            {
                 checkBoxColumn = new DataGridViewCheckBoxColumn();
                 checkBoxColumn.HeaderText = "Attendance Status";
                 checkBoxColumn.Name = "checkBoxColumn";
-                
-                
+
+
                 dataGridView1.Columns.Insert(0, checkBoxColumn);
-                
-           }
-           
+
+            }
+
             // Clear existing data in the DataTable
-           // dataTable.Rows.Clear();
+            // dataTable.Rows.Clear();
 
             // Get the selected item from comboBox2
             string selectedClass = teacherClasses.SelectedItem.ToString();
@@ -129,10 +133,12 @@ namespace attendance_management_system.controls
                     }
                     if (exists == false)
                     {
-                        if ((itemName == "Maths" || itemName == "physics"))
+                        if (itemName == "Maths" || itemName == "physics")
                         {
                             // Add the item to the ComboBox
                             teacherClasses.Items.Add(itemName);
+
+
                         }
                     }
                 }
@@ -171,20 +177,70 @@ namespace attendance_management_system.controls
                     // Append record element to the root of xmlDocument2
                     xmlDocument2.DocumentElement.AppendChild(recordNode);
                     // Save changes to attendance.xml
-                   // xmlDocument2.Save("C:\\Users\\USER\\Desktop\\c#proj4\\attendance-management-system\\xml\\attendance.xml");
+                    // xmlDocument2.Save("C:\\Users\\USER\\Desktop\\c#proj4\\attendance-management-system\\xml\\attendance.xml");
                 }
-            xmlDocument2.Save("C:\\Users\\USER\\Desktop\\c#proj4\\attendance-management-system\\xml\\attendance.xml");
+                xmlDocument2.Save("C:\\Users\\USER\\Desktop\\c#proj4\\attendance-management-system\\xml\\attendance.xml");
             }
 
-            
+
             MessageBox.Show("saved");
         }
-      
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
             trackCheckBoc();
         }
+        //////////////////////////function to save current user data
+        public List<Tuple<string, string, string>> RetrieveStudentsWithTeacher()
+        {
+            XmlDocument xmlDocument = new XmlDocument();
+            List<Tuple<string, string, string>> studentRecords = new List<Tuple<string, string, string>>();
+            xmlDocument.Load("C:\\Users\\USER\\Desktop\\c#proj4\\attendance-management-system\\xml\\attendance.xml");
+
+            foreach (XmlNode userNode in xmlDocument.SelectNodes("/users/user"))
+            {
+                string role = userNode.SelectSingleNode("role").InnerText;
+
+                // Check if the retrieved data is of a student
+                if (role == "student")
+                {
+                    // Get the student's ID and name
+                    string studentId = userNode.SelectSingleNode("id").InnerText;
+                    string studentName = userNode.SelectSingleNode("name").InnerText;
+                    string age = userNode.SelectSingleNode("age").InnerText;
+
+                    // Add the student's ID, name, and associated teacher's name to the list
+                    studentRecords.Add(new Tuple<string, string, string>(studentId, studentName, age));
+                }
+            }
+
+            return studentRecords;
+        }
+        public List<string> retreiveTeacherClasses()
+        {
+          
+            List<string> teacherClasses = new List<string>();
+
+            xmlDocument.Load("C:\\Users\\USER\\Desktop\\c#proj4\\attendance-management-system\\xml\\users.xml");
+
+            XmlNodeList teacherNodes = xmlDocument.SelectNodes("/users/user[role='teacher']");
+
+            foreach (XmlNode teacherNode in teacherNodes)
+            {
+                XmlNodeList classIdNodes = teacherNode.SelectNodes("classes/classID");
+
+                foreach (XmlNode classIdNode in classIdNodes)
+                {
+                    teacherClasses.Add(classIdNode.InnerText);
+                }
+            }
+           
+
+            return teacherClasses;
+        }
+
     }
+
 
 }

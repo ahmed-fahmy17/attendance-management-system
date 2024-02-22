@@ -14,10 +14,12 @@ namespace attendance_management_system
 
     public partial class TeacherForm : Form
     {
+        login loginForm;
         System.Timers.Timer timer;
         private TabControl tabControl1;
         private TabControl tabControl2;
         private TabPage tabPage1;
+
         public TeacherForm()
         {
             InitializeComponent();
@@ -29,6 +31,11 @@ namespace attendance_management_system
             timer.Start();
 
             attendanceBtn.Click += attendanceBtn_Click;
+            loginForm = new login();
+            userControl11.Visible = false;
+            userControlReport1.Visible = false;
+            filterByClass1.Visible = false;
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -36,12 +43,12 @@ namespace attendance_management_system
 
         }
 
-       
+
 
         private void TeacherForm_Load(object sender, EventArgs e)
         {
             //hide expanded banel on form load
-           
+
             //display date 
             dateLabel.Text = DateTime.Now.ToString("dddd, MMMM dd, yyyy");
 
@@ -60,7 +67,7 @@ namespace attendance_management_system
                 //current thread is the main UI thread
                 labelTime.Text = DateTime.Now.ToString("h:mm:ss tt");
             }
-         
+
 
         }
 
@@ -76,6 +83,7 @@ namespace attendance_management_system
             {
                 userControl11.Visible = true;
                 userControlReport1.Visible = false;
+                chooseFormType1.Visible = false;
             }
         }
 
@@ -84,10 +92,40 @@ namespace attendance_management_system
             if (userControl11 != null && userControlReport1 != null)
             {
                 userControl11.Visible = false;
-                userControlReport1.Visible = true;
+                userControlReport1.Visible = false;
+                chooseFormType1.Visible = true;
             }
         }
         private void userControl11_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            //  this.BackColor = Color.FromArgb(0x1B, 0x1A, 0x55);
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+            //  this.BackColor = Color.FromArgb(0x1B, 0x1A, 0x55);
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to logout?", "LOG OUT!",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                loginForm.Show();
+            }
+            else
+            {
+
+            }
+        }
+
+        private void chooseFormType1_Load(object sender, EventArgs e)
         {
 
         }

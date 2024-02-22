@@ -38,7 +38,9 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AllowUserToOrderColumns = true;
             dataGridView1.AllowUserToResizeColumns = false;
             dataGridView1.AllowUserToResizeRows = false;
             dataGridView1.BackgroundColor = Color.White;
@@ -63,9 +65,10 @@
             // AttendanceLabel
             // 
             AttendanceLabel.AutoSize = true;
+            AttendanceLabel.Dock = DockStyle.Left;
             AttendanceLabel.Font = new Font("Segoe UI Emoji", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            AttendanceLabel.ForeColor = Color.Brown;
-            AttendanceLabel.Location = new Point(26, 10);
+            AttendanceLabel.ForeColor = Color.FromArgb(31, 37, 68);
+            AttendanceLabel.Location = new Point(0, 0);
             AttendanceLabel.Name = "AttendanceLabel";
             AttendanceLabel.Size = new Size(205, 31);
             AttendanceLabel.TabIndex = 1;
@@ -73,32 +76,33 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Emoji", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.IndianRed;
-            label1.Location = new Point(478, 58);
+            label1.Font = new Font("Segoe UI Emoji", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(71, 79, 122);
+            label1.Location = new Point(463, 40);
             label1.Name = "label1";
-            label1.Size = new Size(139, 31);
+            label1.Size = new Size(196, 46);
             label1.TabIndex = 2;
             label1.Text = "Class name";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Emoji", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.IndianRed;
-            label2.Location = new Point(26, 58);
+            label2.Font = new Font("Segoe UI Emoji", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(71, 79, 122);
+            label2.Location = new Point(83, 41);
             label2.Name = "label2";
-            label2.Size = new Size(66, 31);
+            label2.Size = new Size(95, 46);
             label2.TabIndex = 3;
             label2.Text = "Date";
             // 
             // teacherClasses
             // 
             teacherClasses.FormattingEnabled = true;
-            teacherClasses.Location = new Point(478, 100);
+            teacherClasses.Location = new Point(463, 99);
             teacherClasses.Name = "teacherClasses";
-            teacherClasses.Size = new Size(151, 28);
+            teacherClasses.Size = new Size(226, 28);
             teacherClasses.TabIndex = 5;
             teacherClasses.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 

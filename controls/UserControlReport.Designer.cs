@@ -36,7 +36,12 @@
             EndDateComboBox = new ComboBox();
             formatComboBox = new ComboBox();
             label2 = new Label();
+            dataGridView1 = new DataGridView();
+            searchtxt = new TextBox();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -75,9 +80,9 @@
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = Properties.Resources.icons8_save_64;
-            pictureBox1.Location = new Point(724, 24);
+            pictureBox1.Location = new Point(767, 24);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(64, 64);
+            pictureBox1.Size = new Size(73, 67);
             pictureBox1.TabIndex = 8;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
@@ -105,7 +110,7 @@
             // 
             formatComboBox.FormattingEnabled = true;
             formatComboBox.Items.AddRange(new object[] { "Excel", "pdf" });
-            formatComboBox.Location = new Point(500, 53);
+            formatComboBox.Location = new Point(474, 124);
             formatComboBox.Name = "formatComboBox";
             formatComboBox.Size = new Size(151, 28);
             formatComboBox.TabIndex = 11;
@@ -115,17 +120,53 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Historic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Brown;
-            label2.Location = new Point(496, 15);
+            label2.Location = new Point(474, 80);
             label2.Name = "label2";
             label2.Size = new Size(151, 28);
             label2.TabIndex = 12;
             label2.Text = "choose format";
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AllowUserToOrderColumns = true;
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(41, 198);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(734, 346);
+            dataGridView1.TabIndex = 13;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
+            // 
+            // searchtxt
+            // 
+            searchtxt.Location = new Point(654, 121);
+            searchtxt.Name = "searchtxt";
+            searchtxt.Size = new Size(185, 27);
+            searchtxt.TabIndex = 14;
+            searchtxt.TextChanged += searchtxt_TextChanged;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.icons8_search;
+            pictureBox2.Location = new Point(819, 121);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(29, 26);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 15;
+            pictureBox2.TabStop = false;
             // 
             // UserControlReport
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            Controls.Add(pictureBox2);
+            Controls.Add(searchtxt);
+            Controls.Add(dataGridView1);
             Controls.Add(label2);
             Controls.Add(formatComboBox);
             Controls.Add(EndDateComboBox);
@@ -135,9 +176,11 @@
             Controls.Add(Class);
             Controls.Add(label1);
             Name = "UserControlReport";
-            Size = new Size(873, 547);
+            Size = new Size(874, 579);
             Load += UserControlReport_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -152,5 +195,8 @@
         private ComboBox EndDateComboBox;
         private ComboBox formatComboBox;
         private Label label2;
+        private DataGridView dataGridView1;
+        private TextBox searchtxt;
+        private PictureBox pictureBox2;
     }
 }

@@ -30,14 +30,6 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TeacherForm));
-            panel1 = new Panel();
-            pictureBox5 = new PictureBox();
-            reportBtn = new Button();
-            pictureBox4 = new PictureBox();
-            attendanceBtn = new Button();
-            panel2 = new Panel();
-            label1 = new Label();
-            pictureBox1 = new PictureBox();
             panel3 = new Panel();
             panel4 = new Panel();
             pictureBox7 = new PictureBox();
@@ -49,88 +41,30 @@
             timer1 = new System.Windows.Forms.Timer(components);
             userControl11 = new controls.UserControlAttendance();
             userControlReport1 = new controls.UserControlReport();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel2 = new Panel();
+            label1 = new Label();
+            pictureBox1 = new PictureBox();
+            attendanceBtn = new Button();
+            reportBtn = new Button();
+            logoutBtn = new Button();
+            splitContainer1 = new SplitContainer();
+            panel1 = new Panel();
+            chooseFormType1 = new controls.ChooseFormType();
+            filterByClass1 = new controls.FilterByClass();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
+            splitContainer1.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.IndianRed;
-            panel1.Controls.Add(pictureBox5);
-            panel1.Controls.Add(reportBtn);
-            panel1.Controls.Add(pictureBox4);
-            panel1.Controls.Add(attendanceBtn);
-            panel1.Controls.Add(panel2);
-            resources.ApplyResources(panel1, "panel1");
-            panel1.Name = "panel1";
-            // 
-            // pictureBox5
-            // 
-            pictureBox5.BackColor = Color.White;
-            pictureBox5.Image = Properties.Resources.report;
-            resources.ApplyResources(pictureBox5, "pictureBox5");
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.TabStop = false;
-            // 
-            // reportBtn
-            // 
-            reportBtn.Cursor = Cursors.Hand;
-            reportBtn.FlatAppearance.BorderColor = Color.Gray;
-            reportBtn.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(reportBtn, "reportBtn");
-            reportBtn.ForeColor = SystemColors.ButtonHighlight;
-            reportBtn.Name = "reportBtn";
-            reportBtn.UseVisualStyleBackColor = true;
-            reportBtn.Click += reportBtn_Click;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.BackColor = Color.White;
-            pictureBox4.Image = Properties.Resources.attendant_list;
-            resources.ApplyResources(pictureBox4, "pictureBox4");
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.TabStop = false;
-            // 
-            // attendanceBtn
-            // 
-            attendanceBtn.Cursor = Cursors.Hand;
-            attendanceBtn.FlatAppearance.BorderColor = Color.Gray;
-            attendanceBtn.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(attendanceBtn, "attendanceBtn");
-            attendanceBtn.ForeColor = SystemColors.ButtonHighlight;
-            attendanceBtn.Name = "attendanceBtn";
-            attendanceBtn.UseVisualStyleBackColor = true;
-            attendanceBtn.Click += attendanceBtn_Click;
-            // 
-            // panel2
-            // 
-            panel2.Controls.Add(label1);
-            panel2.Controls.Add(pictureBox1);
-            resources.ApplyResources(panel2, "panel2");
-            panel2.Name = "panel2";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(label1, "label1");
-            label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Name = "label1";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.immigration;
-            resources.ApplyResources(pictureBox1, "pictureBox1");
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.TabStop = false;
             // 
             // panel3
             // 
             panel3.BackColor = Color.White;
+            panel3.BorderStyle = BorderStyle.FixedSingle;
             panel3.Controls.Add(panel4);
             panel3.Controls.Add(label2);
             panel3.Controls.Add(labelTime);
@@ -140,10 +74,10 @@
             // 
             // panel4
             // 
-            resources.ApplyResources(panel4, "panel4");
             panel4.Controls.Add(pictureBox7);
             panel4.Controls.Add(label3);
             panel4.Controls.Add(comboBox1);
+            resources.ApplyResources(panel4, "panel4");
             panel4.Name = "panel4";
             // 
             // pictureBox7
@@ -168,7 +102,7 @@
             // label2
             // 
             resources.ApplyResources(label2, "label2");
-            label2.ForeColor = Color.IndianRed;
+            label2.ForeColor = Color.FromArgb(71, 79, 122);
             label2.Name = "label2";
             // 
             // labelTime
@@ -195,11 +129,96 @@
             resources.ApplyResources(userControlReport1, "userControlReport1");
             userControlReport1.Name = "userControlReport1";
             // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(31, 37, 68);
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(pictureBox1);
+            resources.ApplyResources(panel2, "panel2");
+            panel2.Name = "panel2";
+            panel2.Paint += panel2_Paint;
+            // 
+            // label1
+            // 
+            resources.ApplyResources(label1, "label1");
+            label1.ForeColor = SystemColors.ButtonHighlight;
+            label1.Name = "label1";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.immigration;
+            resources.ApplyResources(pictureBox1, "pictureBox1");
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.TabStop = false;
+            // 
+            // attendanceBtn
+            // 
+            resources.ApplyResources(attendanceBtn, "attendanceBtn");
+            attendanceBtn.Cursor = Cursors.Hand;
+            attendanceBtn.FlatAppearance.BorderColor = Color.DimGray;
+            attendanceBtn.FlatAppearance.BorderSize = 2;
+            attendanceBtn.ForeColor = SystemColors.ButtonHighlight;
+            attendanceBtn.Name = "attendanceBtn";
+            attendanceBtn.UseVisualStyleBackColor = true;
+            attendanceBtn.Click += attendanceBtn_Click;
+            // 
+            // reportBtn
+            // 
+            reportBtn.Cursor = Cursors.Hand;
+            reportBtn.FlatAppearance.BorderColor = Color.DimGray;
+            reportBtn.FlatAppearance.BorderSize = 2;
+            resources.ApplyResources(reportBtn, "reportBtn");
+            reportBtn.ForeColor = SystemColors.ButtonHighlight;
+            reportBtn.Name = "reportBtn";
+            reportBtn.UseVisualStyleBackColor = true;
+            reportBtn.Click += reportBtn_Click;
+            // 
+            // logoutBtn
+            // 
+            logoutBtn.Cursor = Cursors.Hand;
+            logoutBtn.FlatAppearance.BorderColor = Color.DimGray;
+            logoutBtn.FlatAppearance.BorderSize = 2;
+            resources.ApplyResources(logoutBtn, "logoutBtn");
+            logoutBtn.ForeColor = SystemColors.ButtonHighlight;
+            logoutBtn.Name = "logoutBtn";
+            logoutBtn.UseVisualStyleBackColor = true;
+            logoutBtn.Click += button1_Click_1;
+            // 
+            // splitContainer1
+            // 
+            resources.ApplyResources(splitContainer1, "splitContainer1");
+            splitContainer1.Name = "splitContainer1";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(31, 37, 68);
+            panel1.Controls.Add(splitContainer1);
+            panel1.Controls.Add(logoutBtn);
+            panel1.Controls.Add(reportBtn);
+            panel1.Controls.Add(attendanceBtn);
+            panel1.Controls.Add(panel2);
+            resources.ApplyResources(panel1, "panel1");
+            panel1.Name = "panel1";
+            panel1.Paint += panel1_Paint;
+            // 
+            // chooseFormType1
+            // 
+            resources.ApplyResources(chooseFormType1, "chooseFormType1");
+            chooseFormType1.Name = "chooseFormType1";
+            chooseFormType1.Load += chooseFormType1_Load;
+            // 
+            // filterByClass1
+            // 
+            resources.ApplyResources(filterByClass1, "filterByClass1");
+            filterByClass1.Name = "filterByClass1";
+            // 
             // TeacherForm
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            Controls.Add(filterByClass1);
+            Controls.Add(chooseFormType1);
             Controls.Add(userControlReport1);
             Controls.Add(userControl11);
             Controls.Add(panel3);
@@ -207,32 +226,23 @@
             Name = "TeacherForm";
             WindowState = FormWindowState.Maximized;
             Load += TeacherForm_Load;
-            panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
+            splitContainer1.ResumeLayout(false);
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Panel panel1;
-        private Panel panel2;
-        private PictureBox pictureBox1;
-        private Label label1;
         private Panel panel3;
         private Label dateLabel;
-        private Button attendanceBtn;
-        private PictureBox pictureBox4;
-        private PictureBox pictureBox5;
-        private Button reportBtn;
         private Label labelTime;
         private System.Windows.Forms.Timer timer1;
         public controls.UserControlAttendance userControl11;
@@ -242,5 +252,15 @@
         private Label label3;
         private Panel panel4;
         private PictureBox pictureBox7;
+        private Panel panel2;
+        private Label label1;
+        private PictureBox pictureBox1;
+        private Button attendanceBtn;
+        private Button reportBtn;
+        private Button logoutBtn;
+        private SplitContainer splitContainer1;
+        private Panel panel1;
+        private controls.ChooseFormType chooseFormType1;
+        private controls.FilterByClass filterByClass1;
     }
 }
