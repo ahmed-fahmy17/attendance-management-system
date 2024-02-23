@@ -1,31 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <users xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\iti\projects\c# and XML project\attendance-management-system\xml\usersSchema.xsd">
-	<admin>
-		<email>admin@yahoo.com</email>
-		<password>12345678</password>
-	</admin>
-	<user>
-		<id>s0</id>
-		<name>Ahmed Fahmy</name>
-		<email>ahmed@yahoo.com</email>
-		<age>23</age>
-		<classes>
-			<classID>Maths</classID>
-		</classes>
-		<phone>01065632156</phone>
-		<password>12345678</password>
-		<role>student</role>
-	</user>
-	<user>
-		<id>t1</id>
-		<name>Ali shaheen</name>
-		<email>ali@yahoo.com</email>
-		<age>40</age>
-		<classes>
-			<classID>Maths</classID>
-		</classes>
-		<phone>01065632156</phone>
-		<password>12345678</password>
-		<role>teacher</role>
-	</user>
+  <admin>
+    <email>admin@yahoo.com</email>
+    <password>123456789</password>
+  </admin>
+  <user>
+    <id>01234532569421</id>
+    <name>Ahmed Fahmy</name>
+    <email>ahmed@yahoo.com</email>
+    <age>23</age>
+    <phone>01065632156</phone>
+    <password>12345678</password>
+    <role>student</role>
+  </user>
+  <user>
+    <id>11111111111111</id>
+    <name>Ali shaheen</name>
+    <email>ali@yahoo.com</email>
+    <age>50</age>
+    <phone>01065632156</phone>
+    <password>12345678</password>
+    <role>teacher</role>
+  </user>
+  <user>
+    <id>11111111111111</id>
+    <name>Ali shaheen</name>
+    <email>ali@yahoo.com</email>
+    <age>15</age>
+    <phone>01065632156</phone>
+    <password>12345678</password>
+    <role>teacher</role>
+  </user>
 </users>

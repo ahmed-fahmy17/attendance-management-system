@@ -1,4 +1,5 @@
-﻿using System;
+﻿using attendance_management_system.controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,26 +33,36 @@ namespace attendance_management_system
         private void BTNUpdateAdminData_Click(object sender, EventArgs e)
         {
             MoveSidePanel(BTNUpdateAdminData);
+            userControlUpdateAdminData1.Visible = true;
+            userControlUsers1.Visible = false;
         }
 
         private void BTNDashboard_Click(object sender, EventArgs e)
         {
             MoveSidePanel(BTNDashboard);
+            userControlUpdateAdminData1.Visible = false;
+            userControlUsers1.Visible = false;
         }
 
         private void BTNClasses_Click(object sender, EventArgs e)
         {
             MoveSidePanel(BTNClasses);
+            userControlUpdateAdminData1.Visible = false;
+            userControlUsers1.Visible = false;
         }
 
         private void BTNStudents_Click(object sender, EventArgs e)
         {
             MoveSidePanel(BTNStudents);
+            userControlUsers1.Visible = true;
+            userControlUpdateAdminData1.Visible = false;
         }
 
         private void BTNReport_Click(object sender, EventArgs e)
         {
             MoveSidePanel(BTNReport);
+            userControlUpdateAdminData1.Visible = false;
+            userControlUsers1.Visible = false;
         }
 
         private void BTNLogout_Click(object sender, EventArgs e)

@@ -46,6 +46,8 @@
             panelBack = new Panel();
             BTNLogout = new Button();
             timerDateAndTime = new System.Windows.Forms.Timer(components);
+            userControlUsers1 = new controls.UserControlUsers();
+            userControlUpdateAdminData1 = new controls.UserControlUpdateAdminData();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
@@ -66,7 +68,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(256, 485);
+            panel1.Size = new Size(256, 587);
             panel1.TabIndex = 0;
             // 
             // BTNUpdateAdminData
@@ -155,7 +157,7 @@
             panel3.Dock = DockStyle.Left;
             panel3.Location = new Point(0, 152);
             panel3.Name = "panel3";
-            panel3.Size = new Size(8, 333);
+            panel3.Size = new Size(8, 435);
             panel3.TabIndex = 0;
             // 
             // panelSide
@@ -236,7 +238,7 @@
             panelBack.Dock = DockStyle.Top;
             panelBack.Location = new Point(256, 0);
             panelBack.Name = "panelBack";
-            panelBack.Size = new Size(544, 91);
+            panelBack.Size = new Size(940, 91);
             panelBack.TabIndex = 1;
             // 
             // BTNLogout
@@ -253,17 +255,34 @@
             // 
             timerDateAndTime.Tick += timerDateAndTime_Tick;
             // 
+            // userControlUsers1
+            // 
+            userControlUsers1.BackColor = Color.White;
+            userControlUsers1.Location = new Point(256, 95);
+            userControlUsers1.Name = "userControlUsers1";
+            userControlUsers1.Size = new Size(940, 492);
+            userControlUsers1.TabIndex = 2;
+            // 
+            // userControlUpdateAdminData1
+            // 
+            userControlUpdateAdminData1.BackColor = Color.White;
+            userControlUpdateAdminData1.Location = new Point(256, 93);
+            userControlUpdateAdminData1.Name = "userControlUpdateAdminData1";
+            userControlUpdateAdminData1.Size = new Size(940, 492);
+            userControlUpdateAdminData1.TabIndex = 3;
+            // 
             // FormAdmin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 485);
+            ClientSize = new Size(1196, 587);
+            Controls.Add(userControlUpdateAdminData1);
+            Controls.Add(userControlUsers1);
             Controls.Add(panelBack);
             Controls.Add(panel1);
             Name = "FormAdmin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Attendance management system";
-            WindowState = FormWindowState.Maximized;
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel2.ResumeLayout(false);
@@ -293,5 +312,7 @@
         private Button BTNUpdateAdminData;
         private Button BTNLogout;
         private System.Windows.Forms.Timer timerDateAndTime;
+        private controls.UserControlUsers userControlUsers1;
+        private controls.UserControlUpdateAdminData userControlUpdateAdminData1;
     }
 }
