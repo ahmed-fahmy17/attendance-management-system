@@ -28,72 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            studentId = new DataGridViewTextBoxColumn();
-            StudentName = new DataGridViewTextBoxColumn();
-            studentEmail = new DataGridViewTextBoxColumn();
-            studentStaus = new DataGridViewTextBoxColumn();
+            attendanceTable = new DataGridView();
             AttendanceLabel = new Label();
             label1 = new Label();
             label2 = new Label();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            teacherClasses = new ComboBox();
+            savebtn = new Button();
+            ((System.ComponentModel.ISupportInitialize)attendanceTable).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // attendanceTable
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.BackgroundColor = Color.Gainsboro;
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { studentId, StudentName, studentEmail, studentStaus });
-            dataGridView1.Location = new Point(26, 134);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(766, 262);
-            dataGridView1.TabIndex = 0;
-            // 
-            // studentId
-            // 
-            studentId.HeaderText = "Id";
-            studentId.MinimumWidth = 6;
-            studentId.Name = "studentId";
-            studentId.ReadOnly = true;
-            studentId.Resizable = DataGridViewTriState.False;
-            // 
-            // StudentName
-            // 
-            StudentName.HeaderText = "Student Name";
-            StudentName.MinimumWidth = 6;
-            StudentName.Name = "StudentName";
-            StudentName.ReadOnly = true;
-            // 
-            // studentEmail
-            // 
-            studentEmail.HeaderText = "Email";
-            studentEmail.MinimumWidth = 6;
-            studentEmail.Name = "studentEmail";
-            studentEmail.ReadOnly = true;
-            studentEmail.Resizable = DataGridViewTriState.False;
-            // 
-            // studentStaus
-            // 
-            studentStaus.HeaderText = "status";
-            studentStaus.MinimumWidth = 6;
-            studentStaus.Name = "studentStaus";
-            studentStaus.ReadOnly = true;
+            attendanceTable.AllowUserToAddRows = false;
+            attendanceTable.AllowUserToDeleteRows = false;
+            attendanceTable.AllowUserToOrderColumns = true;
+            attendanceTable.AllowUserToResizeColumns = false;
+            attendanceTable.AllowUserToResizeRows = false;
+            attendanceTable.BackgroundColor = Color.White;
+            attendanceTable.BorderStyle = BorderStyle.None;
+            attendanceTable.CausesValidation = false;
+            attendanceTable.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
+            attendanceTable.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            attendanceTable.ColumnHeadersHeight = 29;
+            attendanceTable.EditMode = DataGridViewEditMode.EditOnEnter;
+            attendanceTable.EnableHeadersVisualStyles = false;
+            attendanceTable.Location = new Point(26, 171);
+            attendanceTable.Margin = new Padding(4);
+            attendanceTable.Name = "attendanceTable";
+            attendanceTable.RowHeadersWidth = 51;
+            attendanceTable.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            attendanceTable.ShowCellToolTips = false;
+            attendanceTable.ShowEditingIcon = false;
+            attendanceTable.Size = new Size(1217, 738);
+            attendanceTable.TabIndex = 6;
             // 
             // AttendanceLabel
             // 
             AttendanceLabel.AutoSize = true;
+            AttendanceLabel.Dock = DockStyle.Left;
             AttendanceLabel.Font = new Font("Segoe UI Emoji", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            AttendanceLabel.ForeColor = Color.Brown;
-            AttendanceLabel.Location = new Point(26, 10);
+            AttendanceLabel.ForeColor = Color.FromArgb(31, 37, 68);
+            AttendanceLabel.Location = new Point(0, 0);
             AttendanceLabel.Name = "AttendanceLabel";
             AttendanceLabel.Size = new Size(205, 31);
             AttendanceLabel.TabIndex = 1;
@@ -101,73 +76,75 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Emoji", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.IndianRed;
-            label1.Location = new Point(478, 58);
+            label1.Font = new Font("Segoe UI Emoji", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(71, 79, 122);
+            label1.Location = new Point(396, 41);
             label1.Name = "label1";
-            label1.Size = new Size(139, 31);
+            label1.Size = new Size(196, 46);
             label1.TabIndex = 2;
             label1.Text = "Class name";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Emoji", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.IndianRed;
-            label2.Location = new Point(26, 58);
+            label2.Font = new Font("Segoe UI Emoji", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(71, 79, 122);
+            label2.Location = new Point(83, 41);
             label2.Name = "label2";
-            label2.Size = new Size(66, 31);
+            label2.Size = new Size(95, 46);
             label2.TabIndex = 3;
             label2.Text = "Date";
             // 
-            // comboBox1
+            // teacherClasses
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "pick date" });
-            comboBox1.Location = new Point(26, 100);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 28);
-            comboBox1.TabIndex = 4;
+            teacherClasses.FormattingEnabled = true;
+            teacherClasses.Location = new Point(412, 107);
+            teacherClasses.Name = "teacherClasses";
+            teacherClasses.Size = new Size(226, 28);
+            teacherClasses.TabIndex = 5;
+            teacherClasses.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
-            // comboBox2
+            // savebtn
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(478, 100);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(151, 28);
-            comboBox2.TabIndex = 5;
+            savebtn.BackColor = Color.FromArgb(71, 79, 122);
+            savebtn.Cursor = Cursors.Hand;
+            savebtn.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            savebtn.ForeColor = Color.White;
+            savebtn.Location = new Point(793, 82);
+            savebtn.Name = "savebtn";
+            savebtn.Size = new Size(124, 53);
+            savebtn.TabIndex = 7;
+            savebtn.Text = "save";
+            savebtn.UseVisualStyleBackColor = false;
+            savebtn.Click += savebtn_Click;
             // 
             // UserControlAttendance
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Gainsboro;
-            Controls.Add(comboBox2);
-            Controls.Add(comboBox1);
+            BackColor = Color.White;
+            Controls.Add(savebtn);
+            Controls.Add(attendanceTable);
+            Controls.Add(teacherClasses);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(AttendanceLabel);
-            Controls.Add(dataGridView1);
             Name = "UserControlAttendance";
-            Size = new Size(809, 548);
+            Size = new Size(1342, 684);
             Load += UserControl1_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)attendanceTable).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private DataGridView dataGridView1;
         private Label AttendanceLabel;
         private Label label1;
         private Label label2;
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
-        private DataGridViewTextBoxColumn studentId;
-        private DataGridViewTextBoxColumn StudentName;
-        private DataGridViewTextBoxColumn studentEmail;
-        private DataGridViewTextBoxColumn studentStaus;
+        private ComboBox teacherClasses;
+        private DataGridView attendanceTable;
+        private Button savebtn;
     }
 }

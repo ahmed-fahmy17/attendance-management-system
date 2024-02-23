@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace attendance_management_system
+namespace attendance_management_system.controls
 {
-    public partial class login : Form
+    public partial class StudentAttendanceUserControl : UserControl
     {
-        public login()
+        public StudentAttendanceUserControl()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
