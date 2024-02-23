@@ -48,6 +48,7 @@
             timerDateAndTime = new System.Windows.Forms.Timer(components);
             userControlUsers1 = new controls.UserControlUsers();
             userControlUpdateAdminData1 = new controls.UserControlUpdateAdminData();
+            userControlClasses1 = new controls.UserControlClasses();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
@@ -271,11 +272,20 @@
             userControlUpdateAdminData1.Size = new Size(940, 492);
             userControlUpdateAdminData1.TabIndex = 3;
             // 
+            // userControlClasses1
+            // 
+            userControlClasses1.BackColor = Color.White;
+            userControlClasses1.Location = new Point(256, 96);
+            userControlClasses1.Name = "userControlClasses1";
+            userControlClasses1.Size = new Size(940, 494);
+            userControlClasses1.TabIndex = 4;
+            // 
             // FormAdmin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1196, 587);
+            Controls.Add(userControlClasses1);
             Controls.Add(userControlUpdateAdminData1);
             Controls.Add(userControlUsers1);
             Controls.Add(panelBack);
@@ -314,5 +324,6 @@
         private System.Windows.Forms.Timer timerDateAndTime;
         private controls.UserControlUsers userControlUsers1;
         private controls.UserControlUpdateAdminData userControlUpdateAdminData1;
+        private controls.UserControlClasses userControlClasses1;
     }
 }

@@ -12,6 +12,7 @@ namespace attendance_management_system
     internal class XmlManipulation
     {
         private static string UserDataPath = "D:\\iti\\projects\\c# and XML project\\attendance-management-system\\xml\\users.xml";
+        private static string ClassDataPath = "D:\\iti\\projects\\c# and XML project\\attendance-management-system\\xml\\classes.xml";
         public static List<User> GetUserData()
         {
             XmlDocument xmlDoc = new XmlDocument();
@@ -29,6 +30,27 @@ namespace attendance_management_system
                 user.Password = node.SelectSingleNode("password").InnerText;
                 user.Role = node.SelectSingleNode("role").InnerText;
                 Data.Add(user);
+            }
+            return Data;
+        }
+        public static List<Class> GetClassData()
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(ClassDataPath);
+            XmlNodeList nodes = xmlDoc.SelectNodes("//class");
+            List<Class> Data = new List<Class>();
+            foreach (XmlNode node in nodes)
+            {
+                Class _class = new Class();
+                _class.ClassId = node.SelectSingleNode("classId").InnerText;
+                _class.ClassName = node.SelectSingleNode("className").InnerText;
+                _class.ClassTeacherId = node.SelectSingleNode("teacherId").InnerText;
+                XmlNodeList studentIdNodes = xmlDoc.SelectNodes("//class/students");
+                foreach (XmlNode studentIdNode in studentIdNodes)
+                {
+                    _class.StudentsId.Add(studentIdNode.SelectSingleNode("studentId").InnerText);
+                }
+                Data.Add(_class);
             }
             return Data;
         }

@@ -5,15 +5,6 @@
     <password>123456789</password>
   </admin>
   <user>
-    <id>01234532569421</id>
-    <name>Ahmed Fahmy</name>
-    <email>ahmed@yahoo.com</email>
-    <age>23</age>
-    <phone>01065632156</phone>
-    <password>12345678</password>
-    <role>student</role>
-  </user>
-  <user>
     <id>11111111111111</id>
     <name>Ali shaheen</name>
     <email>ali@yahoo.com</email>
@@ -30,5 +21,14 @@
     <phone>01065632156</phone>
     <password>12345678</password>
     <role>teacher</role>
+  </user>
+  <user>
+    <id>01234532569421</id>
+    <name>Ahmed Fahmy</name>
+    <email>ahmed@yahoo.com</email>
+    <age>23</age>
+    <phone>01065632156</phone>
+    <password>12345678</password>
+    <role>student</role>
   </user>
 </users>

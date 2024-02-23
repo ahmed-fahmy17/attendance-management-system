@@ -35,6 +35,7 @@ namespace attendance_management_system
             MoveSidePanel(BTNUpdateAdminData);
             userControlUpdateAdminData1.Visible = true;
             userControlUsers1.Visible = false;
+            userControlClasses1.Visible = false;
         }
 
         private void BTNDashboard_Click(object sender, EventArgs e)
@@ -42,11 +43,13 @@ namespace attendance_management_system
             MoveSidePanel(BTNDashboard);
             userControlUpdateAdminData1.Visible = false;
             userControlUsers1.Visible = false;
+            userControlClasses1.Visible = false;
         }
 
         private void BTNClasses_Click(object sender, EventArgs e)
         {
             MoveSidePanel(BTNClasses);
+            userControlClasses1.Visible = true;
             userControlUpdateAdminData1.Visible = false;
             userControlUsers1.Visible = false;
         }
@@ -56,6 +59,7 @@ namespace attendance_management_system
             MoveSidePanel(BTNStudents);
             userControlUsers1.Visible = true;
             userControlUpdateAdminData1.Visible = false;
+            userControlClasses1.Visible = false;
         }
 
         private void BTNReport_Click(object sender, EventArgs e)
@@ -63,6 +67,7 @@ namespace attendance_management_system
             MoveSidePanel(BTNReport);
             userControlUpdateAdminData1.Visible = false;
             userControlUsers1.Visible = false;
+            userControlClasses1.Visible = false;
         }
 
         private void BTNLogout_Click(object sender, EventArgs e)

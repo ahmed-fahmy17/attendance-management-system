@@ -4,6 +4,9 @@
     <Compile Update="controls\UserControlAttendance.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="controls\UserControlClasses.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="controls\UserControlReport.cs">
       <SubType>UserControl</SubType>
     </Compile>
