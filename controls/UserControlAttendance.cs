@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -36,74 +37,117 @@ namespace attendance_management_system.controls
             dateTimePicker1.MinDate = new DateTime(2024, 1, 1); // Set the minimum date
             dateTimePicker1.MaxDate = new DateTime(2024, 3, 1); // Set the maximum date
             dateTimePicker1.Value = DateTime.Today;
-            teacherClasses.SelectedIndex = 0;
-
-
-
+            teacherClasses.SelectedIndex = 1;
+            BuildMyTable();
+           
         }
         public void print()
         {
             Console.WriteLine("hello");
         }
+        public void CheckBoxUpdate1()
+        {
+            XmlDocument xmlDocument2 = new XmlDocument();
+            xmlDocument2.Load("C:\\Users\\USER\\Desktop\\c#proj4\\attendance-management-system\\xml\\attendance.xml");
+
+            string currentDate = dateTimePicker1.Value.ToString("yyyy-MM-dd");
+
+            // Check if a record with the current date already exists
+            XmlNode existingRecordNode = xmlDocument2.SelectSingleNode($"//record[date='{currentDate}']");
+
+            if (existingRecordNode != null)
+            {
+                // If a record with the current date exists, update its attendance status
+                foreach (DataGridViewRow row in attendanceTable.Rows)
+                {
+                    DataGridViewCheckBoxCell checkBoxCell = row.Cells["checkBoxColumn"] as DataGridViewCheckBoxCell;
+
+                    string stdId = row.Cells["Student ID"].Value.ToString();
+
+                    XmlNode stdIdNode = existingRecordNode.SelectSingleNode($"std_id[text()='{stdId}']");
+                   
+                    if (stdIdNode != null)
+                    {
+                        // Update the attendance status
+                        XmlNode attendanceStatusNode = stdIdNode.ParentNode.SelectSingleNode("attendance_status");
+                        if (checkBoxCell != null && Convert.ToBoolean(checkBoxCell.Value) == true)
+                        {
+                            attendanceStatusNode.InnerText = "present";
+                        }
+                        else
+                        {
+                            attendanceStatusNode.InnerText = "absent";
+                        }
+                    }
+                    else
+                    {
+                        // If the student ID doesn't exist in the existing record, add it
+                        XmlNode newStdIdNode = xmlDocument2.CreateElement("std_id");
+                        XmlNode newStdIdClass = xmlDocument2.CreateElement("classId");
+                        newStdIdNode.InnerText = stdId;
+
+                        XmlNode attendanceStatusNode = xmlDocument2.CreateElement("attendance_status");
+
+                        if (checkBoxCell != null && Convert.ToBoolean(checkBoxCell.Value) == true)
+                        {
+                            attendanceStatusNode.InnerText = "present";
+                        }
+                        else
+                        {
+                            attendanceStatusNode.InnerText = "absent";
+                        }
+
+                        XmlNode recordNode = existingRecordNode.ParentNode;
+                        
+                        recordNode.AppendChild(newStdIdNode);
+                        recordNode.AppendChild(attendanceStatusNode);
+                        recordNode.AppendChild(newStdIdClass);
+                    }
+                }
+            }
+            else
+            {
+                // If no record with the current date exists, add new records
+                foreach (DataGridViewRow row in attendanceTable.Rows)
+                {
+                    DataGridViewCheckBoxCell checkBoxCell = row.Cells["checkBoxColumn"] as DataGridViewCheckBoxCell;
+                    XmlNode newStdIdClass = xmlDocument2.CreateElement("classId");
+                    XmlNode recordNode = xmlDocument2.CreateElement("record");
+                    XmlNode stdIdNode = xmlDocument2.CreateElement("std_id");
+                    stdIdNode.InnerText = row.Cells["Student ID"].Value.ToString();
+                    newStdIdClass.InnerText = row.Cells["class"].Value.ToString();
+                    XmlNode dateNode = xmlDocument2.CreateElement("date");
+                    dateNode.InnerText = currentDate;
+
+                    XmlNode attendanceStatusNode = xmlDocument2.CreateElement("attendance_status");
+                    if (checkBoxCell != null && Convert.ToBoolean(checkBoxCell.Value) == true)
+                    {
+                        attendanceStatusNode.InnerText = "present";
+                    }
+                    else
+                    {
+                        attendanceStatusNode.InnerText = "absent";
+                    }
+
+                    recordNode.AppendChild(stdIdNode);
+                    recordNode.AppendChild(dateNode);
+                    recordNode.AppendChild(attendanceStatusNode);
+                    recordNode.AppendChild(newStdIdClass);
+
+                    // Append record element to the root of xmlDocument2
+                    xmlDocument2.DocumentElement.AppendChild(recordNode);
+                }
+            }
+
+            // Save the updated XML file
+            xmlDocument2.Save("C:\\Users\\USER\\Desktop\\c#proj4\\attendance-management-system\\xml\\attendance.xml");
+
+            MessageBox.Show("Attendance saved Successfully");
+        }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-
-            // Load XML file
-      
-            xmlDocument.Load("C:\\Users\\USER\\Desktop\\c#proj4\\attendance-management-system\\xml\\users.xml");
-            dataTable = new System.Data.DataTable();
-            //add headers of 2 cols
-            dataTable.Columns.Add("Student ID");
-            dataTable.Columns.Add("name");
-
-            // Create checkbox column if it's not already added
-            if (dataGridView1.Columns["checkBoxColumn"] == null)
-            {
-                checkBoxColumn = new DataGridViewCheckBoxColumn();
-                checkBoxColumn.HeaderText = "Attendance Status";
-                checkBoxColumn.Name = "checkBoxColumn";
-
-
-                dataGridView1.Columns.Insert(0, checkBoxColumn);
-
-            }
-
-            // Clear existing data in the DataTable
-            // dataTable.Rows.Clear();
-
-            // Get the selected item from comboBox2
-            string selectedClass = teacherClasses.SelectedItem.ToString();
-            string userId = "";
-            string name = "";
-
-            //traverse through my xml file
-            foreach (XmlNode userNode in xmlDocument.SelectNodes("/users/user"))
-            {
-                string role = userNode.SelectSingleNode("role").InnerText;
-                //make sure the retreived data is of student
-                if (role == "student")
-                {
-                    XmlNodeList classIdNodes = userNode.SelectNodes("classes/classID");
-                    foreach (XmlNode classIdNode in classIdNodes)
-                    {
-                        //insure that the displayed users have the same class 
-                        if (selectedClass == classIdNode.InnerText)
-                        {
-                            userId = userNode.SelectSingleNode("id").InnerText;
-                            name = userNode.SelectSingleNode("name").InnerText;
-                            dataTable.Rows.Add(new string[] { userId, name });
-                            break;
-                        }
-                    }
-
-                }
-            }
-            dataGridView1.DataSource = dataTable;
-
-
-
+            BuildMyTable();
 
 
         }
@@ -145,51 +189,75 @@ namespace attendance_management_system.controls
             }
 
         }
-
-        public void trackCheckBoc()
+        public void BuildMyTable()
         {
-            XmlDocument xmlDocument2 = new XmlDocument();
-            xmlDocument2.Load("C:\\Users\\USER\\Desktop\\c#proj4\\attendance-management-system\\xml\\attendance.xml");
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            // Load XML file
+            xmlDocument.Load("C:\\Users\\USER\\Desktop\\c#proj4\\attendance-management-system\\xml\\users.xml");
+            dataTable = new System.Data.DataTable();
+
+            //add headers of 2 cols
+            dataTable.Columns.Add("Student ID");
+            dataTable.Columns.Add("name");
+            dataTable.Columns.Add("class");
+            attendanceTable.DefaultCellStyle.Font = new Font("Arial", 12);
+            attendanceTable.RowTemplate.Height = 50;
+            
+           
+            foreach (DataGridViewColumn column in attendanceTable.Columns)
             {
-                DataGridViewCheckBoxCell checkBoxCell = row.Cells["checkBoxColumn"] as DataGridViewCheckBoxCell;
-                if (checkBoxCell != null && Convert.ToBoolean(checkBoxCell.Value) == true)
-                {
-                    // Create new record element
-                    XmlNode recordNode = xmlDocument2.CreateElement("record");
-
-                    // Create child elements for record
-                    XmlNode stdIdNode = xmlDocument2.CreateElement("std_id");
-                    stdIdNode.InnerText = row.Cells["Student ID"].Value.ToString();
-
-                    XmlNode dateNode = xmlDocument2.CreateElement("date");
-                    dateNode.InnerText = dateTimePicker1.Value.ToString("yyyy-MM-dd");
-
-
-                    XmlNode attendanceStatusNode = xmlDocument2.CreateElement("attendance_status");
-                    attendanceStatusNode.InnerText = "present";
-
-                    // Append child nodes to record element
-                    recordNode.AppendChild(stdIdNode);
-                    recordNode.AppendChild(dateNode);
-                    recordNode.AppendChild(attendanceStatusNode);
-
-                    // Append record element to the root of xmlDocument2
-                    xmlDocument2.DocumentElement.AppendChild(recordNode);
-                    // Save changes to attendance.xml
-                    // xmlDocument2.Save("C:\\Users\\USER\\Desktop\\c#proj4\\attendance-management-system\\xml\\attendance.xml");
-                }
-                xmlDocument2.Save("C:\\Users\\USER\\Desktop\\c#proj4\\attendance-management-system\\xml\\attendance.xml");
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+              
+                
+                attendanceTable.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             }
 
+            // Create checkbox column if it's not already added
+            if (attendanceTable.Columns["checkBoxColumn"] == null)
+            {
+                checkBoxColumn = new DataGridViewCheckBoxColumn();
+                checkBoxColumn.HeaderText = "Attendance Status";
+                checkBoxColumn.Name = "checkBoxColumn";
 
-            MessageBox.Show("saved");
+
+                attendanceTable.Columns.Insert(0, checkBoxColumn);
+
+            }
+            string selectedClass = teacherClasses.SelectedItem.ToString();
+            string userId = "";
+            string myClass = "";
+            string name = "";
+         
+            //traverse through my xml file
+            foreach (XmlNode userNode in xmlDocument.SelectNodes("/users/user"))
+            {
+                string role = userNode.SelectSingleNode("role").InnerText;
+                //make sure the retreived data is of student
+                if (role == "student")
+                {
+                    XmlNodeList classIdNodes = userNode.SelectNodes("classes/classID");
+                    foreach (XmlNode classIdNode in classIdNodes)
+                    {
+                        //insure that the displayed users have the same class 
+                        if (selectedClass == classIdNode.InnerText)
+                        {
+                            userId = userNode.SelectSingleNode("id").InnerText;
+                            name = userNode.SelectSingleNode("name").InnerText;
+                            myClass = classIdNode.InnerText;
+                            dataTable.Rows.Add(new string[] { userId, name,selectedClass });
+                            break;
+                        }
+                    }
+
+                }
+            }
+            attendanceTable.DataSource = dataTable;
+
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        public void studentsWithTeacher()
         {
 
-            trackCheckBoc();
+
         }
         //////////////////////////function to save current user data
         public List<Tuple<string, string, string>> RetrieveStudentsWithTeacher()
@@ -219,7 +287,7 @@ namespace attendance_management_system.controls
         }
         public List<string> retreiveTeacherClasses()
         {
-          
+
             List<string> teacherClasses = new List<string>();
 
             xmlDocument.Load("C:\\Users\\USER\\Desktop\\c#proj4\\attendance-management-system\\xml\\users.xml");
@@ -235,11 +303,15 @@ namespace attendance_management_system.controls
                     teacherClasses.Add(classIdNode.InnerText);
                 }
             }
-           
+
 
             return teacherClasses;
         }
 
+        private void savebtn_Click(object sender, EventArgs e)
+        {
+            CheckBoxUpdate1();
+        }
     }
 
 

@@ -30,6 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TeacherForm));
+            splitContainer1 = new SplitContainer();
             panel3 = new Panel();
             panel4 = new Panel();
             pictureBox7 = new PictureBox();
@@ -47,19 +48,25 @@
             attendanceBtn = new Button();
             reportBtn = new Button();
             logoutBtn = new Button();
-            splitContainer1 = new SplitContainer();
             panel1 = new Panel();
+            ProfileButton = new Button();
             chooseFormType1 = new controls.ChooseFormType();
             filterByClass1 = new controls.FilterByClass();
+            stusentReport1 = new controls.StusentReport();
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
+            splitContainer1.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
-            splitContainer1.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
+            // 
+            // splitContainer1
+            // 
+            resources.ApplyResources(splitContainer1, "splitContainer1");
+            splitContainer1.Name = "splitContainer1";
             // 
             // panel3
             // 
@@ -115,7 +122,6 @@
             // 
             resources.ApplyResources(dateLabel, "dateLabel");
             dateLabel.Name = "dateLabel";
-            dateLabel.Click += label2_Click;
             // 
             // userControl11
             // 
@@ -136,7 +142,6 @@
             panel2.Controls.Add(pictureBox1);
             resources.ApplyResources(panel2, "panel2");
             panel2.Name = "panel2";
-            panel2.Paint += panel2_Paint;
             // 
             // label1
             // 
@@ -184,14 +189,10 @@
             logoutBtn.UseVisualStyleBackColor = true;
             logoutBtn.Click += button1_Click_1;
             // 
-            // splitContainer1
-            // 
-            resources.ApplyResources(splitContainer1, "splitContainer1");
-            splitContainer1.Name = "splitContainer1";
-            // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(31, 37, 68);
+            panel1.Controls.Add(ProfileButton);
             panel1.Controls.Add(splitContainer1);
             panel1.Controls.Add(logoutBtn);
             panel1.Controls.Add(reportBtn);
@@ -199,24 +200,40 @@
             panel1.Controls.Add(panel2);
             resources.ApplyResources(panel1, "panel1");
             panel1.Name = "panel1";
-            panel1.Paint += panel1_Paint;
+            // 
+            // ProfileButton
+            // 
+            ProfileButton.Cursor = Cursors.Hand;
+            ProfileButton.FlatAppearance.BorderColor = Color.DimGray;
+            ProfileButton.FlatAppearance.BorderSize = 2;
+            resources.ApplyResources(ProfileButton, "ProfileButton");
+            ProfileButton.ForeColor = SystemColors.ButtonHighlight;
+            ProfileButton.Name = "ProfileButton";
+            ProfileButton.UseVisualStyleBackColor = true;
+            ProfileButton.Click += ProfileButton_Click_1;
             // 
             // chooseFormType1
             // 
             resources.ApplyResources(chooseFormType1, "chooseFormType1");
             chooseFormType1.Name = "chooseFormType1";
-            chooseFormType1.Load += chooseFormType1_Load;
             // 
             // filterByClass1
             // 
             resources.ApplyResources(filterByClass1, "filterByClass1");
             filterByClass1.Name = "filterByClass1";
+            filterByClass1.Load += filterByClass1_Load;
+            // 
+            // stusentReport1
+            // 
+            resources.ApplyResources(stusentReport1, "stusentReport1");
+            stusentReport1.Name = "stusentReport1";
             // 
             // TeacherForm
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            Controls.Add(stusentReport1);
             Controls.Add(filterByClass1);
             Controls.Add(chooseFormType1);
             Controls.Add(userControlReport1);
@@ -226,6 +243,8 @@
             Name = "TeacherForm";
             WindowState = FormWindowState.Maximized;
             Load += TeacherForm_Load;
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
+            splitContainer1.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
@@ -234,8 +253,6 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
-            splitContainer1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -262,5 +279,7 @@
         private Panel panel1;
         private controls.ChooseFormType chooseFormType1;
         private controls.FilterByClass filterByClass1;
+        private Button ProfileButton;
+        private controls.StusentReport stusentReport1;
     }
 }

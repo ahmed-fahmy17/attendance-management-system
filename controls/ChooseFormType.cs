@@ -14,11 +14,13 @@ namespace attendance_management_system.controls
     {
         private UserControlReport userControlReport;
         private FilterByClass byClass;
+        private StusentReport studentReport;
         public ChooseFormType()
         {
             InitializeComponent();
             userControlReport = new UserControlReport();
             byClass = new FilterByClass();
+            studentReport = new StusentReport();
         }
 
 
@@ -26,13 +28,13 @@ namespace attendance_management_system.controls
         {
             Form reportForm = new Form();
 
-           
-            reportForm.Text = "Attendance Report"; 
 
-           
+            reportForm.Text = "Attendance Report";
+
+
             reportForm.ClientSize = userControlReport.Size;
 
-           
+
             reportForm.Controls.Add(userControlReport);
 
             // Show the form
@@ -47,5 +49,18 @@ namespace attendance_management_system.controls
             reportForm.Controls.Add(byClass);
             reportForm.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+
+        {
+            Form reportForm = new Form();
+
+            reportForm.ClientSize = studentReport.Size;
+            reportForm.Text = "Student Report";
+            reportForm.Controls.Add(studentReport);
+            reportForm.ShowDialog();
+        }
+
     }
 }
+

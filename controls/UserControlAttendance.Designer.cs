@@ -28,39 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            attendanceTable = new DataGridView();
             AttendanceLabel = new Label();
             label1 = new Label();
             label2 = new Label();
             teacherClasses = new ComboBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            savebtn = new Button();
+            ((System.ComponentModel.ISupportInitialize)attendanceTable).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // attendanceTable
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AllowUserToOrderColumns = true;
-            dataGridView1.AllowUserToResizeColumns = false;
-            dataGridView1.AllowUserToResizeRows = false;
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.CausesValidation = false;
-            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
-            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.Location = new Point(26, 171);
-            dataGridView1.Margin = new Padding(4);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView1.ShowCellToolTips = false;
-            dataGridView1.ShowEditingIcon = false;
-            dataGridView1.Size = new Size(995, 440);
-            dataGridView1.TabIndex = 6;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            attendanceTable.AllowUserToAddRows = false;
+            attendanceTable.AllowUserToDeleteRows = false;
+            attendanceTable.AllowUserToOrderColumns = true;
+            attendanceTable.AllowUserToResizeColumns = false;
+            attendanceTable.AllowUserToResizeRows = false;
+            attendanceTable.BackgroundColor = Color.White;
+            attendanceTable.BorderStyle = BorderStyle.None;
+            attendanceTable.CausesValidation = false;
+            attendanceTable.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
+            attendanceTable.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            attendanceTable.ColumnHeadersHeight = 29;
+            attendanceTable.EditMode = DataGridViewEditMode.EditOnEnter;
+            attendanceTable.EnableHeadersVisualStyles = false;
+            attendanceTable.Location = new Point(26, 171);
+            attendanceTable.Margin = new Padding(4);
+            attendanceTable.Name = "attendanceTable";
+            attendanceTable.RowHeadersWidth = 51;
+            attendanceTable.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            attendanceTable.ShowCellToolTips = false;
+            attendanceTable.ShowEditingIcon = false;
+            attendanceTable.Size = new Size(1217, 738);
+            attendanceTable.TabIndex = 6;
             // 
             // AttendanceLabel
             // 
@@ -80,7 +80,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Emoji", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(71, 79, 122);
-            label1.Location = new Point(463, 40);
+            label1.Location = new Point(396, 41);
             label1.Name = "label1";
             label1.Size = new Size(196, 46);
             label1.TabIndex = 2;
@@ -100,26 +100,41 @@
             // teacherClasses
             // 
             teacherClasses.FormattingEnabled = true;
-            teacherClasses.Location = new Point(463, 99);
+            teacherClasses.Location = new Point(412, 107);
             teacherClasses.Name = "teacherClasses";
             teacherClasses.Size = new Size(226, 28);
             teacherClasses.TabIndex = 5;
             teacherClasses.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
+            // 
+            // savebtn
+            // 
+            savebtn.BackColor = Color.FromArgb(71, 79, 122);
+            savebtn.Cursor = Cursors.Hand;
+            savebtn.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            savebtn.ForeColor = Color.White;
+            savebtn.Location = new Point(793, 82);
+            savebtn.Name = "savebtn";
+            savebtn.Size = new Size(124, 53);
+            savebtn.TabIndex = 7;
+            savebtn.Text = "save";
+            savebtn.UseVisualStyleBackColor = false;
+            savebtn.Click += savebtn_Click;
             // 
             // UserControlAttendance
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            Controls.Add(dataGridView1);
+            Controls.Add(savebtn);
+            Controls.Add(attendanceTable);
             Controls.Add(teacherClasses);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(AttendanceLabel);
             Name = "UserControlAttendance";
-            Size = new Size(1092, 629);
+            Size = new Size(1342, 684);
             Load += UserControl1_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)attendanceTable).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -129,6 +144,7 @@
         private Label label1;
         private Label label2;
         private ComboBox teacherClasses;
-        private DataGridView dataGridView1;
+        private DataGridView attendanceTable;
+        private Button savebtn;
     }
 }

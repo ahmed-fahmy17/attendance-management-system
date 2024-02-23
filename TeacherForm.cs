@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace attendance_management_system
 {
@@ -19,40 +20,30 @@ namespace attendance_management_system
         private TabControl tabControl1;
         private TabControl tabControl2;
         private TabPage tabPage1;
-
+        private editUserProfile editUserProfile;
+        private StusentReport studentRepo;
         public TeacherForm()
         {
             InitializeComponent();
-
             //Timer
             timer = new System.Timers.Timer();
             timer.Interval = 1000;//milliseconds(1 second)
             timer.Elapsed += labelTime_Click;//update the value of the time label
             timer.Start();
-
             attendanceBtn.Click += attendanceBtn_Click;
             loginForm = new login();
             userControl11.Visible = false;
             userControlReport1.Visible = false;
             filterByClass1.Visible = false;
-
+            stusentReport1.Visible = false;
+            editUserProfile = new editUserProfile();
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
         private void TeacherForm_Load(object sender, EventArgs e)
         {
             //hide expanded banel on form load
 
             //display date 
             dateLabel.Text = DateTime.Now.ToString("dddd, MMMM dd, yyyy");
-
-
         }
 
         private void labelTime_Click(object sender, EventArgs e)
@@ -96,20 +87,6 @@ namespace attendance_management_system
                 chooseFormType1.Visible = true;
             }
         }
-        private void userControl11_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-            //  this.BackColor = Color.FromArgb(0x1B, 0x1A, 0x55);
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-            //  this.BackColor = Color.FromArgb(0x1B, 0x1A, 0x55);
-        }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -125,7 +102,23 @@ namespace attendance_management_system
             }
         }
 
-        private void chooseFormType1_Load(object sender, EventArgs e)
+
+
+        private void ProfileButton_Click_1(object sender, EventArgs e)
+        {
+            Form edit = new Form();
+            edit.Text = "Edit profile";
+            edit.ClientSize = editUserProfile.Size;
+            edit.Controls.Add(editUserProfile);
+            edit.ShowDialog();
+        }
+
+        private void userControlReport1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void filterByClass1_Load(object sender, EventArgs e)
         {
 
         }

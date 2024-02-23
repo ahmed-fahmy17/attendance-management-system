@@ -4,7 +4,13 @@
     <Compile Update="controls\ChooseFormType.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="controls\editUserProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="controls\FilterByClass.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="controls\StusentReport.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="controls\UserControlAttendance.cs">
