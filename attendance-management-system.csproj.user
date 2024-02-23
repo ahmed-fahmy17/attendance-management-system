@@ -19,8 +19,20 @@
     <Compile Update="controls\UserControlAttendance.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="controls\UserControlClasses.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="controls\UserControlReport.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="controls\UserControlUpdateAdminData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="controls\UserControlUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="FormAdmin.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Update="login.cs">
       <SubType>Form</SubType>
