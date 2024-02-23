@@ -1,6 +1,6 @@
 ﻿namespace attendance_management_system.controls
 {
-    partial class StusentReport
+    partial class StudentReport
     {
         /// <summary> 
         /// Required designer variable.

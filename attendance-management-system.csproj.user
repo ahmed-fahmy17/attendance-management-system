@@ -10,7 +10,10 @@
     <Compile Update="controls\FilterByClass.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="controls\StusentReport.cs">
+    <Compile Update="controls\StudentReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="controls\StudentAttendanceUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="controls\UserControlAttendance.cs">
@@ -20,6 +23,9 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="StudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="TeacherForm.cs">

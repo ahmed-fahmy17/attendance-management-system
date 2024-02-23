@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace attendance_management_system
@@ -21,7 +22,7 @@ namespace attendance_management_system
         private TabControl tabControl2;
         private TabPage tabPage1;
         private editUserProfile editUserProfile;
-        private StusentReport studentRepo;
+        private StudentReport studentRepo;
         public TeacherForm()
         {
             InitializeComponent();
@@ -44,6 +45,7 @@ namespace attendance_management_system
 
             //display date 
             dateLabel.Text = DateTime.Now.ToString("dddd, MMMM dd, yyyy");
+            LanguageComboBox.SelectedIndex = 1;
         }
 
         private void labelTime_Click(object sender, EventArgs e)
@@ -95,6 +97,9 @@ namespace attendance_management_system
             if (result == DialogResult.OK)
             {
                 loginForm.Show();
+                TeacherForm form = new TeacherForm();
+                form.Dispose();
+                form.Close();
             }
             else
             {
@@ -112,15 +117,67 @@ namespace attendance_management_system
             edit.Controls.Add(editUserProfile);
             edit.ShowDialog();
         }
-
-        private void userControlReport1_Load(object sender, EventArgs e)
+        private void UpdateUIWithLanguage()
         {
+            try
+            {
+                // Load the XML file containing language preferences
+                XmlDocument doc = new XmlDocument();
+                doc.Load("C:\\Users\\USER\\Desktop\\c#proj4\\attendance-management-system\\xml\\Language.xml"); // Adjust the path as needed
 
+                // Find the language node with the selected attribute set to true
+                string selected = LanguageComboBox.SelectedItem?.ToString(); // Ensure selected item is not null
+                if (selected != null)
+                {
+                    XmlNode? selectedLanguageNode = doc.SelectSingleNode($"Languages/language[code='{selected}']");
+
+                    if (selectedLanguageNode != null)
+                    {
+                        // Get the translation node for "Attendance"
+                        XmlNode? attendanceTranslationNode = selectedLanguageNode.SelectSingleNode("translation/Attendance");
+                        XmlNode? reportTranslationNode = selectedLanguageNode.SelectSingleNode("translation/Report");
+                        XmlNode? logouTranslationNode = selectedLanguageNode.SelectSingleNode("translation/LogOut");
+                        XmlNode? editProfileTranslation = selectedLanguageNode.SelectSingleNode("translation/EditProfile");
+                        XmlNode? welcomeTranslation = selectedLanguageNode.SelectSingleNode("translation/Welcome");
+                        XmlNode? SystemAttendanceTranslation = selectedLanguageNode.SelectSingleNode("translation/AttendanceSystem");
+
+                        if (attendanceTranslationNode != null && reportTranslationNode != null)
+                        {
+                            // Update the text of the buttons with the translated text
+                            attendanceBtn.Text = attendanceTranslationNode.InnerText;
+                            reportBtn.Text = reportTranslationNode.InnerText;
+                            logoutBtn.Text = logouTranslationNode?.InnerText;
+                            ProfileButton.Text = editProfileTranslation?.InnerText;
+                            welcomeLabel.Text = welcomeTranslation?.InnerText;
+                            SysLabel.Text = SystemAttendanceTranslation?.InnerText;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Translation for 'Attendance' or 'Report' not found in XML.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Selected language node not found in XML.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No language selected in the combo box.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading language preference: {ex.Message}");
+            }
         }
 
-        private void filterByClass1_Load(object sender, EventArgs e)
-        {
 
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateUIWithLanguage();
         }
+
     }
 }

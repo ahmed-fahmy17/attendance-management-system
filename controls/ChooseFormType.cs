@@ -14,13 +14,13 @@ namespace attendance_management_system.controls
     {
         private UserControlReport userControlReport;
         private FilterByClass byClass;
-        private StusentReport studentReport;
+        private StudentReport studentReport;
         public ChooseFormType()
         {
             InitializeComponent();
             userControlReport = new UserControlReport();
             byClass = new FilterByClass();
-            studentReport = new StusentReport();
+            studentReport = new StudentReport();
         }
 
 

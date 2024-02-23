@@ -12,9 +12,9 @@ using System.Xml.Xsl;
 
 namespace attendance_management_system.controls
 {
-    public partial class StusentReport : UserControl
+    public partial class StudentReport : UserControl
     {
-        public StusentReport()
+        public StudentReport()
         {
             InitializeComponent();
             loadStudents();

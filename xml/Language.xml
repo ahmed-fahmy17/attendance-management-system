@@ -1,0 +1,26 @@
+<Languages>
+    <language>
+        <code>Arabic</code>
+        <translation>
+            <Attendance>الحضور</Attendance>
+            <Report>تقرير</Report>
+            <EditProfile>تعديل الصفحة</EditProfile>
+            <LogOut>تسجيل الخروج</LogOut>
+            <Welcome>مرحبا</Welcome>
+            <choosethelanguage>اختر اللغة</choosethelanguage>
+            <AttendanceSystem>نظام الحضور    </AttendanceSystem>
+        </translation>
+    </language>
+    <language>
+        <code>English</code>
+        <translation>
+            <Attendance>Attendance</Attendance>
+            <Report>Report</Report>
+            <EditProfile>Edit Profile</EditProfile>
+            <Welcome>Welcome</Welcome>
+            <LogOut>Log Out</LogOut>
+            <choosethelanguage>choose the language</choosethelanguage>
+            <AttendanceSystem>Attendance System</AttendanceSystem>
+        </translation>
+    </language>
+</Languages>
