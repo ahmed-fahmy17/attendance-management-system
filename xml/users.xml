@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<users xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\iti\projects\c# and XML project\attendance-management-system\xml\usersSchema.xsd">
+<users>
   <admin>
     <email>admin@yahoo.com</email>
     <password>123456789</password>
   </admin>
   <user>
     <id>11111111111111</id>
-    <name>Ali shaheen</name>
+    <name>erf</name>
     <email>ali@yahoo.com</email>
     <age>50</age>
     <phone>01065632156</phone>
-    <password>12345678</password>
+    <password>123456</password>
     <role>teacher</role>
   </user>
   <user>

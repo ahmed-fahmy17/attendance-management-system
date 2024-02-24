@@ -33,71 +33,85 @@ namespace attendance_management_system.controls
         {
             object startDate1 = StartDateComboBox.SelectedItem;
             object endDate1 = EndDateComboBox.SelectedItem;
-            object fileType=formatComboBox.SelectedItem;
+            object fileType = formatComboBox.SelectedItem;
+           
 
-            // Check if both start and end dates are selected
-            if (startDate1 == null || endDate1 == null || fileType==null)
+                if (startDate1 == null || endDate1 == null || fileType == null)
             {
-                MessageBox.Show("Please choose the start, end dates and file type !", "Filtered Attendance Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please choose the start, end dates, and file type!", "Filtered Attendance Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+          
 
             string startDate = startDate1.ToString();
             string endDate = endDate1.ToString();
+            DateTime startDateDateTime = DateTime.Parse(startDate);
+            DateTime endDateDateTime = DateTime.Parse(endDate);
 
-            // Load XML attendance file
-            XmlDocument xmlDocument = new XmlDocument();
-            xmlDocument.Load("C:\\Users\\USER\\Desktop\\c#Proj4\\attendance-management-system\\xml\\attendance.xml");
-
-            // Create XSLT transformation object
-            XslCompiledTransform transform = new XslCompiledTransform();
-
-            // Load XSLT stylesheet from file
-            transform.Load("C:\\Users\\USER\\Desktop\\c#Proj4\\attendance-management-system\\xml\\FilteringDependingOnStartAndEndDate.xslt");
-
-            XsltArgumentList xsltArgs = new XsltArgumentList();
-            xsltArgs.AddParam("startDate", "", startDate);
-            xsltArgs.AddParam("endDate", "", endDate);
-
-            // Perform the XSLT transformation and save the result
-            using (StringWriter sw = new StringWriter())
+            // Compare the dates
+            if (startDateDateTime >= endDateDateTime)
             {
-                transform.Transform(xmlDocument, xsltArgs, sw);
-                string resultXml = sw.ToString();
+                MessageBox.Show("the start date must be less than end","", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+           
+                XmlDocument xmlDocument = new XmlDocument();
+            try
+            {
+                xmlDocument.Load("C:\\Users\\USER\\Desktop\\c#Project4\\attendance-management-system\\xml\\attendance.xml");
+                XslCompiledTransform transform = new XslCompiledTransform();
+                transform.Load("C:\\Users\\USER\\Desktop\\c#Project4\\attendance-management-system\\xml\\FilteringDependingOnStartAndEndDate.xslt");
 
-              
-                DataTable attendanceData = ConvertXmlToDataTable(resultXml);
+                XsltArgumentList xsltArgs = new XsltArgumentList();
+                xsltArgs.AddParam("startDate", "", startDate);
+                xsltArgs.AddParam("endDate", "", endDate);
 
-              
-                string exportFilePath = @"C:\Reports\AttendanceReport.xlsx";
-                string filepath = @"C:\Reports\myRepo.pdf";
+               
 
-                if (attendanceData != null && !string.IsNullOrEmpty(exportFilePath))
-                {
-                   
-                    GenerateReport report = new GenerateReport();
 
-                    
-                    if (formatComboBox.SelectedIndex == 0)
+                    using (StringWriter sw = new StringWriter())
                     {
-                        report.GenerateExcelReport(attendanceData, exportFilePath);
+                        transform.Transform(xmlDocument, xsltArgs, sw);
+                        string resultXml = sw.ToString();
+
+                        DataTable attendanceData = ConvertXmlToDataTable(resultXml);
+
+                        // Allow user to choose the file location
+                        SaveFileDialog saveFileDialog = new SaveFileDialog();
+                        saveFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|PDF files (*.pdf)|*.pdf";
+                        saveFileDialog.Title = "Save Report";
+                        saveFileDialog.ShowDialog();
+
+                        if (saveFileDialog.FileName != "")
+                        {
+                            string exportFilePath = saveFileDialog.FileName;
+
+                            if (attendanceData != null)
+                            {
+                                GenerateReport report = new GenerateReport();
+
+                                if (formatComboBox.SelectedIndex == 0)
+                                {
+                                    report.GenerateExcelReport(attendanceData, exportFilePath);
+                                    MessageBox.Show("Excel report generated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                else if (formatComboBox.SelectedIndex == 1)
+                                {
+                                    report.GeneratePdfReport(attendanceData, exportFilePath);
+                                    MessageBox.Show("PDF report generated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Attendance data is null.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
                     }
-                    else if(formatComboBox.SelectedIndex == 1) 
-                    {  
-                        report.GeneratePdfReport(attendanceData, filepath);
-                    }
-                }
-                else
-                {
-                   
-                    MessageBox.Show("Attendance data or export file path is null or empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-
-              
-                MessageBox.Show("Attendance data filtered based on selected dates has been exported .", "Filtered Attendance Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -116,7 +130,7 @@ namespace attendance_management_system.controls
         private void UserControlReport_Load(object sender, EventArgs e)
         {
             loadData();
-            string xmlFilePath = "C:\\Users\\USER\\Desktop\\c#proj4\\attendance-management-system\\xml\\attendance.xml";
+            string xmlFilePath = "C:\\Users\\USER\\Desktop\\c#project4\\attendance-management-system\\xml\\attendance.xml";
 
             if (File.Exists(xmlFilePath))
             {
@@ -174,11 +188,25 @@ namespace attendance_management_system.controls
         {
             //first load xml file.
             XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load("C:\\Users\\USER\\Desktop\\c#proj4\\attendance-management-system\\xml\\attendance.xml");
+            xmlDoc.Load("C:\\Users\\USER\\Desktop\\c#project4\\attendance-management-system\\xml\\attendance.xml");
             dataTable = new System.Data.DataTable();
             dataTable.Columns.Add("Student ID");
             dataTable.Columns.Add("Date");
             dataTable.Columns.Add("Attendance Status");
+
+            // Add rows to the dataTable if needed
+
+            dataGridView1.Width = 750;
+            dataGridView1.DefaultCellStyle.Font = new Font("Arial", 12);
+            dataGridView1.RowTemplate.Height = 45;
+
+            dataGridView1.DataSource = dataTable; // Bind dataGridView1 to the dataTable
+
+            // Now, you can set the column width
+            dataGridView1.Columns["Student ID"].Width = 180;
+            dataGridView1.Columns["Date"].Width = 180;
+            dataGridView1.Columns["Attendance Status"].Width = 180;
+
 
             // Read XML data and populate DataTable
             foreach (XmlNode node in xmlDoc.SelectNodes("//record"))
@@ -190,6 +218,7 @@ namespace attendance_management_system.controls
             }
             // Bind DataTable to DataGridView
             dataGridView1.DataSource = dataTable;
+            
         }
 
         private void searchtxt_TextChanged(object sender, EventArgs e)

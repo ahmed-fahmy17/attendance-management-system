@@ -11,8 +11,8 @@ namespace attendance_management_system
 {
     internal class XmlManipulation
     {
-        private static string UserDataPath = "D:\\iti\\projects\\c# and XML project\\attendance-management-system\\xml\\users.xml";
-        private static string ClassDataPath = "D:\\iti\\projects\\c# and XML project\\attendance-management-system\\xml\\classes.xml";
+        private static string UserDataPath = "C:\\Users\\USER\\Desktop\\c#project4\\attendance-management-system\\xml\\users.xml";
+        private static string ClassDataPath = "C:\\Users\\USER\\Desktop\\c#project4\\attendance-management-system\\xml\\classes.xml";
         public static List<User> GetUserData()
         {
             XmlDocument xmlDoc = new XmlDocument();
