@@ -33,8 +33,8 @@
             splitContainer1 = new SplitContainer();
             panel3 = new Panel();
             panel4 = new Panel();
+            chooseLanglabel = new Label();
             pictureBox7 = new PictureBox();
-            label3 = new Label();
             LanguageComboBox = new ComboBox();
             welcomeLabel = new Label();
             labelTime = new Label();
@@ -90,10 +90,15 @@
             // panel4
             // 
             resources.ApplyResources(panel4, "panel4");
+            panel4.Controls.Add(chooseLanglabel);
             panel4.Controls.Add(pictureBox7);
-            panel4.Controls.Add(label3);
             panel4.Controls.Add(LanguageComboBox);
             panel4.Name = "panel4";
+            // 
+            // chooseLanglabel
+            // 
+            resources.ApplyResources(chooseLanglabel, "chooseLanglabel");
+            chooseLanglabel.Name = "chooseLanglabel";
             // 
             // pictureBox7
             // 
@@ -101,11 +106,6 @@
             pictureBox7.Image = Properties.Resources.languages;
             pictureBox7.Name = "pictureBox7";
             pictureBox7.TabStop = false;
-            // 
-            // label3
-            // 
-            resources.ApplyResources(label3, "label3");
-            label3.Name = "label3";
             // 
             // LanguageComboBox
             // 
@@ -163,7 +163,6 @@
             // pictureBox1
             // 
             resources.ApplyResources(pictureBox1, "pictureBox1");
-            pictureBox1.Image = Properties.Resources.immigration;
             pictureBox1.Name = "pictureBox1";
             pictureBox1.TabStop = false;
             // 
@@ -280,7 +279,7 @@
         private Label welcomeLabel;
         public controls.UserControlReport userControlReport1;
         private ComboBox LanguageComboBox;
-        private Label label3;
+        private Label chooseLanglabel;
         private Panel panel4;
         private PictureBox pictureBox7;
         private Panel panel2;

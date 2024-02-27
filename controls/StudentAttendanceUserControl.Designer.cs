@@ -30,16 +30,23 @@
         {
             dataGridView1 = new DataGridView();
             label1 = new Label();
+            studentClassesComboBox = new ComboBox();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(32, 113);
+            dataGridView1.Location = new Point(32, 159);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(820, 442);
+            dataGridView1.Size = new Size(937, 396);
             dataGridView1.TabIndex = 0;
             // 
             // label1
@@ -53,14 +60,38 @@
             label1.TabIndex = 1;
             label1.Text = "Attendance";
             // 
+            // studentClassesComboBox
+            // 
+            studentClassesComboBox.FormattingEnabled = true;
+            studentClassesComboBox.Location = new Point(721, 80);
+            studentClassesComboBox.Name = "studentClassesComboBox";
+            studentClassesComboBox.Size = new Size(189, 28);
+            studentClassesComboBox.TabIndex = 3;
+            studentClassesComboBox.SelectedIndexChanged += studentClassesComboBox_SelectedIndexChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.White;
+            label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(31, 37, 68);
+            label2.Location = new Point(745, 40);
+            label2.Name = "label2";
+            label2.Size = new Size(124, 28);
+            label2.TabIndex = 4;
+            label2.Text = "Your Classes";
+            // 
             // StudentAttendanceUserControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            Controls.Add(label2);
+            Controls.Add(studentClassesComboBox);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
             Name = "StudentAttendanceUserControl";
-            Size = new Size(999, 598);
+            Size = new Size(1214, 636);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -70,5 +101,7 @@
 
         private DataGridView dataGridView1;
         private Label label1;
+        private ComboBox studentClassesComboBox;
+        private Label label2;
     }
 }

@@ -18,11 +18,13 @@ namespace attendance_management_system.controls
         public ChooseFormType()
         {
             InitializeComponent();
+            SetLabelText(typeofreportlabel.Text);
+
             userControlReport = new UserControlReport();
             byClass = new FilterByClass();
             studentReport = new StudentReport();
+           
         }
-
 
         private void dateRangeBtn_Click(object sender, EventArgs e)
         {
@@ -40,7 +42,10 @@ namespace attendance_management_system.controls
             // Show the form
             reportForm.ShowDialog();
         }
-
+        public void SetLabelText(string text)
+        {
+            typeofreportlabel.Text = text;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             Form reportForm = new Form();

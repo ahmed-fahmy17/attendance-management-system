@@ -14,11 +14,13 @@ namespace attendance_management_system
     public partial class StudentForm : Form
     {
         login loginForm;
+        private editUserProfile editUserProfile;
         public StudentForm()
         {
             InitializeComponent();
             studentAttendanceUserControl1.Visible = false;
             loginForm = new login();
+            editUserProfile = new editUserProfile();
         }
 
         private void StudentAttendanceButton_Click(object sender, EventArgs e)
@@ -36,19 +38,26 @@ namespace attendance_management_system
                                              "LOG OUT!",
                             MessageBoxButtons.OKCancel,
                            MessageBoxIcon.Question,
-                         MessageBoxDefaultButton.Button1, 
+                         MessageBoxDefaultButton.Button1,
                           MessageBoxOptions.DefaultDesktopOnly);
 
             if (result == DialogResult.OK)
             {
                 StudentForm studentForm = new StudentForm();
-              
+
                 loginForm.Show();
                 Close();
             }
 
         }
-          
-       
+
+        private void StudentProfileButton_Click(object sender, EventArgs e)
+        {
+            Form edit = new Form();
+            edit.Text = "Edit profile";
+            edit.ClientSize = editUserProfile.Size;
+            edit.Controls.Add(editUserProfile);
+            edit.ShowDialog();
+        }
     }
 }

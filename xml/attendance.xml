@@ -7,10 +7,10 @@
     <classId>Maths</classId>
   </record>
   <record>
-    <std_id>5</std_id>
+    <std_id>1</std_id>
     <date>2024-02-23</date>
     <attendance_status>present</attendance_status>
-    <classId>Maths</classId>
+    <classId>Physics</classId>
   </record>
   <record>
     <std_id>3</std_id>
@@ -75,4 +75,64 @@
   <std_id>mat4</std_id>
   <attendance_status>absent</attendance_status>
   <classId />
+  <record>
+    <std_id>mat1</std_id>
+    <date>2024-02-25</date>
+    <attendance_status>present</attendance_status>
+    <classId>Mathematics</classId>
+  </record>
+  <record>
+    <std_id>mat2</std_id>
+    <date>2024-02-25</date>
+    <attendance_status>present</attendance_status>
+    <classId>Mathematics</classId>
+  </record>
+  <record>
+    <std_id>mat3</std_id>
+    <date>2024-02-25</date>
+    <attendance_status>present</attendance_status>
+    <classId>Mathematics</classId>
+  </record>
+  <record>
+    <std_id>mat4</std_id>
+    <date>2024-02-25</date>
+    <attendance_status>absent</attendance_status>
+    <classId>Mathematics</classId>
+  </record>
+  <std_id>phy1</std_id>
+  <attendance_status>present</attendance_status>
+  <classId />
+  <std_id>phy2</std_id>
+  <attendance_status>present</attendance_status>
+  <classId />
+  <std_id>phy3</std_id>
+  <attendance_status>absent</attendance_status>
+  <classId />
+  <std_id>phy4</std_id>
+  <attendance_status>absent</attendance_status>
+  <classId />
+  <record>
+    <std_id>phy1</std_id>
+    <date>2024-01-28</date>
+    <attendance_status>present</attendance_status>
+    <classId>physics</classId>
+  </record>
+  <record>
+    <std_id>phy2</std_id>
+    <date>2024-01-28</date>
+    <attendance_status>present</attendance_status>
+    <classId>physics</classId>
+  </record>
+  <record>
+    <std_id>phy3</std_id>
+    <date>2024-01-28</date>
+    <attendance_status>present</attendance_status>
+    <classId>physics</classId>
+  </record>
+  <record>
+    <std_id>phy4</std_id>
+    <date>2024-01-28</date>
+    <attendance_status>absent</attendance_status>
+    <classId>physics</classId>
+  </record>
 </attendance>

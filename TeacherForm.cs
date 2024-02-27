@@ -23,6 +23,7 @@ namespace attendance_management_system
         private TabPage tabPage1;
         private editUserProfile editUserProfile;
         private StudentReport studentRepo;
+        private ChooseFormType chooseFormType;
         public TeacherForm()
         {
             InitializeComponent();
@@ -38,6 +39,7 @@ namespace attendance_management_system
             filterByClass1.Visible = false;
             stusentReport1.Visible = false;
             editUserProfile = new editUserProfile();
+            chooseFormType = new ChooseFormType();  
         }
         private void TeacherForm_Load(object sender, EventArgs e)
         {
@@ -106,9 +108,6 @@ namespace attendance_management_system
 
             }
         }
-
-
-
         private void ProfileButton_Click_1(object sender, EventArgs e)
         {
             Form edit = new Form();
@@ -123,8 +122,8 @@ namespace attendance_management_system
             {
                 // Load the XML file containing language preferences
                 XmlDocument doc = new XmlDocument();
-                doc.Load("C:\\Users\\USER\\Desktop\\c#proj4\\attendance-management-system\\xml\\Language.xml"); // Adjust the path as needed
-
+                doc.Load("C:\\Users\\USER\\Desktop\\c#project4\\attendance-management-system\\xml\\Language.xml"); // Adjust the path as needed
+              
                 // Find the language node with the selected attribute set to true
                 string selected = LanguageComboBox.SelectedItem?.ToString(); // Ensure selected item is not null
                 if (selected != null)
@@ -140,6 +139,8 @@ namespace attendance_management_system
                         XmlNode? editProfileTranslation = selectedLanguageNode.SelectSingleNode("translation/EditProfile");
                         XmlNode? welcomeTranslation = selectedLanguageNode.SelectSingleNode("translation/Welcome");
                         XmlNode? SystemAttendanceTranslation = selectedLanguageNode.SelectSingleNode("translation/AttendanceSystem");
+                        XmlNode? langlabeltranslation = selectedLanguageNode.SelectSingleNode("translation/choosethelanhuage");
+                        XmlNode?  typeofreporttranslation = selectedLanguageNode.SelectSingleNode("translation/choosethetypetypeofreport");
 
                         if (attendanceTranslationNode != null && reportTranslationNode != null)
                         {
@@ -150,6 +151,11 @@ namespace attendance_management_system
                             ProfileButton.Text = editProfileTranslation?.InnerText;
                             welcomeLabel.Text = welcomeTranslation?.InnerText;
                             SysLabel.Text = SystemAttendanceTranslation?.InnerText;
+                            chooseLanglabel.Text=langlabeltranslation?.InnerText;
+                           
+                            chooseFormType.SetLabelText(typeofreporttranslation?.InnerText);
+
+
                         }
                         else
                         {

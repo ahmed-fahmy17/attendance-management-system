@@ -29,7 +29,7 @@ namespace attendance_management_system.controls
         DateTimePicker dateTimePicker1;
         private void UserControl1_Load(object sender, EventArgs e)
         {
-            loadTeacherClasses();//to be removed to xml manipulation
+            LoadTeacherClasses();//to be removed to xml manipulation
             dateTimePicker1 = new DateTimePicker();
             dateTimePicker1.Location = new System.Drawing.Point(100, 100);
             this.Controls.Add(dateTimePicker1);
@@ -151,7 +151,7 @@ namespace attendance_management_system.controls
             BuildAttendanceTable();
         }
         // maths,physics =>assuming theses are the classes of  current teacher.
-        private void loadTeacherClasses()
+        private void LoadTeacherClasses()
         {
             var CurrentUserId = "11111111111111";
             //first load xml file.
