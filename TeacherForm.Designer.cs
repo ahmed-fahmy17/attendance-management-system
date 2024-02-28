@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TeacherForm));
             splitContainer1 = new SplitContainer();
             panel3 = new Panel();
+            qwert = new Label();
             panel4 = new Panel();
             chooseLanglabel = new Label();
             pictureBox7 = new PictureBox();
@@ -81,11 +82,17 @@
             resources.ApplyResources(panel3, "panel3");
             panel3.BackColor = Color.White;
             panel3.BorderStyle = BorderStyle.FixedSingle;
+            panel3.Controls.Add(qwert);
             panel3.Controls.Add(panel4);
             panel3.Controls.Add(welcomeLabel);
             panel3.Controls.Add(labelTime);
             panel3.Controls.Add(dateLabel);
             panel3.Name = "panel3";
+            // 
+            // qwert
+            // 
+            resources.ApplyResources(qwert, "qwert");
+            qwert.Name = "qwert";
             // 
             // panel4
             // 
@@ -294,5 +301,6 @@
         private controls.FilterByClass filterByClass1;
         private Button ProfileButton;
         private controls.StudentReport stusentReport1;
+        private Label qwert;
     }
 }

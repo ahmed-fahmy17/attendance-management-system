@@ -1,5 +1,7 @@
 ﻿using attendance_management_system.controls;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using static attendance_management_system.login;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace attendance_management_system
@@ -16,6 +19,8 @@ namespace attendance_management_system
 
     public partial class TeacherForm : Form
     {
+        public Dictionary<string, string> MyDictionary { get; set; }
+
         login loginForm;
         System.Timers.Timer timer;
         private TabControl tabControl1;
@@ -39,7 +44,13 @@ namespace attendance_management_system
             filterByClass1.Visible = false;
             stusentReport1.Visible = false;
             editUserProfile = new editUserProfile();
-            chooseFormType = new ChooseFormType();  
+            chooseFormType = new ChooseFormType();
+          
+               
+              
+
+
+
         }
         private void TeacherForm_Load(object sender, EventArgs e)
         {
@@ -48,6 +59,7 @@ namespace attendance_management_system
             //display date 
             dateLabel.Text = DateTime.Now.ToString("dddd, MMMM dd, yyyy");
             LanguageComboBox.SelectedIndex = 1;
+            qwert.Text = MyDictionary["userName"];
         }
 
         private void labelTime_Click(object sender, EventArgs e)
