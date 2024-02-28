@@ -34,7 +34,7 @@ namespace attendance_management_system.controls
         {
             XmlDocument xmlDocument = new XmlDocument();
             var CurrentUserId = "1";
-            xmlDocument.Load("C:\\Users\\USER\\Desktop\\c#project4\\attendance-management-system\\xml\\attendance.xml");
+            xmlDocument.Load("C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\xml\\attendance.xml");
             bool exists = false;
             XmlElement root = xmlDocument.DocumentElement;//classes
             foreach (XmlNode node in root.ChildNodes)//class
@@ -73,7 +73,7 @@ namespace attendance_management_system.controls
             XmlDocument xmlDocument = new XmlDocument();
             //std_id,classId,attendance_status,date
             // Load XML file
-            xmlDocument.Load(@"C:\Users\USER\Desktop\c#project4\attendance-management-system\xml\attendance.xml");
+            xmlDocument.Load(@"C:\Users\USER\Desktop\final\attendance-management-system\xml\attendance.xml");
             dataTable = new System.Data.DataTable();
             dataTable.Columns.Add("Student ID", typeof(string));
             dataTable.Columns.Add("Class", typeof(string));

@@ -58,24 +58,19 @@ namespace attendance_management_system.controls
                 XmlDocument xmlDocument = new XmlDocument();
             try
             {
-                xmlDocument.Load("C:\\Users\\USER\\Desktop\\c#Project4\\attendance-management-system\\xml\\attendance.xml");
+                xmlDocument.Load("C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\xml\\attendance.xml");
                 XslCompiledTransform transform = new XslCompiledTransform();
-                transform.Load("C:\\Users\\USER\\Desktop\\c#Project4\\attendance-management-system\\xml\\FilteringDependingOnStartAndEndDate.xslt");
+                transform.Load("C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\xml\\FilteringDependingOnStartAndEndDate.xslt");
 
                 XsltArgumentList xsltArgs = new XsltArgumentList();
                 xsltArgs.AddParam("startDate", "", startDate);
                 xsltArgs.AddParam("endDate", "", endDate);
-
-               
-
-
                     using (StringWriter sw = new StringWriter())
                     {
                         transform.Transform(xmlDocument, xsltArgs, sw);
                         string resultXml = sw.ToString();
 
                         DataTable attendanceData = ConvertXmlToDataTable(resultXml);
-
                         // Allow user to choose the file location
                         SaveFileDialog saveFileDialog = new SaveFileDialog();
                         saveFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|PDF files (*.pdf)|*.pdf";
@@ -130,7 +125,7 @@ namespace attendance_management_system.controls
         private void UserControlReport_Load(object sender, EventArgs e)
         {
             loadData();
-            string xmlFilePath = "C:\\Users\\USER\\Desktop\\c#project4\\attendance-management-system\\xml\\attendance.xml";
+            string xmlFilePath = "C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\xml\\attendance.xml";
 
             if (File.Exists(xmlFilePath))
             {
@@ -143,7 +138,6 @@ namespace attendance_management_system.controls
 
                 // HashSet to store unique date values(اكتشاااااااااف)
                 HashSet<string> uniqueDates = new HashSet<string>();
-
                 // Iterate through each child node
                 foreach (XmlNode node in root.ChildNodes)
                 {
@@ -188,7 +182,7 @@ namespace attendance_management_system.controls
         {
             //first load xml file.
             XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load("C:\\Users\\USER\\Desktop\\c#project4\\attendance-management-system\\xml\\attendance.xml");
+            xmlDoc.Load("C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\xml\\attendance.xml");
             dataTable = new System.Data.DataTable();
             dataTable.Columns.Add("Student ID");
             dataTable.Columns.Add("Date");

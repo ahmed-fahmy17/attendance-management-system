@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TeacherForm));
             splitContainer1 = new SplitContainer();
             panel3 = new Panel();
+            MyLabell = new Label();
             qwert = new Label();
             panel4 = new Panel();
             chooseLanglabel = new Label();
@@ -41,8 +42,6 @@
             labelTime = new Label();
             dateLabel = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
-            userControl11 = new controls.UserControlAttendance();
-            userControlReport1 = new controls.UserControlReport();
             panel2 = new Panel();
             SysLabel = new Label();
             pictureBox1 = new PictureBox();
@@ -51,9 +50,8 @@
             logoutBtn = new Button();
             panel1 = new Panel();
             ProfileButton = new Button();
-            chooseFormType1 = new controls.ChooseFormType();
-            filterByClass1 = new controls.FilterByClass();
-            stusentReport1 = new controls.StudentReport();
+            chooseFormType2 = new controls.ChooseFormType();
+            userControlAttendance1 = new controls.UserControlAttendance();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.SuspendLayout();
             panel3.SuspendLayout();
@@ -69,25 +67,23 @@
             resources.ApplyResources(splitContainer1, "splitContainer1");
             splitContainer1.Name = "splitContainer1";
             // 
-            // splitContainer1.Panel1
-            // 
-            resources.ApplyResources(splitContainer1.Panel1, "splitContainer1.Panel1");
-            // 
-            // splitContainer1.Panel2
-            // 
-            resources.ApplyResources(splitContainer1.Panel2, "splitContainer1.Panel2");
-            // 
             // panel3
             // 
-            resources.ApplyResources(panel3, "panel3");
             panel3.BackColor = Color.White;
             panel3.BorderStyle = BorderStyle.FixedSingle;
+            panel3.Controls.Add(MyLabell);
             panel3.Controls.Add(qwert);
             panel3.Controls.Add(panel4);
             panel3.Controls.Add(welcomeLabel);
             panel3.Controls.Add(labelTime);
             panel3.Controls.Add(dateLabel);
+            resources.ApplyResources(panel3, "panel3");
             panel3.Name = "panel3";
+            // 
+            // MyLabell
+            // 
+            resources.ApplyResources(MyLabell, "MyLabell");
+            MyLabell.Name = "MyLabell";
             // 
             // qwert
             // 
@@ -96,10 +92,10 @@
             // 
             // panel4
             // 
-            resources.ApplyResources(panel4, "panel4");
             panel4.Controls.Add(chooseLanglabel);
             panel4.Controls.Add(pictureBox7);
             panel4.Controls.Add(LanguageComboBox);
+            resources.ApplyResources(panel4, "panel4");
             panel4.Name = "panel4";
             // 
             // chooseLanglabel
@@ -109,8 +105,8 @@
             // 
             // pictureBox7
             // 
-            resources.ApplyResources(pictureBox7, "pictureBox7");
             pictureBox7.Image = Properties.Resources.languages;
+            resources.ApplyResources(pictureBox7, "pictureBox7");
             pictureBox7.Name = "pictureBox7";
             pictureBox7.TabStop = false;
             // 
@@ -141,24 +137,12 @@
             dateLabel.ForeColor = Color.FromArgb(255, 64, 125);
             dateLabel.Name = "dateLabel";
             // 
-            // userControl11
-            // 
-            resources.ApplyResources(userControl11, "userControl11");
-            userControl11.BackColor = Color.White;
-            userControl11.Name = "userControl11";
-            // 
-            // userControlReport1
-            // 
-            resources.ApplyResources(userControlReport1, "userControlReport1");
-            userControlReport1.BackColor = Color.White;
-            userControlReport1.Name = "userControlReport1";
-            // 
             // panel2
             // 
-            resources.ApplyResources(panel2, "panel2");
             panel2.BackColor = Color.FromArgb(31, 37, 68);
             panel2.Controls.Add(SysLabel);
             panel2.Controls.Add(pictureBox1);
+            resources.ApplyResources(panel2, "panel2");
             panel2.Name = "panel2";
             // 
             // SysLabel
@@ -169,14 +153,15 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Image = Properties.Resources.work_attendance_4;
             resources.ApplyResources(pictureBox1, "pictureBox1");
             pictureBox1.Name = "pictureBox1";
             pictureBox1.TabStop = false;
             // 
             // attendanceBtn
             // 
-            resources.ApplyResources(attendanceBtn, "attendanceBtn");
             attendanceBtn.BackColor = Color.FromArgb(31, 37, 68);
+            resources.ApplyResources(attendanceBtn, "attendanceBtn");
             attendanceBtn.Cursor = Cursors.Hand;
             attendanceBtn.FlatAppearance.BorderColor = Color.DimGray;
             attendanceBtn.FlatAppearance.BorderSize = 2;
@@ -187,11 +172,11 @@
             // 
             // reportBtn
             // 
-            resources.ApplyResources(reportBtn, "reportBtn");
             reportBtn.BackColor = Color.FromArgb(31, 37, 68);
             reportBtn.Cursor = Cursors.Hand;
             reportBtn.FlatAppearance.BorderColor = Color.DimGray;
             reportBtn.FlatAppearance.BorderSize = 2;
+            resources.ApplyResources(reportBtn, "reportBtn");
             reportBtn.ForeColor = Color.White;
             reportBtn.Name = "reportBtn";
             reportBtn.UseVisualStyleBackColor = false;
@@ -199,11 +184,11 @@
             // 
             // logoutBtn
             // 
-            resources.ApplyResources(logoutBtn, "logoutBtn");
             logoutBtn.BackColor = Color.FromArgb(31, 37, 68);
             logoutBtn.Cursor = Cursors.Hand;
             logoutBtn.FlatAppearance.BorderColor = Color.DimGray;
             logoutBtn.FlatAppearance.BorderSize = 2;
+            resources.ApplyResources(logoutBtn, "logoutBtn");
             logoutBtn.ForeColor = Color.White;
             logoutBtn.Name = "logoutBtn";
             logoutBtn.UseVisualStyleBackColor = false;
@@ -211,7 +196,6 @@
             // 
             // panel1
             // 
-            resources.ApplyResources(panel1, "panel1");
             panel1.BackColor = Color.FromArgb(31, 37, 68);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(ProfileButton);
@@ -219,47 +203,41 @@
             panel1.Controls.Add(logoutBtn);
             panel1.Controls.Add(reportBtn);
             panel1.Controls.Add(attendanceBtn);
+            resources.ApplyResources(panel1, "panel1");
             panel1.Name = "panel1";
             // 
             // ProfileButton
             // 
-            resources.ApplyResources(ProfileButton, "ProfileButton");
             ProfileButton.BackColor = Color.FromArgb(31, 37, 68);
             ProfileButton.Cursor = Cursors.Hand;
             ProfileButton.FlatAppearance.BorderColor = Color.DimGray;
             ProfileButton.FlatAppearance.BorderSize = 2;
+            resources.ApplyResources(ProfileButton, "ProfileButton");
             ProfileButton.ForeColor = Color.White;
             ProfileButton.Name = "ProfileButton";
             ProfileButton.UseVisualStyleBackColor = false;
             ProfileButton.Click += ProfileButton_Click_1;
             // 
-            // chooseFormType1
+            // chooseFormType2
             // 
-            resources.ApplyResources(chooseFormType1, "chooseFormType1");
-            chooseFormType1.Name = "chooseFormType1";
+            resources.ApplyResources(chooseFormType2, "chooseFormType2");
+            chooseFormType2.Name = "chooseFormType2";
             // 
-            // filterByClass1
+            // userControlAttendance1
             // 
-            resources.ApplyResources(filterByClass1, "filterByClass1");
-            filterByClass1.Name = "filterByClass1";
-            // 
-            // stusentReport1
-            // 
-            resources.ApplyResources(stusentReport1, "stusentReport1");
-            stusentReport1.Name = "stusentReport1";
+            userControlAttendance1.BackColor = Color.White;
+            resources.ApplyResources(userControlAttendance1, "userControlAttendance1");
+            userControlAttendance1.Name = "userControlAttendance1";
             // 
             // TeacherForm
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            Controls.Add(stusentReport1);
-            Controls.Add(filterByClass1);
-            Controls.Add(chooseFormType1);
-            Controls.Add(userControlReport1);
-            Controls.Add(userControl11);
             Controls.Add(panel3);
             Controls.Add(panel1);
+            Controls.Add(userControlAttendance1);
+            Controls.Add(chooseFormType2);
             Name = "TeacherForm";
             WindowState = FormWindowState.Maximized;
             Load += TeacherForm_Load;
@@ -268,7 +246,6 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
-            panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -302,5 +279,8 @@
         private Button ProfileButton;
         private controls.StudentReport stusentReport1;
         private Label qwert;
+        private Label MyLabell;
+        private controls.ChooseFormType chooseFormType2;
+        private controls.UserControlAttendance userControlAttendance1;
     }
 }
