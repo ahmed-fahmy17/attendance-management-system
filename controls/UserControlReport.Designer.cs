@@ -59,7 +59,7 @@
             // 
             Class.AutoSize = true;
             Class.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Class.ForeColor = Color.IndianRed;
+            Class.ForeColor = Color.FromArgb(255, 64, 125);
             Class.Location = new Point(60, 83);
             Class.Name = "Class";
             Class.Size = new Size(99, 25);
@@ -80,7 +80,7 @@
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = Properties.Resources.icons8_save_64;
-            pictureBox1.Location = new Point(767, 24);
+            pictureBox1.Location = new Point(803, 24);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(73, 67);
             pictureBox1.TabIndex = 8;
@@ -91,7 +91,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.IndianRed;
+            label3.ForeColor = Color.FromArgb(255, 64, 125);
             label3.Location = new Point(262, 83);
             label3.Name = "label3";
             label3.Size = new Size(89, 25);
@@ -119,7 +119,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Historic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.Brown;
+            label2.ForeColor = Color.FromArgb(255, 64, 125);
             label2.Location = new Point(474, 80);
             label2.Name = "label2";
             label2.Size = new Size(151, 28);
@@ -132,12 +132,13 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AllowUserToOrderColumns = true;
             dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(41, 198);
+            dataGridView1.Location = new Point(41, 179);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(734, 346);
+            dataGridView1.Size = new Size(788, 419);
             dataGridView1.TabIndex = 13;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
             // 
@@ -176,7 +177,7 @@
             Controls.Add(Class);
             Controls.Add(label1);
             Name = "UserControlReport";
-            Size = new Size(874, 579);
+            Size = new Size(910, 635);
             Load += UserControlReport_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

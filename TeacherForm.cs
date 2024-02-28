@@ -1,5 +1,7 @@
 ﻿using attendance_management_system.controls;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using static attendance_management_system.login;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace attendance_management_system
@@ -16,6 +19,7 @@ namespace attendance_management_system
 
     public partial class TeacherForm : Form
     {
+        public Dictionary<string, string> MyDictionary { get; set; } = new Dictionary<string, string>();
         login loginForm;
         System.Timers.Timer timer;
         private TabControl tabControl1;
@@ -23,6 +27,13 @@ namespace attendance_management_system
         private TabPage tabPage1;
         private editUserProfile editUserProfile;
         private StudentReport studentRepo;
+        private ChooseFormType chooseFormType;
+        private UserControl userControl;
+        private UserControlReport userControlReport;
+        private FilterByClass filterByClass;
+        private StudentReport stusentReport;
+        private UserControlAttendance attendance;
+
         public TeacherForm()
         {
             InitializeComponent();
@@ -33,11 +44,21 @@ namespace attendance_management_system
             timer.Start();
             attendanceBtn.Click += attendanceBtn_Click;
             loginForm = new login();
-            userControl11.Visible = false;
-            userControlReport1.Visible = false;
-            filterByClass1.Visible = false;
-            stusentReport1.Visible = false;
+            userControl = new UserControl();
+            userControlReport = new UserControlReport();
+            filterByClass = new FilterByClass();
+            stusentReport = new StudentReport();
+            attendance=new UserControlAttendance();
+           
+                attendance.Visible = false;
+                userControlReport.Visible = false;
+                filterByClass.Visible = false;
+                stusentReport.Visible = false;
+
+          
+
             editUserProfile = new editUserProfile();
+            chooseFormType = new ChooseFormType();
         }
         private void TeacherForm_Load(object sender, EventArgs e)
         {
@@ -46,6 +67,15 @@ namespace attendance_management_system
             //display date 
             dateLabel.Text = DateTime.Now.ToString("dddd, MMMM dd, yyyy");
             LanguageComboBox.SelectedIndex = 1;
+            if (MyDictionary.ContainsKey("userName"))
+            {
+                MyLabell.Text = MyDictionary["userName"];
+            }
+            else
+            {
+                MyLabell.Text = "";
+            }
+
         }
 
         private void labelTime_Click(object sender, EventArgs e)
@@ -72,22 +102,18 @@ namespace attendance_management_system
         }
         private void attendanceBtn_Click(object sender, EventArgs e)
         {
-            if (userControl11 != null && userControlReport1 != null)
-            {
-                userControl11.Visible = true;
-                userControlReport1.Visible = false;
-                chooseFormType1.Visible = false;
-            }
+
+            userControlAttendance1.Visible= true;
+            chooseFormType.Visible = false;
+          
         }
 
         private void reportBtn_Click(object sender, EventArgs e)
         {
-            if (userControl11 != null && userControlReport1 != null)
-            {
-                userControl11.Visible = false;
-                userControlReport1.Visible = false;
-                chooseFormType1.Visible = true;
-            }
+
+            userControlAttendance1.Visible = false;
+            chooseFormType.Visible = true;
+           
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -106,9 +132,6 @@ namespace attendance_management_system
 
             }
         }
-
-
-
         private void ProfileButton_Click_1(object sender, EventArgs e)
         {
             Form edit = new Form();
@@ -123,7 +146,7 @@ namespace attendance_management_system
             {
                 // Load the XML file containing language preferences
                 XmlDocument doc = new XmlDocument();
-                doc.Load("C:\\Users\\USER\\Desktop\\c#proj4\\attendance-management-system\\xml\\Language.xml"); // Adjust the path as needed
+                doc.Load("C:\\Users\\USER\\Desktop\\c#project4\\attendance-management-system\\xml\\Language.xml"); // Adjust the path as needed
 
                 // Find the language node with the selected attribute set to true
                 string selected = LanguageComboBox.SelectedItem?.ToString(); // Ensure selected item is not null
@@ -140,6 +163,8 @@ namespace attendance_management_system
                         XmlNode? editProfileTranslation = selectedLanguageNode.SelectSingleNode("translation/EditProfile");
                         XmlNode? welcomeTranslation = selectedLanguageNode.SelectSingleNode("translation/Welcome");
                         XmlNode? SystemAttendanceTranslation = selectedLanguageNode.SelectSingleNode("translation/AttendanceSystem");
+                        XmlNode? langlabeltranslation = selectedLanguageNode.SelectSingleNode("translation/choosethelanhuage");
+                        XmlNode? typeofreporttranslation = selectedLanguageNode.SelectSingleNode("translation/choosethetypetypeofreport");
 
                         if (attendanceTranslationNode != null && reportTranslationNode != null)
                         {
@@ -150,6 +175,11 @@ namespace attendance_management_system
                             ProfileButton.Text = editProfileTranslation?.InnerText;
                             welcomeLabel.Text = welcomeTranslation?.InnerText;
                             SysLabel.Text = SystemAttendanceTranslation?.InnerText;
+                            chooseLanglabel.Text = langlabeltranslation?.InnerText;
+
+                            chooseFormType.SetLabelText(typeofreporttranslation?.InnerText);
+
+
                         }
                         else
                         {

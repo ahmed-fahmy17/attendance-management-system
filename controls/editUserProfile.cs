@@ -25,12 +25,12 @@ namespace attendance_management_system.controls
         public void loadCurrentUser()
         {
             xmlDocument = new XmlDocument();
-            xmlDocument.Load("C:\\Users\\USER\\Desktop\\c#proj4\\attendance-management-system\\xml\\users.xml");
+            xmlDocument.Load("C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\xml\\users.xml");
             XmlElement root = xmlDocument.DocumentElement;
             foreach (XmlNode node in root.ChildNodes)
             {
               nameNode  = node.SelectSingleNode("id");
-                if (nameNode != null && nameNode.InnerText == "1")
+                if (nameNode != null && nameNode.InnerText == "11111111111111")
                 {
                     passwordNode = node.SelectSingleNode("password");
                     userName = node.SelectSingleNode("name");
@@ -39,8 +39,6 @@ namespace attendance_management_system.controls
                     // Display loaded user information in the textboxes
                     userNameTxt.Text = userName.InnerText;
                     userPasswordTxt.Text = password;
-
-                    // Exit the loop after finding the user
                     break;
                 }
             }
@@ -49,14 +47,22 @@ namespace attendance_management_system.controls
 
         private void editBtn_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(userNameTxt.Text) && !string.IsNullOrEmpty(userPasswordTxt.Text))
+            if (!string.IsNullOrEmpty(userNameTxt.Text) &&
+                !string.IsNullOrEmpty(userPasswordTxt.Text) && 
+                (userNameTxt.Text).Length>=3 && (userPasswordTxt.Text).Length>=6 )
             {
                 nameErrorLabel.Text = "";
                 userName.InnerText = userNameTxt.Text;
                 passwordErrorLabel.Text = "";
                 passwordNode.InnerText = userPasswordTxt.Text;
-                xmlDocument.Save("C:\\Users\\USER\\Desktop\\c#proj4\\attendance-management-system\\xml\\users.xml");
+                xmlDocument.Save("C:\\Users\\USER\\Desktop\\c#project4\\attendance-management-system\\xml\\users.xml");
 
+            }
+            else
+            {
+                nameErrorLabel.Text = "Username must be at least 3 character";
+                passwordErrorLabel.Text = "Password must be at least 6 character";
+                return;
             }
             if (string.IsNullOrEmpty(userNameTxt.Text))
             {
@@ -72,8 +78,10 @@ namespace attendance_management_system.controls
                 return;
             }
 
-            
-           
+
+            userNameTxt.Text = "";
+            userPasswordTxt.Text = "";
+            this.Parent.Hide();
             MessageBox.Show("Edited Successfully");
         }
     }

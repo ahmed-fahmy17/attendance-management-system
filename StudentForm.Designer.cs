@@ -51,7 +51,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(261, 614);
+            panel1.Size = new Size(261, 741);
             panel1.TabIndex = 0;
             // 
             // StudentLogOutbutton
@@ -82,6 +82,7 @@
             StudentProfileButton.TabIndex = 2;
             StudentProfileButton.Text = "Edit Profile\r\n";
             StudentProfileButton.UseVisualStyleBackColor = false;
+            StudentProfileButton.Click += StudentProfileButton_Click;
             // 
             // StudentAttendanceButton
             // 
@@ -110,10 +111,10 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.immigration;
-            pictureBox1.Location = new Point(57, 23);
+            pictureBox1.Image = Properties.Resources.work_attendance_4;
+            pictureBox1.Location = new Point(58, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(127, 77);
+            pictureBox1.Size = new Size(123, 100);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
@@ -123,7 +124,7 @@
             syslabel.AutoSize = true;
             syslabel.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             syslabel.ForeColor = Color.FromArgb(255, 208, 236);
-            syslabel.Location = new Point(22, 103);
+            syslabel.Location = new Point(22, 115);
             syslabel.Name = "syslabel";
             syslabel.Size = new Size(209, 31);
             syslabel.TabIndex = 0;
@@ -131,7 +132,8 @@
             // 
             // studentAttendanceUserControl1
             // 
-            studentAttendanceUserControl1.Location = new Point(257, 0);
+            studentAttendanceUserControl1.BackColor = Color.White;
+            studentAttendanceUserControl1.Location = new Point(258, 0);
             studentAttendanceUserControl1.Name = "studentAttendanceUserControl1";
             studentAttendanceUserControl1.Size = new Size(1249, 748);
             studentAttendanceUserControl1.TabIndex = 1;
@@ -140,7 +142,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1163, 614);
+            BackColor = Color.White;
+            ClientSize = new Size(1534, 741);
             Controls.Add(studentAttendanceUserControl1);
             Controls.Add(panel1);
             Name = "StudentForm";

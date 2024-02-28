@@ -9,6 +9,8 @@
             <Welcome>مرحبا</Welcome>
             <choosethelanguage>اختر اللغة</choosethelanguage>
             <AttendanceSystem>نظام الحضور    </AttendanceSystem>
+            <choosethelanhuage>اختر اللغة</choosethelanhuage>
+            <choosethetypetypeofreport>اختر نوع التقرير</choosethetypetypeofreport>
         </translation>
     </language>
     <language>
@@ -19,8 +21,10 @@
             <EditProfile>Edit Profile</EditProfile>
             <Welcome>Welcome</Welcome>
             <LogOut>Log Out</LogOut>
-            <choosethelanguage>choose the language</choosethelanguage>
+            <choosethelanhuage>choose the language</choosethelanhuage>
             <AttendanceSystem>Attendance System</AttendanceSystem>
+            <choosethetypetypeofreport>Choose Type of The Report</choosethetypetypeofreport>
+              
         </translation>
     </language>
 </Languages>

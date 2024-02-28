@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             dateRangeBtn = new Button();
-            label1 = new Label();
+            typeofreportlabel = new Label();
             button1 = new Button();
             button2 = new Button();
             SuspendLayout();
@@ -49,16 +49,16 @@
             dateRangeBtn.UseVisualStyleBackColor = true;
             dateRangeBtn.Click += dateRangeBtn_Click;
             // 
-            // label1
+            // typeofreportlabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Simplified Arabic", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(255, 64, 125);
-            label1.Location = new Point(20, 14);
-            label1.Name = "label1";
-            label1.Size = new Size(565, 62);
-            label1.TabIndex = 6;
-            label1.Text = "Choose The Type Of Your Report";
+            typeofreportlabel.AutoSize = true;
+            typeofreportlabel.Font = new Font("Simplified Arabic", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            typeofreportlabel.ForeColor = Color.FromArgb(255, 64, 125);
+            typeofreportlabel.Location = new Point(20, 14);
+            typeofreportlabel.Name = "typeofreportlabel";
+            typeofreportlabel.Size = new Size(565, 62);
+            typeofreportlabel.TabIndex = 6;
+            typeofreportlabel.Text = "Choose The Type Of Your Report";
             // 
             // button1
             // 
@@ -97,7 +97,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(label1);
+            Controls.Add(typeofreportlabel);
             Controls.Add(dateRangeBtn);
             Name = "ChooseFormType";
             Size = new Size(1485, 748);
@@ -108,7 +108,7 @@
         #endregion
 
         private Button dateRangeBtn;
-        private Label label1;
+        private Label typeofreportlabel;
         private Button button1;
         private Button button2;
     }
