@@ -51,11 +51,11 @@ namespace attendance_management_system.controls
         {
             string selectedClass = classComboBox.SelectedItem.ToString();
             XmlDocument xmlDocument = new XmlDocument();
-            xmlDocument.Load(@"C:\Users\USER\Desktop\c#Project4\attendance-management-system\xml\attendance.xml");
+            xmlDocument.Load(@"C:\Users\USER\Desktop\final\attendance-management-system\xml\attendance.xml");
             XmlDocument xmlDocument2 = new XmlDocument();
-            xmlDocument2.Load(@"C:\Users\USER\Desktop\c#Project4\attendance-management-system\xml\users.xml");
+            xmlDocument2.Load(@"C:\Users\USER\Desktop\final\attendance-management-system\xml\users.xml");
             XslCompiledTransform transform = new XslCompiledTransform();
-            transform.Load(@"C:\Users\USER\Desktop\c#Project4\attendance-management-system\xml\FilteringDependingOnClass.xslt");
+            transform.Load(@"C:\Users\USER\Desktop\final\attendance-management-system\xml\FilteringDependingOnClass.xslt");
             XsltArgumentList xsltArgs = new XsltArgumentList();
             xsltArgs.AddParam("SubjectId", "", selectedClass);
             xsltArgs.AddParam("externalDoc", "", xmlDocument);

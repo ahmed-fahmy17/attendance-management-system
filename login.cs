@@ -48,7 +48,7 @@ namespace attendance_management_system
             var email = EmailTextBox.Text;
             var password = PasswordTextBox.Text;
             XmlDocument doc = new XmlDocument();
-            doc.Load("C:\\Users\\USER\\Desktop\\c#project4\\attendance-management-system\\xml\\users.xml");
+            doc.Load("C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\xml\\users.xml");
             XmlElement root = doc.DocumentElement;//users
            
             foreach (XmlNode node in root.ChildNodes)
@@ -75,7 +75,7 @@ namespace attendance_management_system
                                 myDictionary.Add("userName", xmlName);
                                 teacherForm.MyDictionary = myDictionary;
                                 teacherForm.Show();
-                               // MessageBox.Show("Welcome, teacher!");
+                               MessageBox.Show("Welcome, teacher!");
                                 break;
                             case "student":
                                 MessageBox.Show("Welcome, student!");

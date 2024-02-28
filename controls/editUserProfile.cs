@@ -25,7 +25,7 @@ namespace attendance_management_system.controls
         public void loadCurrentUser()
         {
             xmlDocument = new XmlDocument();
-            xmlDocument.Load("C:\\Users\\USER\\Desktop\\c#project4\\attendance-management-system\\xml\\users.xml");
+            xmlDocument.Load("C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\xml\\users.xml");
             XmlElement root = xmlDocument.DocumentElement;
             foreach (XmlNode node in root.ChildNodes)
             {
