@@ -2,7 +2,8 @@
 <users xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\iti\projects\c# and XML project\attendance-management-system\xml\usersSchema.xsd">
   <admin>
     <email>admin@yahoo.com</email>
-    <password>123456789</password>
+    <password>
+    </password>
   </admin>
   <user>
     <id>11111111111111</id>

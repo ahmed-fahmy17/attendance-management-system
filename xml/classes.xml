@@ -1,11 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <classes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\iti\projects\c# and XML project\attendance-management-system\xml\classesSchema.xsd">
-	<class>
-		<classId>Math</classId>
-		<className>Mathematics</className>
-		<teacherId>11111111111111</teacherId>
-		<students>
-			<studentId>01234532569421</studentId>
-		</students>
-	</class>
+  <class>
+    <classId>Math2</classId>
+    <className>Mathematics2</className>
+    <teacherId>1114441111121</teacherId>
+    <students>
+    </students>
+  </class>
+  <class>
+    <classId>Math3</classId>
+    <className>Mathematics3</className>
+    <teacherId>1114441111555</teacherId>
+    <students>
+      <studentId>01234532569421</studentId>
+    </students>
+  </class>
 </classes>

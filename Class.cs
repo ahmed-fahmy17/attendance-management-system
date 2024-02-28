@@ -8,8 +8,11 @@ namespace attendance_management_system
 {
     internal class Class
     {
-        public Class() {
+        public Class(string _ClassId = "",string _ClassName = "",string _ClassTeacherId = "") {
             StudentsId = new List<string>();
+            ClassId = _ClassId;
+            ClassName = _ClassName;
+            ClassTeacherId = _ClassTeacherId;
         }
         public string ClassId { get; set; }
         public string ClassName { get; set; }

@@ -29,34 +29,36 @@
         private void InitializeComponent()
         {
             ClassesTable = new DataGridView();
-            ClassUsersTable = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
+            ClassUsersTable = new DataGridView();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            textBoxID = new TextBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            textBoxClassID = new TextBox();
+            textBoxClassName = new TextBox();
+            textBoxTeacherID = new TextBox();
             buttonAddClass = new Button();
             buttonUpdateClass = new Button();
             buttonDeleteClass = new Button();
-            textBox3 = new TextBox();
+            textBoxStudentId = new TextBox();
             label4 = new Label();
-            button1 = new Button();
-            button2 = new Button();
+            AddStudentToClassBTN = new Button();
+            RemoveStudentFromClassBTN = new Button();
             ((System.ComponentModel.ISupportInitialize)ClassesTable).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ClassUsersTable).BeginInit();
             SuspendLayout();
             // 
             // ClassesTable
             // 
+            ClassesTable.AllowUserToAddRows = false;
+            ClassesTable.AllowUserToDeleteRows = false;
             ClassesTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            ClassesTable.BackgroundColor = Color.White;
+            ClassesTable.BackgroundColor = Color.Gray;
             ClassesTable.BorderStyle = BorderStyle.None;
             ClassesTable.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             ClassesTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -67,21 +69,7 @@
             ClassesTable.RowHeadersWidth = 51;
             ClassesTable.Size = new Size(446, 259);
             ClassesTable.TabIndex = 1;
-            // 
-            // ClassUsersTable
-            // 
-            ClassUsersTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            ClassUsersTable.BackgroundColor = Color.White;
-            ClassUsersTable.BorderStyle = BorderStyle.None;
-            ClassUsersTable.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            ClassUsersTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            ClassUsersTable.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3 });
-            ClassUsersTable.Location = new Point(467, 21);
-            ClassUsersTable.Name = "ClassUsersTable";
-            ClassUsersTable.ReadOnly = true;
-            ClassUsersTable.RowHeadersWidth = 51;
-            ClassUsersTable.Size = new Size(475, 259);
-            ClassUsersTable.TabIndex = 2;
+            ClassesTable.SelectionChanged += ClassesTable_SelectionChanged;
             // 
             // Column1
             // 
@@ -103,6 +91,24 @@
             Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
             Column2.ReadOnly = true;
+            // 
+            // ClassUsersTable
+            // 
+            ClassUsersTable.AllowUserToAddRows = false;
+            ClassUsersTable.AllowUserToDeleteRows = false;
+            ClassUsersTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            ClassUsersTable.BackgroundColor = Color.Gray;
+            ClassUsersTable.BorderStyle = BorderStyle.None;
+            ClassUsersTable.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            ClassUsersTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            ClassUsersTable.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3 });
+            ClassUsersTable.Location = new Point(467, 21);
+            ClassUsersTable.Name = "ClassUsersTable";
+            ClassUsersTable.ReadOnly = true;
+            ClassUsersTable.RowHeadersWidth = 51;
+            ClassUsersTable.Size = new Size(475, 259);
+            ClassUsersTable.TabIndex = 2;
+            ClassUsersTable.SelectionChanged += ClassUsersTable_SelectionChanged;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -152,26 +158,26 @@
             label3.TabIndex = 5;
             label3.Text = "Class Teacher ID";
             // 
-            // textBoxID
+            // textBoxClassID
             // 
-            textBoxID.Location = new Point(154, 315);
-            textBoxID.Name = "textBoxID";
-            textBoxID.Size = new Size(125, 27);
-            textBoxID.TabIndex = 11;
+            textBoxClassID.Location = new Point(154, 315);
+            textBoxClassID.Name = "textBoxClassID";
+            textBoxClassID.Size = new Size(125, 27);
+            textBoxClassID.TabIndex = 11;
             // 
-            // textBox1
+            // textBoxClassName
             // 
-            textBox1.Location = new Point(154, 366);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 12;
+            textBoxClassName.Location = new Point(154, 366);
+            textBoxClassName.Name = "textBoxClassName";
+            textBoxClassName.Size = new Size(125, 27);
+            textBoxClassName.TabIndex = 12;
             // 
-            // textBox2
+            // textBoxTeacherID
             // 
-            textBox2.Location = new Point(154, 423);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 13;
+            textBoxTeacherID.Location = new Point(154, 423);
+            textBoxTeacherID.Name = "textBoxTeacherID";
+            textBoxTeacherID.Size = new Size(125, 27);
+            textBoxTeacherID.TabIndex = 13;
             // 
             // buttonAddClass
             // 
@@ -181,6 +187,7 @@
             buttonAddClass.TabIndex = 16;
             buttonAddClass.Text = "Add Class";
             buttonAddClass.UseVisualStyleBackColor = true;
+            buttonAddClass.Click += buttonAddClass_Click;
             // 
             // buttonUpdateClass
             // 
@@ -190,6 +197,7 @@
             buttonUpdateClass.TabIndex = 17;
             buttonUpdateClass.Text = "Update Class";
             buttonUpdateClass.UseVisualStyleBackColor = true;
+            buttonUpdateClass.Click += buttonUpdateClass_Click;
             // 
             // buttonDeleteClass
             // 
@@ -199,13 +207,14 @@
             buttonDeleteClass.TabIndex = 18;
             buttonDeleteClass.Text = "Delete Class";
             buttonDeleteClass.UseVisualStyleBackColor = true;
+            buttonDeleteClass.Click += buttonDeleteClass_Click;
             // 
-            // textBox3
+            // textBoxStudentId
             // 
-            textBox3.Location = new Point(719, 318);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(125, 27);
-            textBox3.TabIndex = 19;
+            textBoxStudentId.Location = new Point(719, 318);
+            textBoxStudentId.Name = "textBoxStudentId";
+            textBoxStudentId.Size = new Size(125, 27);
+            textBoxStudentId.TabIndex = 19;
             // 
             // label4
             // 
@@ -216,39 +225,41 @@
             label4.TabIndex = 20;
             label4.Text = "Student ID";
             // 
-            // button1
+            // AddStudentToClassBTN
             // 
-            button1.Location = new Point(556, 397);
-            button1.Name = "button1";
-            button1.Size = new Size(116, 29);
-            button1.TabIndex = 21;
-            button1.Text = "Add Student";
-            button1.UseVisualStyleBackColor = true;
+            AddStudentToClassBTN.Location = new Point(556, 397);
+            AddStudentToClassBTN.Name = "AddStudentToClassBTN";
+            AddStudentToClassBTN.Size = new Size(116, 29);
+            AddStudentToClassBTN.TabIndex = 21;
+            AddStudentToClassBTN.Text = "Add Student";
+            AddStudentToClassBTN.UseVisualStyleBackColor = true;
+            AddStudentToClassBTN.Click += AddStudentToClassBTN_Click;
             // 
-            // button2
+            // RemoveStudentFromClassBTN
             // 
-            button2.Location = new Point(769, 397);
-            button2.Name = "button2";
-            button2.Size = new Size(116, 29);
-            button2.TabIndex = 22;
-            button2.Text = "Remove Student";
-            button2.UseVisualStyleBackColor = true;
+            RemoveStudentFromClassBTN.Location = new Point(769, 397);
+            RemoveStudentFromClassBTN.Name = "RemoveStudentFromClassBTN";
+            RemoveStudentFromClassBTN.Size = new Size(116, 29);
+            RemoveStudentFromClassBTN.TabIndex = 22;
+            RemoveStudentFromClassBTN.Text = "Remove Student";
+            RemoveStudentFromClassBTN.UseVisualStyleBackColor = true;
+            RemoveStudentFromClassBTN.Click += RemoveStudentFromClassBTN_Click;
             // 
             // UserControlClasses
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(RemoveStudentFromClassBTN);
+            Controls.Add(AddStudentToClassBTN);
             Controls.Add(label4);
-            Controls.Add(textBox3);
+            Controls.Add(textBoxStudentId);
             Controls.Add(buttonDeleteClass);
             Controls.Add(buttonUpdateClass);
             Controls.Add(buttonAddClass);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(textBoxID);
+            Controls.Add(textBoxTeacherID);
+            Controls.Add(textBoxClassName);
+            Controls.Add(textBoxClassID);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -275,15 +286,15 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private TextBox textBoxID;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox textBoxClassID;
+        private TextBox textBoxClassName;
+        private TextBox textBoxTeacherID;
         private Button buttonAddClass;
         private Button buttonUpdateClass;
         private Button buttonDeleteClass;
-        private TextBox textBox3;
+        private TextBox textBoxStudentId;
         private Label label4;
-        private Button button1;
-        private Button button2;
+        private Button AddStudentToClassBTN;
+        private Button RemoveStudentFromClassBTN;
     }
 }

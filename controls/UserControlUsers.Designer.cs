@@ -58,8 +58,10 @@
             // 
             // UsersTable
             // 
+            UsersTable.AllowUserToAddRows = false;
+            UsersTable.AllowUserToDeleteRows = false;
             UsersTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            UsersTable.BackgroundColor = Color.White;
+            UsersTable.BackgroundColor = Color.Gray;
             UsersTable.BorderStyle = BorderStyle.None;
             UsersTable.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             UsersTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
