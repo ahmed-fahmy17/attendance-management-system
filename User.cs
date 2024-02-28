@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace attendance_management_system
 {
@@ -17,6 +18,23 @@ namespace attendance_management_system
             Password = _Password;
             Role = _Role;
         }
+        public static bool IsValidId(string _Id)
+        {
+            if (_Id.Length != 14)
+                return false;
+            foreach (char ch in _Id)
+            {
+                if(!(ch >= '0' && ch <= '9'))
+                    return false;
+            }
+            List<string> Users = XmlManipulation.GetAllUserIds();
+            foreach (string userId in Users)
+            {
+                if (userId == _Id)
+                    return false;
+            }
+            return true;
+        }
         public string Id{ get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
@@ -28,7 +46,7 @@ namespace attendance_management_system
 
         public override string ToString()
         {
-            return String.Format("id={0} , name={1} , Email={2} , age={3}",Id,Name,Email,Age);
+            return $"id={Id} , name={Name} , Email={Email} , age={Age}";
         }
 
     }

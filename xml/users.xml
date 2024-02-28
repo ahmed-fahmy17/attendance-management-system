@@ -2,18 +2,8 @@
 <users xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\iti\projects\c# and XML project\attendance-management-system\xml\usersSchema.xsd">
   <admin>
     <email>admin@yahoo.com</email>
-    <password>
-    </password>
+    <password>123456789</password>
   </admin>
-  <user>
-    <id>11111111111111</id>
-    <name>Ali shaheen</name>
-    <email>ali@yahoo.com</email>
-    <age>50</age>
-    <phone>01065632156</phone>
-    <password>12345678</password>
-    <role>teacher</role>
-  </user>
   <user>
     <id>11111111111111</id>
     <name>Ali shaheen</name>
@@ -28,6 +18,15 @@
     <name>Ahmed Fahmy</name>
     <email>ahmed@yahoo.com</email>
     <age>23</age>
+    <phone>01065632156</phone>
+    <password>12345678</password>
+    <role>student</role>
+  </user>
+  <user>
+    <id>99934532569000</id>
+    <name>mohamed alaa</name>
+    <email>mo@yahoo.com</email>
+    <age>30</age>
     <phone>01065632156</phone>
     <password>12345678</password>
     <role>student</role>

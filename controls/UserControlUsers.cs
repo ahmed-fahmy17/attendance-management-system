@@ -58,7 +58,13 @@ namespace attendance_management_system.controls
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             User user = new User();
-            user.Id = textBoxID.Text;
+            if(User.IsValidId(textBoxID.Text))
+                user.Id = textBoxID.Text;
+            else
+            {
+                MessageBox.Show("User id must be 14 numbers and unique", "Wrong user ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             user.Name = textBoxName.Text;
             user.Email = textBoxEmail.Text;
             user.Age = int.Parse(textBoxAge.Text);

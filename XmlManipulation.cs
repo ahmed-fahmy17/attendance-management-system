@@ -8,13 +8,14 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
 using static iText.StyledXmlParser.Jsoup.Select.Evaluator;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace attendance_management_system
 {
     internal class XmlManipulation
     {
-        private static string UserDataPath = "D:\\iti\\projects\\c# and XML project\\attendance-management-system\\xml\\users.xml";
-        private static string ClassDataPath = "D:\\iti\\projects\\c# and XML project\\attendance-management-system\\xml\\classes.xml";
+        private static string UserDataPath = "..\\..\\..\\xml\\users.xml";
+        private static string ClassDataPath = "..\\..\\..\\xml\\classes.xml";
         public static List<User> GetUserData()
         {
             XmlDocument xmlDoc = new XmlDocument();
@@ -61,14 +62,14 @@ namespace attendance_management_system
             List<User> Data = new List<User> ();
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(ClassDataPath);
-            XmlNodeList studentIdNodes = xmlDoc.SelectNodes(String.Format("/classes/class[classId='{0}']/students/studentId", classId));
+            XmlNodeList studentIdNodes = xmlDoc.SelectNodes($"/classes/class[classId='{classId}']/students/studentId");
             foreach (XmlNode studentIdNode in studentIdNodes)
             {
                 User user = new User();
                 string StId = studentIdNode.InnerText;
                 XmlDocument xmlDoc2 = new XmlDocument();
                 xmlDoc2.Load(UserDataPath);
-                XmlNode userNode = xmlDoc2.SelectSingleNode(String.Format("/users/user[id='{0}']", StId));
+                XmlNode userNode = xmlDoc2.SelectSingleNode($"/users/user[id='{StId}']");
                 if (userNode != null)
                 {
                     user.Id = userNode.SelectSingleNode("id").InnerText;
@@ -145,7 +146,7 @@ namespace attendance_management_system
         {
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(UserDataPath);
-            XmlNode userNode = xmlDoc.SelectSingleNode(String.Format("/users/user[id='{0}']",userId));
+            XmlNode userNode = xmlDoc.SelectSingleNode($"/users/user[id='{userId}']");
             if(userNode != null )
             {
                 userNode.ParentNode.RemoveChild(userNode);
@@ -184,7 +185,7 @@ namespace attendance_management_system
             if (_class == null) { return false; }
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(ClassDataPath);
-            XmlNode classNode = xmlDoc.SelectSingleNode(String.Format("/classes/class[classId='{0}']", oldClassId));
+            XmlNode classNode = xmlDoc.SelectSingleNode($"/classes/class[classId='{oldClassId}']");
             classNode.ChildNodes[0].InnerText= _class.ClassId;
             classNode.ChildNodes[1].InnerText= _class.ClassName;
             classNode.ChildNodes[2].InnerText= _class.ClassTeacherId;
@@ -195,7 +196,7 @@ namespace attendance_management_system
         {
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(ClassDataPath);
-            XmlNode classNode = xmlDoc.SelectSingleNode(String.Format("/classes/class[classId='{0}']", classId));
+            XmlNode classNode = xmlDoc.SelectSingleNode($"/classes/class[classId='{classId}']");
             if (classNode != null)
             {
                 classNode.ParentNode.RemoveChild(classNode);
@@ -208,7 +209,7 @@ namespace attendance_management_system
             User user = new User();
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(UserDataPath);
-            XmlNode UserNode = xmlDoc.SelectSingleNode(String.Format("/users/user[id='{0}']", userId));
+            XmlNode UserNode = xmlDoc.SelectSingleNode($"/users/user[id='{userId}']");
             user.Id = UserNode.SelectSingleNode("id").InnerText;
             user.Name = UserNode.SelectSingleNode("name").InnerText;
             user.Email = UserNode.SelectSingleNode("email").InnerText;
@@ -223,7 +224,7 @@ namespace attendance_management_system
         {
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(ClassDataPath);
-            XmlNode classStudentsNode = xmlDoc.SelectSingleNode(String.Format("/classes/class[classId='{0}']/students", classId));
+            XmlNode classStudentsNode = xmlDoc.SelectSingleNode($"/classes/class[classId='{classId}']/students");
 
             XmlElement xmlStudentId = xmlDoc.CreateElement("studentId");
             xmlStudentId.InnerText = studentId;
@@ -235,12 +236,24 @@ namespace attendance_management_system
         {
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(ClassDataPath);
-            XmlNode classStudentsNode = xmlDoc.SelectSingleNode(String.Format("/classes/class[classId='{0}']/students/studentId[text()='{1}']", classId,studentId));
+            XmlNode classStudentsNode = xmlDoc.SelectSingleNode($"/classes/class[classId='{classId}']/students/studentId[text()='{studentId}']");
             if (classStudentsNode != null)
             {
                 classStudentsNode.ParentNode.RemoveChild(classStudentsNode);
                 xmlDoc.Save(ClassDataPath);
             }
+        }
+        public static List<string> GetAllUserIds()
+        {
+            List<string> users = new List<string>();
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(UserDataPath);
+            XmlNodeList idNodes = xmlDoc.SelectNodes("//id");
+            foreach (XmlNode idNode in idNodes)
+            {
+                users.Add(idNode.InnerText);
+            }
+            return users;
         }
     }
 }
