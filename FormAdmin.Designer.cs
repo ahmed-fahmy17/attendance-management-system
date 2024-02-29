@@ -294,6 +294,7 @@
             Name = "FormAdmin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Attendance management system";
+            WindowState = FormWindowState.Maximized;
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel2.ResumeLayout(false);

@@ -148,18 +148,21 @@ namespace attendance_management_system.controls
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            if (UsersTable.SelectedRows.Count > 0)
+            if (UsersTable.SelectedRows.Count == 0)
             {
-                int selectedIndex = UsersTable.SelectedRows[0].Index;
-                string userId = UsersTable.Rows[selectedIndex].Cells[0].Value.ToString();
-                DialogResult result = MessageBox.Show("Do you want to delete this user ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
-                {
-                    XmlManipulation.RemoveUser(userId);
-                    UsersTable.Rows.RemoveAt(selectedIndex);
-                    MessageBox.Show("User deleted!", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ClearTextBoxes();
-                }
+                labelErrorUserData.Text = "please select a user from the table first";
+                labelErrorUserData.Visible = true;
+                return;
+            }
+            int selectedIndex = UsersTable.SelectedRows[0].Index;
+            string userId = UsersTable.Rows[selectedIndex].Cells[0].Value.ToString();
+            DialogResult result = MessageBox.Show("Do you want to delete this user ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                XmlManipulation.RemoveUser(userId);
+                UsersTable.Rows.RemoveAt(selectedIndex);
+                MessageBox.Show("User deleted!", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ClearTextBoxes();
             }
         }
 

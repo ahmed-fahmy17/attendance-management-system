@@ -35,6 +35,7 @@
             textBoxAdminOldPassword = new TextBox();
             textBoxAdminNewPassword = new TextBox();
             UpdateAdminBTN = new Button();
+            labelErrorAdminData = new Label();
             SuspendLayout();
             // 
             // label1
@@ -97,11 +98,22 @@
             UpdateAdminBTN.UseVisualStyleBackColor = true;
             UpdateAdminBTN.Click += UpdateAdminBTN_Click;
             // 
+            // labelErrorAdminData
+            // 
+            labelErrorAdminData.AutoSize = true;
+            labelErrorAdminData.ForeColor = Color.Red;
+            labelErrorAdminData.Location = new Point(321, 382);
+            labelErrorAdminData.Name = "labelErrorAdminData";
+            labelErrorAdminData.Size = new Size(26, 20);
+            labelErrorAdminData.TabIndex = 7;
+            labelErrorAdminData.Text = "{?}";
+            // 
             // UserControlUpdateAdminData
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            Controls.Add(labelErrorAdminData);
             Controls.Add(UpdateAdminBTN);
             Controls.Add(textBoxAdminNewPassword);
             Controls.Add(textBoxAdminOldPassword);
@@ -125,5 +137,6 @@
         private TextBox textBoxAdminOldPassword;
         private TextBox textBoxAdminNewPassword;
         private Button UpdateAdminBTN;
+        private Label labelErrorAdminData;
     }
 }

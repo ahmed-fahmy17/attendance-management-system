@@ -1,4 +1,5 @@
 ﻿
+using Org.BouncyCastle.Asn1.Ocsp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +19,6 @@ namespace attendance_management_system
 {
     public partial class login : Form
     {
-        // public   List<string> currentUser = new List<string>();
 
 
         Dictionary<string, string> myDictionary = new Dictionary<string, string>();
@@ -28,67 +28,43 @@ namespace attendance_management_system
             InitializeComponent();
           
         }
-        public class CurrentUser
-        {
-            public string Email { get; set; }
-            public string Password { get; set; }
-            public string Role { get; set; }
-            public string Name { get; set; }
-            public string Id { get; set; }
-        }
 
         public void button1_Click_1(object sender, EventArgs e)
         {
-            TeacherForm teacherForm;
-            FormAdmin admin;
-            StudentForm studentForm;
-            teacherForm = new TeacherForm();
-            admin = new FormAdmin();
-            studentForm = new StudentForm();
-            var email = EmailTextBox.Text;
-            var password = PasswordTextBox.Text;
-            XmlDocument doc = new XmlDocument();
-            doc.Load("C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\xml\\users.xml");
-            XmlElement root = doc.DocumentElement;//users
-           
-            foreach (XmlNode node in root.ChildNodes)
+            string email = EmailTextBox.Text;
+            string password = PasswordTextBox.Text;
+            Admin adminData = XmlManipulation.GetAdminData();
+            if (adminData.Email == email && adminData.Password == password)
             {
-                var xmlEmail = node.SelectSingleNode("email");
-                var xmlPassword = node.SelectSingleNode("password");
-                var xmlRole = node.SelectSingleNode("role")?.InnerText;
-                var xmlName=node.SelectSingleNode("name")?.InnerText;
-                var xmlId=node.SelectSingleNode("id")?.InnerText;   
-
-                if (xmlEmail != null && xmlPassword != null && xmlRole != null)
+                FormAdmin admin = new FormAdmin();
+                this.Hide();
+                admin.Show();
+                return;
+            }
+            List<User> usersData = XmlManipulation.GetUserData();
+            foreach(User user in usersData)
+            {
+                if(user.Email == email && user.Password == password)
                 {
-                    if (xmlEmail.InnerText == email.ToString() && xmlPassword.InnerText == password.ToString())
+                    myDictionary.Add("userId", user.Id);
+                    myDictionary.Add("userName", user.Name);
+                    myDictionary.Add("password", user.Password);
+                    if (user.Role == "student")
                     {
-                        MessageBox.Show("Welcome, user!");
-                        switch (xmlRole)
-                        {
-                            case "admin":
-                                MessageBox.Show("Welcome, admin!");
-                                admin.Show();
-                                break;
-                            case "teacher":
-                                myDictionary.Add("userId",xmlId);
-                                myDictionary.Add("userName", xmlName);
-                                teacherForm.MyDictionary = myDictionary;
-                                teacherForm.Show();
-                               MessageBox.Show("Welcome, teacher!");
-                                break;
-                            case "student":
-                                MessageBox.Show("Welcome, student!");
-                                studentForm.Show();
-                                break;
-                            default:
-                                MessageBox.Show("email or password incorrect!");
-                                break;
-                        }
+                        StudentForm studentForm = new StudentForm();
+                        this.Hide();
+                        studentForm.Show();
+                        return;
+                    }
+                    else
+                    {
+                        TeacherForm teacherForm = new TeacherForm();
+                        this.Hide();
+                        teacherForm.Show();
+                        return;
                     }
                 }
             }
-
         }
 
     }
