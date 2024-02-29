@@ -49,6 +49,8 @@
             label4 = new Label();
             AddStudentToClassBTN = new Button();
             RemoveStudentFromClassBTN = new Button();
+            labelErrorClass = new Label();
+            labelErrorStudent = new Label();
             ((System.ComponentModel.ISupportInitialize)ClassesTable).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ClassUsersTable).BeginInit();
             SuspendLayout();
@@ -245,11 +247,33 @@
             RemoveStudentFromClassBTN.UseVisualStyleBackColor = true;
             RemoveStudentFromClassBTN.Click += RemoveStudentFromClassBTN_Click;
             // 
+            // labelErrorClass
+            // 
+            labelErrorClass.AutoSize = true;
+            labelErrorClass.ForeColor = Color.Red;
+            labelErrorClass.Location = new Point(20, 465);
+            labelErrorClass.Name = "labelErrorClass";
+            labelErrorClass.Size = new Size(26, 20);
+            labelErrorClass.TabIndex = 23;
+            labelErrorClass.Text = "{?}";
+            // 
+            // labelErrorStudent
+            // 
+            labelErrorStudent.AutoSize = true;
+            labelErrorStudent.ForeColor = Color.Red;
+            labelErrorStudent.Location = new Point(556, 465);
+            labelErrorStudent.Name = "labelErrorStudent";
+            labelErrorStudent.Size = new Size(26, 20);
+            labelErrorStudent.TabIndex = 24;
+            labelErrorStudent.Text = "{?}";
+            // 
             // UserControlClasses
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            Controls.Add(labelErrorStudent);
+            Controls.Add(labelErrorClass);
             Controls.Add(RemoveStudentFromClassBTN);
             Controls.Add(AddStudentToClassBTN);
             Controls.Add(label4);
@@ -296,5 +320,7 @@
         private Label label4;
         private Button AddStudentToClassBTN;
         private Button RemoveStudentFromClassBTN;
+        private Label labelErrorClass;
+        private Label labelErrorStudent;
     }
 }

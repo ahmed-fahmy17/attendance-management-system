@@ -42,6 +42,26 @@ namespace attendance_management_system
             }
             return true;
         }
+        public static bool isValidTeacherId(string _Id)
+        {
+            List<User> users = XmlManipulation.GetUserData();
+            foreach (User user in users)
+            {
+                if (user.Role == "teacher" && user.Id == _Id)
+                    return true;
+            }
+            return false;
+        }
+        public static bool isValidStudentId(string _Id)
+        {
+            List<User> users = XmlManipulation.GetUserData();
+            foreach (User user in users)
+            {
+                if (user.Role == "student" && user.Id == _Id)
+                    return true;
+            }
+            return false;
+        }
 
         public static bool isValidName(string  _Name)
         {

@@ -51,7 +51,8 @@ namespace attendance_management_system
                 XmlNodeList studentIdNodes = xmlDoc.SelectNodes("//class/students");
                 foreach (XmlNode studentIdNode in studentIdNodes)
                 {
-                    _class.StudentsId.Add(studentIdNode.SelectSingleNode("studentId").InnerText);
+                    if(studentIdNode.SelectSingleNode("studentId") != null)
+                        _class.StudentsId.Add(studentIdNode.SelectSingleNode("studentId").InnerText);
                 }
                 Data.Add(_class);
             }
@@ -266,6 +267,18 @@ namespace attendance_management_system
                 usersEmail.Add(emailNode.InnerText);
             }
             return usersEmail;
+        }
+        public static List<string> GetAllClassIds()
+        {
+            List<string> ClassIds = new List<string>();
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(ClassDataPath);
+            XmlNodeList classIdNodes = xmlDoc.SelectNodes("//classId");
+            foreach (XmlNode classIdNode in classIdNodes)
+            {
+                ClassIds.Add(classIdNode.InnerText);
+            }
+            return ClassIds;
         }
     }
 }

@@ -165,6 +165,12 @@ namespace attendance_management_system.controls
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
+            if (UsersTable.SelectedRows.Count == 0)
+            {
+                labelErrorUserData.Text = "please select a user from the table first";
+                labelErrorUserData.Visible = true;
+                return;
+            }
             User user = new User();
             if (!ValidateEnteredUserData(ref user))
                 return;
