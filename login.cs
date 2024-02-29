@@ -66,7 +66,6 @@ namespace attendance_management_system
                     }
                 }
             }
-            labelErrorLogin.Text = "Wrong credentials!";
             labelErrorLogin.Visible = true;
         }
 

@@ -38,6 +38,7 @@
             labelErrorLogin = new Label();
             Arabic = new RadioButton();
             English = new RadioButton();
+            label2 = new Label();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -87,6 +88,7 @@
             resources.ApplyResources(labelErrorLogin, "labelErrorLogin");
             labelErrorLogin.ForeColor = Color.Red;
             labelErrorLogin.Name = "labelErrorLogin";
+            labelErrorLogin.Text = "Wrong credentials";
             // 
             // Arabic
             // 
@@ -99,16 +101,24 @@
             // English
             // 
             resources.ApplyResources(English, "English");
+            English.Checked = true;
             English.Name = "English";
             English.Text = "English";
             English.UseVisualStyleBackColor = true;
             English.CheckedChanged += English_CheckedChanged;
+            // 
+            // label2
+            // 
+            resources.ApplyResources(label2, "label2");
+            label2.Name = "label2";
+            label2.Text = "Language";
             // 
             // login
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            Controls.Add(label2);
             Controls.Add(English);
             Controls.Add(Arabic);
             Controls.Add(panel2);
@@ -132,5 +142,6 @@
         private Label labelErrorLogin;
         private RadioButton Arabic;
         private RadioButton English;
+        private Label label2;
     }
 }
