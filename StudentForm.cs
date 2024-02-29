@@ -18,18 +18,16 @@ namespace attendance_management_system
         public StudentForm()
         {
             InitializeComponent();
-            studentAttendanceUserControl1.Visible = false;
+          studentAttendanceUserControl1.Visible = false;
             loginForm = new login();
             editUserProfile = new editUserProfile();
         }
-
         private void StudentAttendanceButton_Click(object sender, EventArgs e)
         {
             if (studentAttendanceUserControl1 != null)
             {
                 studentAttendanceUserControl1.Visible = true;
             }
-
         }
         private void StudentLogOutbutton_Click(object sender, EventArgs e)
         {
@@ -50,7 +48,6 @@ namespace attendance_management_system
             }
 
         }
-
         private void StudentProfileButton_Click(object sender, EventArgs e)
         {
             Form edit = new Form();

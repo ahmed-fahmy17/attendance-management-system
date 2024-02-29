@@ -1,5 +1,90 @@
-﻿
+﻿using Org.BouncyCastle.Asn1.Ocsp;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+
+namespace attendance_management_system
+{
+    public partial class login : Form
+    {
+        public static Dictionary<string, string> myDictionary = new Dictionary<string, string>();
+        public login()
+        {
+            InitializeComponent();
+        }
+        public void button1_Click_1(object sender, EventArgs e)
+        {
+            string email = EmailTextBox.Text;
+            string password = PasswordTextBox.Text;
+            Admin adminData = XmlManipulation.GetAdminData();
+            if (adminData.Email == email && adminData.Password == password)
+            {
+                FormAdmin admin = new FormAdmin();
+                admin.Show();
+                return;
+            }
+            List<User> usersData = XmlManipulation.GetUserData();
+            foreach (User user in usersData)
+            {
+                if (user.Email == email && user.Password == password)
+                {
+                   
+                    if (user.Role == "student")
+                    {
+                        myDictionary.Add("userId", user.Id);
+                        myDictionary.Add("userName", user.Name);
+                        myDictionary.Add("password", user.Password);
+                        StudentForm studentForm = new StudentForm();
+                        studentForm.Show();
+                        
+                        return;
+                    }
+                    else
+                    {
+                        myDictionary.Add("userId", user.Id);
+                        myDictionary.Add("userName", user.Name);
+                        myDictionary.Add("password", user.Password);
+                        TeacherForm teacherForm = new TeacherForm();
+                        teacherForm.Show();
+                        return;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -78,10 +163,13 @@ namespace attendance_management_system
                                 teacherForm.Show();
                                 break;
                             case "student":
+                                myDictionary.Add("userId", xmlId);
+                                myDictionary.Add("userName", xmlName);
+                                myDictionary.Add("password", xmlPassword.InnerText);
                                 StudentForm studentForm;
                                 studentForm = new StudentForm();
-                                isLoggedIn =true;
                                 MessageBox.Show("Welcome, student!");
+                                isLoggedIn =true;
                                 studentForm.Show();
                                 break;
                             default:
@@ -96,4 +184,4 @@ namespace attendance_management_system
 
     }
 }
-
+*/

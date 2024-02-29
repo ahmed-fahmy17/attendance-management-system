@@ -40,14 +40,11 @@ namespace attendance_management_system.controls
                     studentIds.Add(std_id);
                 }
             }
-
             foreach (string studentId in studentIds)
             {
                 studentsComboBox.Items.Add(studentId);
             }
         }
-
-
         private void studentReportPic_Click(object sender, EventArgs e)
         {
             try
