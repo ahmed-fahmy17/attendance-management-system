@@ -62,7 +62,7 @@
             editBtn.ForeColor = Color.White;
             editBtn.Name = "editBtn";
             editBtn.UseVisualStyleBackColor = false;
-            editBtn.Click += editBtn_Click;
+            editBtn.Click += editBtn_Click_1;
             // 
             // canceBtn
             // 
@@ -72,7 +72,6 @@
             canceBtn.ForeColor = Color.White;
             canceBtn.Name = "canceBtn";
             canceBtn.UseVisualStyleBackColor = false;
-            canceBtn.Click += canceBtn_Click;
             // 
             // nameErrorLabel
             // 

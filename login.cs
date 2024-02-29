@@ -18,11 +18,8 @@ namespace attendance_management_system
 {
     public partial class login : Form
     {
-        // public   List<string> currentUser = new List<string>();
-
-
-        Dictionary<string, string> myDictionary = new Dictionary<string, string>();
-
+        public static Dictionary<string, string> myDictionary = new Dictionary<string, string>();
+       public static bool isLoggedIn = false;
         public login()
         {
             InitializeComponent();
@@ -36,21 +33,18 @@ namespace attendance_management_system
             public string Name { get; set; }
             public string Id { get; set; }
         }
-
+       
         public void button1_Click_1(object sender, EventArgs e)
         {
-            TeacherForm teacherForm;
-            FormAdmin admin;
-            StudentForm studentForm;
-            teacherForm = new TeacherForm();
-            admin = new FormAdmin();
-            studentForm = new StudentForm();
+           
+           
+           
             var email = EmailTextBox.Text;
             var password = PasswordTextBox.Text;
             XmlDocument doc = new XmlDocument();
             doc.Load("C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\xml\\users.xml");
             XmlElement root = doc.DocumentElement;//users
-           
+          
             foreach (XmlNode node in root.ChildNodes)
             {
                 var xmlEmail = node.SelectSingleNode("email");
@@ -67,17 +61,26 @@ namespace attendance_management_system
                         switch (xmlRole)
                         {
                             case "admin":
+                                FormAdmin admin;
+                                admin = new FormAdmin();
+                                isLoggedIn = true;
                                 MessageBox.Show("Welcome, admin!");
                                 admin.Show();
                                 break;
                             case "teacher":
+                                isLoggedIn = true;
                                 myDictionary.Add("userId",xmlId);
                                 myDictionary.Add("userName", xmlName);
-                                teacherForm.MyDictionary = myDictionary;
+                                myDictionary.Add("password", xmlPassword.InnerText);
+                                MessageBox.Show("Welcome, teacher!");
+                                TeacherForm teacherForm;
+                                teacherForm = new TeacherForm();
                                 teacherForm.Show();
-                               MessageBox.Show("Welcome, teacher!");
                                 break;
                             case "student":
+                                StudentForm studentForm;
+                                studentForm = new StudentForm();
+                                isLoggedIn =true;
                                 MessageBox.Show("Welcome, student!");
                                 studentForm.Show();
                                 break;

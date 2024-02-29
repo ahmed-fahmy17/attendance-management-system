@@ -1,42 +1,51 @@
-﻿using System.Xml;
+﻿using System;
+using System.Diagnostics.Eventing.Reader;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Xml;
 
 namespace attendance_management_system.controls
 {
-    //name:esraa
-    //pass:12345678
     public partial class editUserProfile : UserControl
     {
-
         XmlDocument xmlDocument;
         XmlNode passwordNode;
         XmlNode nameNode;
         XmlNode userName;
+
         public editUserProfile()
         {
             InitializeComponent();
-            loadCurrentUser();
-           // EditProfile();
+            LoadCurrentUser();
         }
-       
-        private void canceBtn_Click(object sender, EventArgs e)
+
+        private void cancelButton_Click(object sender, EventArgs e)
         {
             Parent.Hide();
         }
-        public void loadCurrentUser()
+
+        public void LoadCurrentUser()
         {
+            string userId;
+
+
+            userId = login.myDictionary["userId"];
+
+
+
             xmlDocument = new XmlDocument();
             xmlDocument.Load("C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\xml\\users.xml");
             XmlElement root = xmlDocument.DocumentElement;
+
             foreach (XmlNode node in root.ChildNodes)
             {
-              nameNode  = node.SelectSingleNode("id");
-                if (nameNode != null && nameNode.InnerText == "11111111111111")
+                nameNode = node.SelectSingleNode("id");
+                if (nameNode.InnerText == userId)
                 {
                     passwordNode = node.SelectSingleNode("password");
                     userName = node.SelectSingleNode("name");
                     string password = passwordNode?.InnerText;
                     string name = nameNode?.InnerText;
-                    // Display loaded user information in the textboxes
                     userNameTxt.Text = userName.InnerText;
                     userPasswordTxt.Text = password;
                     break;
@@ -44,18 +53,22 @@ namespace attendance_management_system.controls
             }
         }
 
-
         private void editBtn_Click(object sender, EventArgs e)
         {
+          
+        }
+
+        private void editBtn_Click_1(object sender, EventArgs e)
+        {
             if (!string.IsNullOrEmpty(userNameTxt.Text) &&
-                !string.IsNullOrEmpty(userPasswordTxt.Text) && 
-                (userNameTxt.Text).Length>=3 && (userPasswordTxt.Text).Length>=6 )
+              !string.IsNullOrEmpty(userPasswordTxt.Text) &&
+              (userNameTxt.Text).Length >= 3 && (userPasswordTxt.Text).Length >= 6)
             {
                 nameErrorLabel.Text = "";
                 userName.InnerText = userNameTxt.Text;
                 passwordErrorLabel.Text = "";
                 passwordNode.InnerText = userPasswordTxt.Text;
-                xmlDocument.Save("C:\\Users\\USER\\Desktop\\c#project4\\attendance-management-system\\xml\\users.xml");
+                xmlDocument.Save("C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\xml\\users.xml");
 
             }
             else
