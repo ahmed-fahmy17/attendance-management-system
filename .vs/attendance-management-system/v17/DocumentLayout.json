@@ -3,35 +3,43 @@
   "WorkspaceRootPath": "C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|c:\\users\\user\\desktop\\final\\attendance-management-system\\controls\\studentreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|solutionrelative:controls\\studentreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|c:\\users\\user\\desktop\\final\\attendance-management-system\\controls\\filterbyclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|solutionrelative:controls\\filterbyclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|c:\\users\\user\\desktop\\final\\attendance-management-system\\teacherform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|solutionrelative:teacherform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|c:\\users\\user\\desktop\\final\\attendance-management-system\\controls\\usercontrolreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|solutionrelative:controls\\usercontrolreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|c:\\users\\user\\desktop\\final\\attendance-management-system\\controls\\edituserprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|c:\\users\\user\\desktop\\final\\attendance-management-system\\controls\\usercontrolclasses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|solutionrelative:controls\\usercontrolclasses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\controls\\edituserprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|solutionrelative:controls\\edituserprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|c:\\users\\user\\desktop\\final\\attendance-management-system\\controls\\edituserprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|solutionrelative:controls\\edituserprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\teacherform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|solutionrelative:teacherform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|c:\\users\\user\\desktop\\final\\attendance-management-system\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|solutionrelative:login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|c:\\users\\user\\desktop\\final\\attendance-management-system\\controls\\chooseformtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\controls\\chooseformtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|solutionrelative:controls\\chooseformtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|c:\\users\\user\\desktop\\final\\attendance-management-system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|c:\\users\\user\\desktop\\final\\attendance-management-system\\teacherform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\teacherform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{743AACDA-4DC1-49FC-9BB1-5EC10B57D3DA}|attendance-management-system.csproj|solutionrelative:teacherform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -42,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,32 +58,59 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserControlReport.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\controls\\UserControlReport.cs",
+              "RelativeDocumentMoniker": "controls\\UserControlReport.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\controls\\UserControlReport.cs",
+              "RelativeToolTip": "controls\\UserControlReport.cs",
+              "ViewState": "AQIAAEsAAAAAAAAAAAAYwFkAAABfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-29T16:12:47.575Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserControlClasses.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\controls\\UserControlClasses.cs",
+              "RelativeDocumentMoniker": "controls\\UserControlClasses.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\controls\\UserControlClasses.cs",
+              "RelativeToolTip": "controls\\UserControlClasses.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADAAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-29T16:12:13.787Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "StudentReport.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\controls\\StudentReport.cs",
+              "RelativeDocumentMoniker": "controls\\StudentReport.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\controls\\StudentReport.cs",
+              "RelativeToolTip": "controls\\StudentReport.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAAYwCcAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-29T16:10:41.658Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "FilterByClass.cs",
               "DocumentMoniker": "C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\controls\\FilterByClass.cs",
               "RelativeDocumentMoniker": "controls\\FilterByClass.cs",
               "ToolTip": "C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\controls\\FilterByClass.cs",
               "RelativeToolTip": "controls\\FilterByClass.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAJAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAB4AAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-29T15:55:53.867Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "editUserProfile.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\controls\\editUserProfile.cs",
-              "RelativeDocumentMoniker": "controls\\editUserProfile.cs",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\controls\\editUserProfile.cs [Design]",
-              "RelativeToolTip": "controls\\editUserProfile.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-29T15:52:35.926Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "TeacherForm.cs",
               "DocumentMoniker": "C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\TeacherForm.cs",
               "RelativeDocumentMoniker": "TeacherForm.cs",
@@ -83,12 +118,11 @@
               "RelativeToolTip": "TeacherForm.cs",
               "ViewState": "AQIAAAgAAAAAAAAAAAAowCAAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-29T15:11:20.305Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-29T15:11:20.305Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -96,25 +130,24 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-29T14:56:26.09Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-29T14:56:26.09Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "editUserProfile.cs",
               "DocumentMoniker": "C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\controls\\editUserProfile.cs",
               "RelativeDocumentMoniker": "controls\\editUserProfile.cs",
               "ToolTip": "C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\controls\\editUserProfile.cs",
               "RelativeToolTip": "controls\\editUserProfile.cs",
-              "ViewState": "AQIAAC8AAAAAAAAAAAAYwGEAAAAzAAAA",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAAwB8AAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-29T14:45:46.695Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "ChooseFormType.cs",
               "DocumentMoniker": "C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\controls\\ChooseFormType.cs",
               "RelativeDocumentMoniker": "controls\\ChooseFormType.cs",
@@ -122,12 +155,11 @@
               "RelativeToolTip": "controls\\ChooseFormType.cs",
               "ViewState": "AQIAAAIAAAAAAAAAAAAAwBoAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-29T14:45:06.119Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-29T14:45:06.119Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "login.cs",
               "DocumentMoniker": "C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\login.cs",
               "RelativeDocumentMoniker": "login.cs",
@@ -135,20 +167,18 @@
               "RelativeToolTip": "login.cs",
               "ViewState": "AQIAADwAAAAAAAAAAAAUwE0AAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-29T14:37:03.565Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-29T14:37:03.565Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "TeacherForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\TeacherForm.cs",
               "RelativeDocumentMoniker": "TeacherForm.cs",
               "ToolTip": "C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\TeacherForm.cs [Design]",
               "RelativeToolTip": "TeacherForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-29T14:31:55.972Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-02-29T14:31:55.972Z"
             }
           ]
         }

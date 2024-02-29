@@ -24,26 +24,29 @@ namespace attendance_management_system.controls
         string std_class;
         public void loadStudents()
         {
-            HashSet<string> strings = new HashSet<string>();
-            XmlDocument xmlDocument2 = new XmlDocument();
-            xmlDocument2.Load("C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\xml\\attendance.xml");
-            foreach (XmlNode node in xmlDocument2.SelectNodes("//record"))
+            HashSet<string> studentIds = new HashSet<string>();
+
+            XmlDocument xmlDocument = new XmlDocument();
+            xmlDocument.Load("C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\xml\\attendance.xml");
+
+            foreach (XmlNode node in xmlDocument.SelectNodes("//record"))
             {
-                std_class = node.SelectSingleNode("classId").InnerText;
-                if (std_class == "Maths" || std_class == "physics")
+                string std_id = node.SelectSingleNode("std_id")?.InnerText;
+                string cl= node.SelectSingleNode("classId")?.InnerText;
+                UserControlAttendance userControlAttendance = new UserControlAttendance();
+                List<string> teacherClasses = userControlAttendance.retreiveTeacherClasses();
+                foreach (string teacherClass in teacherClasses)
                 {
-                    std_id = node.SelectSingleNode("std_id").InnerText;
-                    strings.Add(std_id);
-
+                    studentIds.Add(std_id);
                 }
-
             }
-            foreach (string s in strings)
+
+            foreach (string studentId in studentIds)
             {
-                studentsComboBox.Items.Add(s);
+                studentsComboBox.Items.Add(studentId);
             }
-
         }
+
 
         private void studentReportPic_Click(object sender, EventArgs e)
         {

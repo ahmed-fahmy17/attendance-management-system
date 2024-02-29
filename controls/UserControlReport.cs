@@ -187,28 +187,27 @@ namespace attendance_management_system.controls
             dataTable.Columns.Add("Student ID");
             dataTable.Columns.Add("Date");
             dataTable.Columns.Add("Attendance Status");
-
-            // Add rows to the dataTable if needed
-
             dataGridView1.Width = 750;
             dataGridView1.DefaultCellStyle.Font = new Font("Arial", 12);
             dataGridView1.RowTemplate.Height = 45;
 
-            dataGridView1.DataSource = dataTable; // Bind dataGridView1 to the dataTable
+            dataGridView1.DataSource = dataTable; 
 
             // Now, you can set the column width
             dataGridView1.Columns["Student ID"].Width = 180;
             dataGridView1.Columns["Date"].Width = 180;
             dataGridView1.Columns["Attendance Status"].Width = 180;
-
-
-            // Read XML data and populate DataTable
             foreach (XmlNode node in xmlDoc.SelectNodes("//record"))
             {
-                stdId = node.SelectSingleNode("std_id").InnerText;
-                string date = node.SelectSingleNode("date").InnerText;
-                string status = node.SelectSingleNode("attendance_status").InnerText;
-                dataTable.Rows.Add(new string[] { stdId, date, status });
+                UserControlAttendance userControlAttendance = new UserControlAttendance();
+                List<string> teacherClasses = userControlAttendance.retreiveTeacherClasses();
+                foreach (string teacherClass in teacherClasses)
+                {
+                    stdId = node.SelectSingleNode("std_id").InnerText;
+                    string date = node.SelectSingleNode("date").InnerText;
+                    string status = node.SelectSingleNode("attendance_status").InnerText;
+                    dataTable.Rows.Add(new string[] { stdId, date, status });
+                }      
             }
             // Bind DataTable to DataGridView
             dataGridView1.DataSource = dataTable;
