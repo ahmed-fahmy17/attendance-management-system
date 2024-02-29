@@ -48,16 +48,12 @@ namespace attendance_management_system
             userControlReport = new UserControlReport();
             filterByClass = new FilterByClass();
             stusentReport = new StudentReport();
-            attendance=new UserControlAttendance();
+            attendance = new UserControlAttendance();
+            attendance.Visible = false;
+            userControlReport.Visible = false;
+            filterByClass.Visible = false;
+            stusentReport.Visible = false;
            
-                attendance.Visible = false;
-                userControlReport.Visible = false;
-                filterByClass.Visible = false;
-                stusentReport.Visible = false;
-
-          
-
-            editUserProfile = new editUserProfile();
             chooseFormType = new ChooseFormType();
         }
         private void TeacherForm_Load(object sender, EventArgs e)
@@ -75,7 +71,6 @@ namespace attendance_management_system
             {
                 MyLabell.Text = "";
             }
-
         }
 
         private void labelTime_Click(object sender, EventArgs e)
@@ -103,9 +98,9 @@ namespace attendance_management_system
         private void attendanceBtn_Click(object sender, EventArgs e)
         {
 
-            userControlAttendance1.Visible= true;
+            userControlAttendance1.Visible = true;
             chooseFormType.Visible = false;
-          
+
         }
 
         private void reportBtn_Click(object sender, EventArgs e)
@@ -113,7 +108,7 @@ namespace attendance_management_system
 
             userControlAttendance1.Visible = false;
             chooseFormType.Visible = true;
-           
+
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -134,6 +129,7 @@ namespace attendance_management_system
         }
         private void ProfileButton_Click_1(object sender, EventArgs e)
         {
+            editUserProfile = new editUserProfile();
             Form edit = new Form();
             edit.Text = "Edit profile";
             edit.ClientSize = editUserProfile.Size;

@@ -35,7 +35,7 @@ namespace attendance_management_system
             string password = PasswordTextBox.Text;
             Admin adminData = XmlManipulation.GetAdminData();
             if (adminData.Email == email && adminData.Password == password)
-            {
+            XmlElement root = doc.DocumentElement;//users
                 FormAdmin admin = new FormAdmin();
                 this.Hide();
                 admin.Show();
@@ -62,6 +62,9 @@ namespace attendance_management_system
                         this.Hide();
                         teacherForm.Show();
                         return;
+                                MessageBox.Show("email or password incorrect!");
+                                break;
+                        }
                     }
                 }
             }
@@ -69,4 +72,4 @@ namespace attendance_management_system
 
     }
 }
-
+*/

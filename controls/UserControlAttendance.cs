@@ -58,7 +58,7 @@ namespace attendance_management_system.controls
 
             if (existingRecordNode != null)
             {
-                // If a record with the current date exists, update its attendance status
+              
                 foreach (DataGridViewRow row in attendanceTable.Rows)
                 {
                     DataGridViewCheckBoxCell checkBoxCell = row.Cells["Attendance Status"] as DataGridViewCheckBoxCell;
@@ -69,7 +69,7 @@ namespace attendance_management_system.controls
 
                     if (stdIdNode != null)
                     {
-                        // Update the attendance status
+                       
                         XmlNode attendanceStatusNode = stdIdNode.ParentNode.SelectSingleNode("attendance_status");
                         if (checkBoxCell != null && Convert.ToBoolean(checkBoxCell.Value) == true)
                         {
@@ -82,7 +82,6 @@ namespace attendance_management_system.controls
                     }
                     else
                     {
-                        // If the student ID doesn't exist in the existing record, add it
                         XmlNode newStdIdNode = xmlDocument2.CreateElement("std_id");
                         XmlNode newStdIdClass = xmlDocument2.CreateElement("classId");
                         newStdIdNode.InnerText = stdId;
@@ -153,7 +152,11 @@ namespace attendance_management_system.controls
         // maths,physics =>assuming theses are the classes of  current teacher.
         private void LoadTeacherClasses()
         {
-            var CurrentUserId = "11111111111111";
+           
+
+
+         string   userId = login.myDictionary["userId"];
+            var CurrentUserId =userId;
             //first load xml file.
             //I should search for teacher classes
             XmlDocument xmlDocument = new XmlDocument();
@@ -208,6 +211,7 @@ namespace attendance_management_system.controls
             foreach (XmlNode classNode in xmlDocument.SelectNodes("/classes/class"))
             {
                 string classId = classNode.SelectSingleNode("classId").InnerText;
+
                 if (selectedClass == classId)
                 {
                     string stdClass = classNode.SelectSingleNode("className").InnerText;
@@ -237,12 +241,11 @@ namespace attendance_management_system.controls
                 // Check if the retrieved data is of a student
                 if (role == "student")
                 {
-                    // Get the student's ID and name
+                   
                     string studentId = userNode.SelectSingleNode("id").InnerText;
                     string studentName = userNode.SelectSingleNode("name").InnerText;
                     string age = userNode.SelectSingleNode("age").InnerText;
 
-                    // Add the student's ID, name, and associated teacher's name to the list
                     studentRecords.Add(new Tuple<string, string, string>(studentId, studentName, age));
                 }
             }
@@ -251,8 +254,11 @@ namespace attendance_management_system.controls
         }
         public List<string> retreiveTeacherClasses()
         {
-          List<string> strings = new List<string>();
-            var CurrentUserId = "11111111111111";
+            
+           string userId = login.myDictionary["userId"];
+
+            List<string> strings = new List<string>();
+            var CurrentUserId = userId;
             //first load xml file.
             //I should search for teacher classes
             XmlDocument xmlDocument = new XmlDocument();

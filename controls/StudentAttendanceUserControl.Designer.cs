@@ -32,7 +32,9 @@
             label1 = new Label();
             studentClassesComboBox = new ComboBox();
             label2 = new Label();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
@@ -81,11 +83,22 @@
             label2.TabIndex = 4;
             label2.Text = "Your Classes";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.icons8_save_641;
+            pictureBox1.Location = new Point(989, 65);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(67, 65);
+            pictureBox1.TabIndex = 5;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // StudentAttendanceUserControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            Controls.Add(pictureBox1);
             Controls.Add(label2);
             Controls.Add(studentClassesComboBox);
             Controls.Add(label1);
@@ -93,6 +106,7 @@
             Name = "StudentAttendanceUserControl";
             Size = new Size(1214, 636);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -103,5 +117,6 @@
         private Label label1;
         private ComboBox studentClassesComboBox;
         private Label label2;
+        private PictureBox pictureBox1;
     }
 }

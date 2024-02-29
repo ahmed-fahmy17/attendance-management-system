@@ -30,7 +30,6 @@ namespace attendance_management_system.controls
                 ClassesTable.Rows.Add(_class.ClassId, _class.ClassName, _class.ClassTeacherId);
             }
         }
-
         private void ClassesTable_SelectionChanged(object sender, EventArgs e)
         {
             if (ClassesTable.SelectedRows.Count > 0)

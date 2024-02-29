@@ -22,9 +22,9 @@ namespace attendance_management_system.controls
         {
             InitializeComponent();
         }
-
         private void FilterByClass_Load(object sender, EventArgs e)
         {
+
             UserControlAttendance userControlAttendance = new UserControlAttendance();
             List<string> teacherClasses = userControlAttendance.retreiveTeacherClasses();
             foreach (string teacherClass in teacherClasses)
