@@ -1,5 +1,4 @@
-﻿
-using Org.BouncyCastle.Asn1.Ocsp;
+﻿using Org.BouncyCastle.Asn1.Ocsp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,12 +20,12 @@ namespace attendance_management_system
     {
 
 
-        Dictionary<string, string> myDictionary = new Dictionary<string, string>();
+        public static Dictionary<string, string> myDictionary = new Dictionary<string, string>();
 
         public login()
         {
             InitializeComponent();
-          
+
         }
 
         public void button1_Click_1(object sender, EventArgs e)
@@ -35,16 +34,16 @@ namespace attendance_management_system
             string password = PasswordTextBox.Text;
             Admin adminData = XmlManipulation.GetAdminData();
             if (adminData.Email == email && adminData.Password == password)
-            XmlElement root = doc.DocumentElement;//users
+            {
                 FormAdmin admin = new FormAdmin();
                 this.Hide();
                 admin.Show();
                 return;
             }
             List<User> usersData = XmlManipulation.GetUserData();
-            foreach(User user in usersData)
+            foreach (User user in usersData)
             {
-                if(user.Email == email && user.Password == password)
+                if (user.Email == email && user.Password == password)
                 {
                     myDictionary.Add("userId", user.Id);
                     myDictionary.Add("userName", user.Name);
@@ -62,9 +61,6 @@ namespace attendance_management_system
                         this.Hide();
                         teacherForm.Show();
                         return;
-                                MessageBox.Show("email or password incorrect!");
-                                break;
-                        }
                     }
                 }
             }
@@ -72,4 +68,3 @@ namespace attendance_management_system
 
     }
 }
-*/
