@@ -14,8 +14,8 @@ namespace attendance_management_system
 {
     internal class XmlManipulation
     {
-        private static string UserDataPath = "..\\..\\..\\xml\\users.xml";
-        private static string ClassDataPath = "..\\..\\..\\xml\\classes.xml";
+        private static string UserDataPath = "D:\\iti\\projects\\c# and XML project\\attendance-management-system\\xml\\users.xml";
+        private static string ClassDataPath = "D:\\iti\\projects\\c# and XML project\\attendance-management-system\\xml\\classes.xml";
         public static List<User> GetUserData()
         {
             XmlDocument xmlDoc = new XmlDocument();
@@ -254,6 +254,18 @@ namespace attendance_management_system
                 users.Add(idNode.InnerText);
             }
             return users;
+        }
+        public static List<string> GetAllUserEmails()
+        {
+            List<string> usersEmail = new List<string>();
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(UserDataPath);
+            XmlNodeList emailNodes = xmlDoc.SelectNodes("//email");
+            foreach (XmlNode emailNode in emailNodes)
+            {
+                usersEmail.Add(emailNode.InnerText);
+            }
+            return usersEmail;
         }
     }
 }

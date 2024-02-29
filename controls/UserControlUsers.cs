@@ -19,6 +19,7 @@ namespace attendance_management_system.controls
         public UserControlUsers()
         {
             InitializeComponent();
+            labelErrorUserData.Visible = false;
             UserData = XmlManipulation.GetUserData();
             LoadData();
         }
@@ -28,6 +29,72 @@ namespace attendance_management_system.controls
             {
                 UsersTable.Rows.Add(user.Id, user.Name, user.Email, user.Age, user.Phone, user.Password, user.Role);
             }
+        }
+        private bool ValidateEnteredUserData(ref User user)
+        {
+            if (User.IsValidId(textBoxID.Text))
+                user.Id = textBoxID.Text;
+            else
+            {
+                labelErrorUserData.Text = "User id must be 14 numbers";
+                labelErrorUserData.Visible = true;
+                return false;
+            }
+            if (User.isValidName(textBoxName.Text))
+                user.Name = textBoxName.Text;
+            else
+            {
+                labelErrorUserData.Text = "User name must be at least 3 characters with no numbers";
+                labelErrorUserData.Visible = true;
+                //MessageBox.Show("User name must be at least 3 characters with no numbers", "Wrong user Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (User.isValidEmail(textBoxEmail.Text))
+                user.Email = textBoxEmail.Text;
+            else
+            {
+                labelErrorUserData.Text = "Wrong email format";
+                labelErrorUserData.Visible = true;
+                //MessageBox.Show("Wrong email format", "Wrong Email format", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (User.isValidAge(int.Parse(textBoxAge.Text)))
+                user.Age = int.Parse(textBoxAge.Text);
+            else
+            {
+                labelErrorUserData.Text = "Age must be number greater than 3";
+                labelErrorUserData.Visible = true;
+                //MessageBox.Show("Age must be greater than 3", "Wrong Age", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (User.isValidPhone(textBoxPhone.Text))
+                user.Phone = textBoxPhone.Text;
+            else
+            {
+                labelErrorUserData.Text = "Wrong phone format";
+                labelErrorUserData.Visible = true;
+                //MessageBox.Show("Wrong phone format", "Wrong phone format", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (User.isValidPassword(textBoxPassword.Text))
+                user.Password = textBoxPassword.Text;
+            else
+            {
+                labelErrorUserData.Text = "Password must be at least 8 characters with numbers and special characters";
+                labelErrorUserData.Visible = true;
+                //MessageBox.Show("Password must be at least 8 characters with numbers and special characters", "Wrong password format", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (User.isValidRole(textBoxRole.Text))
+                user.Role = textBoxRole.Text;
+            else
+            {
+                labelErrorUserData.Text = "Role is either student or teacher";
+                labelErrorUserData.Visible = true;
+                //MessageBox.Show("Role is either student or teacher", "Wrong Role format", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
         }
         public void ClearTextBoxes()
         {
@@ -58,22 +125,24 @@ namespace attendance_management_system.controls
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             User user = new User();
-            if(User.IsValidId(textBoxID.Text))
-                user.Id = textBoxID.Text;
-            else
+            if (!ValidateEnteredUserData(ref user))
+                return;
+            if(!User.IsUniqueId(user.Id))
             {
-                MessageBox.Show("User id must be 14 numbers and unique", "Wrong user ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                labelErrorUserData.Text = "User id must be unique";
+                labelErrorUserData.Visible = true;
                 return;
             }
-            user.Name = textBoxName.Text;
-            user.Email = textBoxEmail.Text;
-            user.Age = int.Parse(textBoxAge.Text);
-            user.Phone = textBoxPhone.Text;
-            user.Password = textBoxPassword.Text;
-            user.Role = textBoxRole.Text;
+            if(!User.isUniqueEmail(user.Email))
+            {
+                labelErrorUserData.Text = "User Email must be unique";
+                labelErrorUserData.Visible = true;
+                return;
+            }
             XmlManipulation.AddUser(user);
             UsersTable.Rows.Add(user.Id, user.Name, user.Email, user.Age, user.Phone, user.Password, user.Role);
             MessageBox.Show("New user were added", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            labelErrorUserData.Visible = false;
             ClearTextBoxes();
         }
 
@@ -97,13 +166,8 @@ namespace attendance_management_system.controls
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
             User user = new User();
-            user.Id = textBoxID.Text;
-            user.Name = textBoxName.Text;
-            user.Email = textBoxEmail.Text;
-            user.Age = int.Parse(textBoxAge.Text);
-            user.Phone = textBoxPhone.Text;
-            user.Password = textBoxPassword.Text;
-            user.Role = textBoxRole.Text;
+            if (!ValidateEnteredUserData(ref user))
+                return;
             DataGridViewRow selectedRow = UsersTable.SelectedRows[0];
             string oldUserId = selectedRow.Cells[0].Value.ToString();
             XmlManipulation.RemoveUser(oldUserId);
@@ -116,6 +180,7 @@ namespace attendance_management_system.controls
             selectedRow.Cells[5].Value = user.Password;
             selectedRow.Cells[6].Value = user.Role;
             MessageBox.Show("User updated", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            labelErrorUserData.Visible = false;
             ClearTextBoxes();
         }
     }

@@ -53,6 +53,7 @@
             buttonDelete = new Button();
             label5 = new Label();
             textBoxPassword = new TextBox();
+            labelErrorUserData = new Label();
             ((System.ComponentModel.ISupportInitialize)UsersTable).BeginInit();
             SuspendLayout();
             // 
@@ -265,11 +266,22 @@
             textBoxPassword.Size = new Size(125, 27);
             textBoxPassword.TabIndex = 14;
             // 
+            // labelErrorUserData
+            // 
+            labelErrorUserData.AutoSize = true;
+            labelErrorUserData.ForeColor = Color.Red;
+            labelErrorUserData.Location = new Point(236, 433);
+            labelErrorUserData.Name = "labelErrorUserData";
+            labelErrorUserData.Size = new Size(26, 20);
+            labelErrorUserData.TabIndex = 18;
+            labelErrorUserData.Text = "{?}";
+            // 
             // UserControlUsers
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            Controls.Add(labelErrorUserData);
             Controls.Add(buttonDelete);
             Controls.Add(buttonUpdate);
             Controls.Add(buttonAdd);
@@ -323,5 +335,6 @@
         private DataGridViewTextBoxColumn Column3;
         private Label label5;
         private TextBox textBoxPassword;
+        private Label labelErrorUserData;
     }
 }

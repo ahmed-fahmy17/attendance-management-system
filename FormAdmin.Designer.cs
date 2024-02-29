@@ -244,7 +244,8 @@
             // 
             // BTNLogout
             // 
-            BTNLogout.Location = new Point(447, 15);
+            BTNLogout.Anchor = AnchorStyles.Right;
+            BTNLogout.Location = new Point(834, 28);
             BTNLogout.Name = "BTNLogout";
             BTNLogout.Size = new Size(94, 29);
             BTNLogout.TabIndex = 5;
