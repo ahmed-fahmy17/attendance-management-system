@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<users>
+  <admin>
+    <email>admin@yahoo.com</email>
+    <password>123456789</password>
+    <role>admin</role>
+  </admin>
+  <user>
+    <id>11111111111111</id>
+    <name>Ali</name>
+    <email>ali@yahoo.com</email>
+    <age>15</age>
+    <phone>01065632156</phone>
+    <password>12345678</password>
+    <role>teacher</role>
+  </user>
+  <user>
+    <id>01234532569421</id>
+    <name>Ahmed Fahmy</name>
+    <email>ahmed@yahoo.com</email>
+    <age>23</age>
+    <phone>01065632156</phone>
+    <password>12345678</password>
+    <role>student</role>
+  </user>
+  <user>
+    <id>99934532569000</id>
+    <name>mohamed alaa</name>
+    <email>mo@yahoo.com</email>
+    <age>30</age>
+    <phone>01065632156</phone>
+    <password>12345678</password>
+    <role>student</role>
+  </user>
+  <user>
+    <id>99934532169010</id>
+    <name>mohamed alaa</name>
+    <email>mo@yahoo.com</email>
+    <age>30</age>
+    <phone>01065632156</phone>
+    <password>12345678*k</password>
+    <role>student</role>
+  </user>
+  <user>
+    <id>11111511111111</id>
+    <name>Ali</name>
+    <email>ali@yahoo.com</email>
+    <age>3</age>
+    <phone>01065632156</phone>
+    <password>12345678k*</password>
+    <role>teacher</role>
+  </user>
+</users>

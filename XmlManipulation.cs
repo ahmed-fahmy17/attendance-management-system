@@ -280,5 +280,37 @@ namespace attendance_management_system
             }
             return ClassIds;
         }
+        public static void BackUpData()
+        {
+            string sourceDirectory = "D:\\iti\\projects\\c# and XML project\\attendance-management-system\\xml";
+            string backupDirectory = "D:\\iti\\projects\\c# and XML project\\attendance-management-system\\backup";
+
+            // Create the backup directory if it doesn't exist
+            if (!Directory.Exists(backupDirectory))
+            {
+                Directory.CreateDirectory(backupDirectory);
+            }
+
+            // Get all XML files in the source directory
+            string[] xmlFiles = Directory.GetFiles(sourceDirectory, "*.xml");
+
+            foreach (string xmlFile in xmlFiles)
+            {
+                try
+                {
+                    // Get the file name and extension
+                    string fileName = Path.GetFileName(xmlFile);
+                    string backupFileName = Path.Combine(backupDirectory, $"{fileName}.bak");
+
+                    // Copy the XML file to the backup directory
+                    File.Copy(xmlFile, backupFileName, true);
+                    Console.WriteLine($"Backup created for {fileName}");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error creating backup for {xmlFile}: {ex.Message}");
+                }
+            }
+        }
     }
 }

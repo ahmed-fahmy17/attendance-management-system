@@ -34,7 +34,6 @@
             BTNReport = new Button();
             BTNStudents = new Button();
             BTNClasses = new Button();
-            BTNDashboard = new Button();
             panel3 = new Panel();
             panelSide = new Panel();
             panel2 = new Panel();
@@ -49,6 +48,7 @@
             userControlUsers1 = new controls.UserControlUsers();
             userControlUpdateAdminData1 = new controls.UserControlUpdateAdminData();
             userControlClasses1 = new controls.UserControlClasses();
+            buttonBackUp = new Button();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
@@ -59,11 +59,11 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.MenuHighlight;
+            panel1.Controls.Add(buttonBackUp);
             panel1.Controls.Add(BTNUpdateAdminData);
             panel1.Controls.Add(BTNReport);
             panel1.Controls.Add(BTNStudents);
             panel1.Controls.Add(BTNClasses);
-            panel1.Controls.Add(BTNDashboard);
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Left;
@@ -79,7 +79,7 @@
             BTNUpdateAdminData.FlatStyle = FlatStyle.Flat;
             BTNUpdateAdminData.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             BTNUpdateAdminData.ForeColor = Color.White;
-            BTNUpdateAdminData.Location = new Point(8, 340);
+            BTNUpdateAdminData.Location = new Point(8, 293);
             BTNUpdateAdminData.Name = "BTNUpdateAdminData";
             BTNUpdateAdminData.Size = new Size(248, 47);
             BTNUpdateAdminData.TabIndex = 4;
@@ -95,7 +95,7 @@
             BTNReport.FlatStyle = FlatStyle.Flat;
             BTNReport.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             BTNReport.ForeColor = Color.White;
-            BTNReport.Location = new Point(8, 293);
+            BTNReport.Location = new Point(8, 246);
             BTNReport.Name = "BTNReport";
             BTNReport.Size = new Size(248, 47);
             BTNReport.TabIndex = 3;
@@ -111,7 +111,7 @@
             BTNStudents.FlatStyle = FlatStyle.Flat;
             BTNStudents.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             BTNStudents.ForeColor = Color.White;
-            BTNStudents.Location = new Point(8, 246);
+            BTNStudents.Location = new Point(8, 199);
             BTNStudents.Name = "BTNStudents";
             BTNStudents.Size = new Size(248, 47);
             BTNStudents.TabIndex = 2;
@@ -127,7 +127,7 @@
             BTNClasses.FlatStyle = FlatStyle.Flat;
             BTNClasses.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             BTNClasses.ForeColor = Color.White;
-            BTNClasses.Location = new Point(8, 199);
+            BTNClasses.Location = new Point(8, 152);
             BTNClasses.Name = "BTNClasses";
             BTNClasses.Size = new Size(248, 47);
             BTNClasses.TabIndex = 1;
@@ -135,22 +135,6 @@
             BTNClasses.TextAlign = ContentAlignment.MiddleLeft;
             BTNClasses.UseVisualStyleBackColor = true;
             BTNClasses.Click += BTNClasses_Click;
-            // 
-            // BTNDashboard
-            // 
-            BTNDashboard.Dock = DockStyle.Top;
-            BTNDashboard.FlatAppearance.BorderSize = 0;
-            BTNDashboard.FlatStyle = FlatStyle.Flat;
-            BTNDashboard.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            BTNDashboard.ForeColor = Color.White;
-            BTNDashboard.Location = new Point(8, 152);
-            BTNDashboard.Name = "BTNDashboard";
-            BTNDashboard.Size = new Size(248, 47);
-            BTNDashboard.TabIndex = 0;
-            BTNDashboard.Text = "Dashboard";
-            BTNDashboard.TextAlign = ContentAlignment.MiddleLeft;
-            BTNDashboard.UseVisualStyleBackColor = true;
-            BTNDashboard.Click += BTNDashboard_Click;
             // 
             // panel3
             // 
@@ -281,6 +265,18 @@
             userControlClasses1.Size = new Size(940, 494);
             userControlClasses1.TabIndex = 4;
             // 
+            // buttonBackUp
+            // 
+            buttonBackUp.BackColor = Color.Green;
+            buttonBackUp.ForeColor = Color.White;
+            buttonBackUp.Location = new Point(80, 388);
+            buttonBackUp.Name = "buttonBackUp";
+            buttonBackUp.Size = new Size(94, 29);
+            buttonBackUp.TabIndex = 5;
+            buttonBackUp.Text = "Backup data";
+            buttonBackUp.UseVisualStyleBackColor = false;
+            buttonBackUp.Click += buttonBackUp_Click;
+            // 
             // FormAdmin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -327,5 +323,6 @@
         private controls.UserControlUsers userControlUsers1;
         private controls.UserControlUpdateAdminData userControlUpdateAdminData1;
         private controls.UserControlClasses userControlClasses1;
+        private Button buttonBackUp;
     }
 }
