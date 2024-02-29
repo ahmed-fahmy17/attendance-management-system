@@ -22,7 +22,8 @@ namespace attendance_management_system.controls
             InitializeComponent();
             LoadStudentClasses();
             BuildAttendanceTable();
-            studentClassesComboBox.SelectedIndex = 0;
+            if(studentClassesComboBox.Items.Count>0)
+                studentClassesComboBox.SelectedIndex = 0;
 
 
         }
@@ -36,7 +37,7 @@ namespace attendance_management_system.controls
             XmlDocument xmlDocument = new XmlDocument();
             string userId = login.myDictionary["userId"];
             var CurrentUserId = userId;
-            xmlDocument.Load("C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\xml\\attendance.xml");
+            xmlDocument.Load("D:\\iti\\projects\\c# and XML project\\attendance-management-system\\xml\\attendance.xml");
             bool exists = false;
             XmlElement root = xmlDocument.DocumentElement;//classes
             foreach (XmlNode node in root.ChildNodes)//class
@@ -72,7 +73,7 @@ namespace attendance_management_system.controls
         {
             // Load XML file
             XmlDocument xmlDocument = new XmlDocument();
-            xmlDocument.Load(@"C:\Users\USER\Desktop\final\attendance-management-system\xml\attendance.xml");
+            xmlDocument.Load(@"D:\iti\projects\c# and XML project\attendance-management-system\xml\attendance.xml");
 
             dataTable = new System.Data.DataTable();
             dataTable.Columns.Add("Student ID", typeof(string));
@@ -116,9 +117,9 @@ namespace attendance_management_system.controls
             try
             {
 
-                string xmlFilePath = @"C:\Users\USER\Desktop\final\attendance-management-system\xml\attendance.xml";
-                string xsltFilePath = @"C:\Users\USER\Desktop\final\attendance-management-system\xml\filteringDependingOnStudent.xslt";
-                string outputFilePath = @"C:\Reports\TransformedAttendanceStudent.html";
+                string xmlFilePath = @"D:\iti\projects\c# and XML project\attendance-management-system\xml\attendance.xml";
+                string xsltFilePath = @"D:\iti\projects\c# and XML project\attendance-management-system\xml\filteringDependingOnStudent.xslt";
+                string outputFilePath = @"D:\iti\projects\c# and XML project\attendance-management-system\reports\TransformedAttendanceStudent.html";
                 XmlDocument xmlDocument = new XmlDocument();
                 xmlDocument.Load(xmlFilePath);
                 XslCompiledTransform transform = new XslCompiledTransform();

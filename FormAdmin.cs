@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +18,28 @@ namespace attendance_management_system
         {
             InitializeComponent();
             timerDateAndTime.Start();
+
+            if(Program.isArabic)
+            {
+                Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("ar-EG");
+                BTNClasses.Text = "الفصول";
+                BTNStudents.Text = "المستخدمين";
+                BTNReport.Text = "تقارير";
+                BTNUpdateAdminData.Text = "تحديث بياناتك";
+                label3.Text = "اهلا";
+                BTNLogout.Text = "تسجيل الخروج";
+                buttonBackUp.Text = "حفظ البيانات";
+                label1.Text = "نظام اداره الغياب";
+
+                BTNClasses.RightToLeft = RightToLeft.Yes;
+                BTNStudents.RightToLeft = RightToLeft.Yes;
+                BTNReport.RightToLeft = RightToLeft.Yes;
+                BTNUpdateAdminData.RightToLeft = RightToLeft.Yes;
+                label3.RightToLeft = RightToLeft.Yes;
+                BTNLogout.RightToLeft = RightToLeft.Yes;
+                buttonBackUp.RightToLeft = RightToLeft.Yes;
+                label1.RightToLeft = RightToLeft.Yes;
+            }
         }
 
         private void timerDateAndTime_Tick(object sender, EventArgs e)

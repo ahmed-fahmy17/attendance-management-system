@@ -37,8 +37,8 @@ namespace attendance_management_system.controls
             dateTimePicker1.MinDate = new DateTime(2024, 1, 1); // Set the minimum date
             dateTimePicker1.MaxDate = new DateTime(2024, 3, 1); // Set the maximum date
             dateTimePicker1.Value = DateTime.Today;
-
-            teacherClasses.SelectedIndex = 0;
+            if(teacherClasses.Items.Count>0)
+                teacherClasses.SelectedIndex = 0;
             BuildAttendanceTable();
 
         }
@@ -49,7 +49,7 @@ namespace attendance_management_system.controls
         public void CheckBoxUpdate1()
         {
             XmlDocument xmlDocument2 = new XmlDocument();
-            xmlDocument2.Load("C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\xml\\attendance.xml");
+            xmlDocument2.Load("D:\\iti\\projects\\c# and XML project\\attendance-management-system\\xml\\attendance.xml");
 
             string currentDate = dateTimePicker1.Value.ToString("yyyy-MM-dd");
 
@@ -140,7 +140,7 @@ namespace attendance_management_system.controls
             }
 
             // Save the updated XML file
-            xmlDocument2.Save("C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\xml\\attendance.xml");
+            xmlDocument2.Save("D:\\iti\\projects\\c# and XML project\\attendance-management-system\\xml\\attendance.xml");
 
             MessageBox.Show("Attendance saved Successfully");
         }
@@ -160,7 +160,7 @@ namespace attendance_management_system.controls
             //first load xml file.
             //I should search for teacher classes
             XmlDocument xmlDocument = new XmlDocument();
-            xmlDocument.Load("C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\xml\\classes.xml");
+            xmlDocument.Load("D:\\iti\\projects\\c# and XML project\\attendance-management-system\\xml\\classes.xml");
             bool exists = false;
             XmlElement root = xmlDocument.DocumentElement;//classes
             foreach (XmlNode node in root.ChildNodes)//class
@@ -197,7 +197,7 @@ namespace attendance_management_system.controls
         public void BuildAttendanceTable()
         {
             // Load XML file
-            xmlDocument.Load(@"C:\Users\USER\Desktop\final\attendance-management-system\xml\classes.xml");
+            xmlDocument.Load(@"D:\iti\projects\c# and XML project\attendance-management-system\xml\classes.xml");
             dataTable = new System.Data.DataTable();
             dataTable.Columns.Add("Student ID", typeof(string));
             dataTable.Columns.Add("Class", typeof(string));
@@ -232,7 +232,7 @@ namespace attendance_management_system.controls
         {
             XmlDocument xmlDocument = new XmlDocument();
             List<Tuple<string, string, string>> studentRecords = new List<Tuple<string, string, string>>();
-            xmlDocument.Load("C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\xml\\attendance.xml");
+            xmlDocument.Load("D:\\iti\\projects\\c# and XML project\\attendance-management-system\\xml\\attendance.xml");
 
             foreach (XmlNode userNode in xmlDocument.SelectNodes("/users/user"))
             {
@@ -262,7 +262,7 @@ namespace attendance_management_system.controls
             //first load xml file.
             //I should search for teacher classes
             XmlDocument xmlDocument = new XmlDocument();
-            xmlDocument.Load("C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\xml\\classes.xml");
+            xmlDocument.Load("D:\\iti\\projects\\c# and XML project\\attendance-management-system\\xml\\classes.xml");
             bool exists = false;
             XmlElement root = xmlDocument.DocumentElement;//classes
             foreach (XmlNode node in root.ChildNodes)//class

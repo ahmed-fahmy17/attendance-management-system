@@ -43,8 +43,5 @@
     <Compile Update="TeacherForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="test.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
   </ItemGroup>
 </Project>

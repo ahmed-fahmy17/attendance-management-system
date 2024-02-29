@@ -72,6 +72,7 @@
             canceBtn.ForeColor = Color.White;
             canceBtn.Name = "canceBtn";
             canceBtn.UseVisualStyleBackColor = false;
+            canceBtn.Click += canceBtn_Click;
             // 
             // nameErrorLabel
             // 

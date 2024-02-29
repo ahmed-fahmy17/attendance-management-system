@@ -18,7 +18,8 @@ namespace attendance_management_system.controls
         {
             InitializeComponent();
             loadStudents();
-            studentsComboBox.SelectedIndex = 0;
+            if(studentsComboBox.Items.Count>0)
+                studentsComboBox.SelectedIndex = 0;
         }
         string std_id;
         string std_class;
@@ -27,7 +28,7 @@ namespace attendance_management_system.controls
             HashSet<string> studentIds = new HashSet<string>();
 
             XmlDocument xmlDocument = new XmlDocument();
-            xmlDocument.Load("C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\xml\\attendance.xml");
+            xmlDocument.Load("D:\\iti\\projects\\c# and XML project\\attendance-management-system\\xml\\attendance.xml");
 
             foreach (XmlNode node in xmlDocument.SelectNodes("//record"))
             {
@@ -50,9 +51,9 @@ namespace attendance_management_system.controls
             try
             {
                 string selectedClass = studentsComboBox.SelectedItem.ToString();
-                string xmlFilePath = @"C:\Users\USER\Desktop\final\attendance-management-system\xml\attendance.xml";
-                string xsltFilePath = @"C:\Users\USER\Desktop\final\attendance-management-system\xml\filteringDependingOnStudent.xslt";
-                string outputFilePath = @"C:\Reports\TransformedAttendanceStudent.html";
+                string xmlFilePath = @"D:\iti\projects\c# and XML project\attendance-management-system\xml\attendance.xml";
+                string xsltFilePath = @"D:\iti\projects\c# and XML project\attendance-management-system\xml\filteringDependingOnStudent.xslt";
+                string outputFilePath = @"D:\iti\projects\c# and XML project\attendance-management-system\reports\TransformedAttendanceStudent.html";
 
                 // Load XML document and XSLT stylesheet
                 XmlDocument xmlDocument = new XmlDocument();

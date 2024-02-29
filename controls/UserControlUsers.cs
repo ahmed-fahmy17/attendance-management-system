@@ -36,7 +36,10 @@ namespace attendance_management_system.controls
                 user.Id = textBoxID.Text;
             else
             {
-                labelErrorUserData.Text = "User id must be 14 numbers";
+                if(Program.isArabic)
+                    labelErrorUserData.Text = "رقم بطاقه المستخدم يجب ان يكون 14 رقم";
+                else
+                    labelErrorUserData.Text = "User id must be 14 numbers";
                 labelErrorUserData.Visible = true;
                 return false;
             }
@@ -44,7 +47,10 @@ namespace attendance_management_system.controls
                 user.Name = textBoxName.Text;
             else
             {
-                labelErrorUserData.Text = "User name must be at least 3 characters with no numbers";
+                if (Program.isArabic)
+                    labelErrorUserData.Text = "يجب ان يكون اسم المستخدم اكثر من 3 حروف";
+                else
+                    labelErrorUserData.Text = "User name must be at least 3 characters with no numbers";
                 labelErrorUserData.Visible = true;
                 //MessageBox.Show("User name must be at least 3 characters with no numbers", "Wrong user Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -53,7 +59,10 @@ namespace attendance_management_system.controls
                 user.Email = textBoxEmail.Text;
             else
             {
-                labelErrorUserData.Text = "Wrong email format";
+                if (Program.isArabic)
+                    labelErrorUserData.Text = "تنسيق البريد الإلكتروني خاطئ";
+                else
+                    labelErrorUserData.Text = "Wrong email format";
                 labelErrorUserData.Visible = true;
                 //MessageBox.Show("Wrong email format", "Wrong Email format", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -62,7 +71,10 @@ namespace attendance_management_system.controls
                 user.Age = int.Parse(textBoxAge.Text);
             else
             {
-                labelErrorUserData.Text = "Age must be number greater than 3";
+                if (Program.isArabic)
+                    labelErrorUserData.Text = "العمر يجب أن يكون عدد أكبر من 3";
+                else
+                    labelErrorUserData.Text = "Age must be number greater than 3";
                 labelErrorUserData.Visible = true;
                 //MessageBox.Show("Age must be greater than 3", "Wrong Age", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -71,7 +83,10 @@ namespace attendance_management_system.controls
                 user.Phone = textBoxPhone.Text;
             else
             {
-                labelErrorUserData.Text = "Wrong phone format";
+                if (Program.isArabic)
+                    labelErrorUserData.Text = "تنسيق الهاتف خاطئ";
+                else
+                    labelErrorUserData.Text = "Wrong phone format";
                 labelErrorUserData.Visible = true;
                 //MessageBox.Show("Wrong phone format", "Wrong phone format", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -80,7 +95,10 @@ namespace attendance_management_system.controls
                 user.Password = textBoxPassword.Text;
             else
             {
-                labelErrorUserData.Text = "Password must be at least 8 characters with numbers and special characters";
+                if (Program.isArabic)
+                    labelErrorUserData.Text = "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل مع أرقام وأحرف خاصة";
+                else
+                    labelErrorUserData.Text = "Password must be at least 8 characters with numbers and special characters";
                 labelErrorUserData.Visible = true;
                 //MessageBox.Show("Password must be at least 8 characters with numbers and special characters", "Wrong password format", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -89,7 +107,10 @@ namespace attendance_management_system.controls
                 user.Role = textBoxRole.Text;
             else
             {
-                labelErrorUserData.Text = "Role is either student or teacher";
+                if (Program.isArabic)
+                    labelErrorUserData.Text = "يجب ادخال student او teacher في خانه Role";
+                else
+                    labelErrorUserData.Text = "Role is either student or teacher";
                 labelErrorUserData.Visible = true;
                 //MessageBox.Show("Role is either student or teacher", "Wrong Role format", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -129,19 +150,28 @@ namespace attendance_management_system.controls
                 return;
             if(!User.IsUniqueId(user.Id))
             {
-                labelErrorUserData.Text = "User id must be unique";
+                if(Program.isArabic)
+                    labelErrorUserData.Text = "يجب أن يكون معرف المستخدم فريدًا";
+                else
+                    labelErrorUserData.Text = "User id must be unique";
                 labelErrorUserData.Visible = true;
                 return;
             }
             if(!User.isUniqueEmail(user.Email))
             {
-                labelErrorUserData.Text = "User Email must be unique";
+                if(Program.isArabic)
+                    labelErrorUserData.Text = "يجب أن يكون البريد الإلكتروني للمستخدم فريدًا";
+                else
+                    labelErrorUserData.Text = "User Email must be unique";
                 labelErrorUserData.Visible = true;
                 return;
             }
             XmlManipulation.AddUser(user);
             UsersTable.Rows.Add(user.Id, user.Name, user.Email, user.Age, user.Phone, user.Password, user.Role);
-            MessageBox.Show("New user were added", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if(Program.isArabic)
+                MessageBox.Show("تمت إضافة مستخدم جديد", "تمت الإضافة", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("New user were added", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
             labelErrorUserData.Visible = false;
             ClearTextBoxes();
         }
@@ -150,19 +180,37 @@ namespace attendance_management_system.controls
         {
             if (UsersTable.SelectedRows.Count == 0)
             {
-                labelErrorUserData.Text = "please select a user from the table first";
+                if(Program.isArabic)
+                    labelErrorUserData.Text = "الرجاء تحديد مستخدم من الجدول أولاً";
+                else
+                    labelErrorUserData.Text = "please select a user from the table first";
                 labelErrorUserData.Visible = true;
                 return;
             }
             int selectedIndex = UsersTable.SelectedRows[0].Index;
             string userId = UsersTable.Rows[selectedIndex].Cells[0].Value.ToString();
-            DialogResult result = MessageBox.Show("Do you want to delete this user ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            
+            if(Program.isArabic)
             {
-                XmlManipulation.RemoveUser(userId);
-                UsersTable.Rows.RemoveAt(selectedIndex);
-                MessageBox.Show("User deleted!", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ClearTextBoxes();
+                DialogResult result = MessageBox.Show("هل تريد حذف هذا المستخدم؟", "تأكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    XmlManipulation.RemoveUser(userId);
+                    UsersTable.Rows.RemoveAt(selectedIndex);
+                    MessageBox.Show("User deleted!", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearTextBoxes();
+                }
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Do you want to delete this user ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    XmlManipulation.RemoveUser(userId);
+                    UsersTable.Rows.RemoveAt(selectedIndex);
+                    MessageBox.Show("User deleted!", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearTextBoxes();
+                }
             }
         }
 
@@ -170,7 +218,10 @@ namespace attendance_management_system.controls
         {
             if (UsersTable.SelectedRows.Count == 0)
             {
-                labelErrorUserData.Text = "please select a user from the table first";
+                if(Program.isArabic)
+                    labelErrorUserData.Text = "الرجاء تحديد مستخدم من الجدول أولاً";
+                else
+                    labelErrorUserData.Text = "please select a user from the table first";
                 labelErrorUserData.Visible = true;
                 return;
             }

@@ -33,21 +33,14 @@ namespace attendance_management_system.controls
 
 
 
-            xmlDocument = new XmlDocument();
-            xmlDocument.Load("C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\xml\\users.xml");
-            XmlElement root = xmlDocument.DocumentElement;
+            List<User> users = XmlManipulation.GetUserData();
 
-            foreach (XmlNode node in root.ChildNodes)
+            foreach (User user in users)
             {
-                nameNode = node.SelectSingleNode("id");
-                if (nameNode.InnerText == userId)
+                if (user.Id == userId)
                 {
-                    passwordNode = node.SelectSingleNode("password");
-                    userName = node.SelectSingleNode("name");
-                    string password = passwordNode?.InnerText;
-                    string name = nameNode?.InnerText;
-                    userNameTxt.Text = userName.InnerText;
-                    userPasswordTxt.Text = password;
+                    userNameTxt.Text = user.Name;
+                    userPasswordTxt.Text = user.Password;
                     break;
                 }
             }
@@ -55,7 +48,7 @@ namespace attendance_management_system.controls
 
         private void editBtn_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void editBtn_Click_1(object sender, EventArgs e)
@@ -64,12 +57,13 @@ namespace attendance_management_system.controls
               !string.IsNullOrEmpty(userPasswordTxt.Text) &&
               (userNameTxt.Text).Length >= 3 && (userPasswordTxt.Text).Length >= 6)
             {
+                User user = XmlManipulation.GetSingleUserByID(login.myDictionary["userId"]);
                 nameErrorLabel.Text = "";
-                userName.InnerText = userNameTxt.Text;
+                user.Name = userNameTxt.Text;
                 passwordErrorLabel.Text = "";
-                passwordNode.InnerText = userPasswordTxt.Text;
-                xmlDocument.Save("C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\xml\\users.xml");
-
+                user.Password = userPasswordTxt.Text;
+                XmlManipulation.RemoveUser(login.myDictionary["userId"]);
+                XmlManipulation.AddUser(user);
             }
             else
             {
@@ -96,6 +90,11 @@ namespace attendance_management_system.controls
             userPasswordTxt.Text = "";
             this.Parent.Hide();
             MessageBox.Show("Edited Successfully");
+        }
+
+        private void canceBtn_Click(object sender, EventArgs e)
+        {
+            this.Parent.Hide();
         }
     }
 }

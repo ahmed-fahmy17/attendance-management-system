@@ -50,7 +50,6 @@
             logoutBtn = new Button();
             panel1 = new Panel();
             ProfileButton = new Button();
-            chooseFormType2 = new controls.ChooseFormType();
             userControlAttendance1 = new controls.UserControlAttendance();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.SuspendLayout();
@@ -218,11 +217,6 @@
             ProfileButton.UseVisualStyleBackColor = false;
             ProfileButton.Click += ProfileButton_Click_1;
             // 
-            // chooseFormType2
-            // 
-            resources.ApplyResources(chooseFormType2, "chooseFormType2");
-            chooseFormType2.Name = "chooseFormType2";
-            // 
             // userControlAttendance1
             // 
             userControlAttendance1.BackColor = Color.White;
@@ -237,7 +231,6 @@
             Controls.Add(panel3);
             Controls.Add(panel1);
             Controls.Add(userControlAttendance1);
-            Controls.Add(chooseFormType2);
             Name = "TeacherForm";
             WindowState = FormWindowState.Maximized;
             Load += TeacherForm_Load;

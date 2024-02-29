@@ -58,9 +58,9 @@ namespace attendance_management_system.controls
                 XmlDocument xmlDocument = new XmlDocument();
             try
             {
-                xmlDocument.Load("C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\xml\\attendance.xml");
+                xmlDocument.Load("D:\\iti\\projects\\c# and XML project\\attendance-management-system\\xml\\attendance.xml");
                 XslCompiledTransform transform = new XslCompiledTransform();
-                transform.Load("C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\xml\\FilteringDependingOnStartAndEndDate.xslt");
+                transform.Load("D:\\iti\\projects\\c# and XML project\\attendance-management-system\\xml\\FilteringDependingOnStartAndEndDate.xslt");
 
                 XsltArgumentList xsltArgs = new XsltArgumentList();
                 xsltArgs.AddParam("startDate", "", startDate);
@@ -125,7 +125,7 @@ namespace attendance_management_system.controls
         private void UserControlReport_Load(object sender, EventArgs e)
         {
             loadData();
-            string xmlFilePath = "C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\xml\\attendance.xml";
+            string xmlFilePath = "D:\\iti\\projects\\c# and XML project\\attendance-management-system\\xml\\attendance.xml";
 
             if (File.Exists(xmlFilePath))
             {
@@ -182,7 +182,7 @@ namespace attendance_management_system.controls
         {
             //first load xml file.
             XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load("C:\\Users\\USER\\Desktop\\final\\attendance-management-system\\xml\\attendance.xml");
+            xmlDoc.Load("D:\\iti\\projects\\c# and XML project\\attendance-management-system\\xml\\attendance.xml");
             dataTable = new System.Data.DataTable();
             dataTable.Columns.Add("Student ID");
             dataTable.Columns.Add("Date");

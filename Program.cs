@@ -2,6 +2,7 @@ namespace attendance_management_system
 {
     internal static class Program
     {
+        public static bool isArabic = false;
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>

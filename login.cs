@@ -19,13 +19,12 @@ namespace attendance_management_system
     public partial class login : Form
     {
 
-
         public static Dictionary<string, string> myDictionary = new Dictionary<string, string>();
 
         public login()
         {
             InitializeComponent();
-
+            labelErrorLogin.Visible = false;
         }
 
         public void button1_Click_1(object sender, EventArgs e)
@@ -45,11 +44,11 @@ namespace attendance_management_system
             {
                 if (user.Email == email && user.Password == password)
                 {
-                    myDictionary.Add("userId", user.Id);
-                    myDictionary.Add("userName", user.Name);
-                    myDictionary.Add("password", user.Password);
                     if (user.Role == "student")
                     {
+                        myDictionary.Add("userId", user.Id);
+                        myDictionary.Add("userName", user.Name);
+                        myDictionary.Add("password", user.Password);
                         StudentForm studentForm = new StudentForm();
                         this.Hide();
                         studentForm.Show();
@@ -57,6 +56,9 @@ namespace attendance_management_system
                     }
                     else
                     {
+                        myDictionary.Add("userId", user.Id);
+                        myDictionary.Add("userName", user.Name);
+                        myDictionary.Add("password", user.Password);
                         TeacherForm teacherForm = new TeacherForm();
                         this.Hide();
                         teacherForm.Show();
@@ -64,7 +66,32 @@ namespace attendance_management_system
                     }
                 }
             }
+            labelErrorLogin.Text = "Wrong credentials!";
+            labelErrorLogin.Visible = true;
         }
 
+        private void English_CheckedChanged(object sender, EventArgs e)
+        {
+            Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
+            label1.Text = "Welcome again";
+            button1.Text = "login";
+            labelErrorLogin.Text = "Wrong credentials";
+            label1.RightToLeft = RightToLeft.No;
+            button1.RightToLeft = RightToLeft.No;
+            labelErrorLogin.RightToLeft = RightToLeft.No;
+            Program.isArabic = false;
+        }
+
+        private void Arabic_CheckedChanged(object sender, EventArgs e)
+        {
+            Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("ar-EG");
+            label1.Text = "اهلا بك مجددا";
+            button1.Text = "تسجيل الدخول";
+            labelErrorLogin.Text = "تسجيل دخول غير صالح";
+            label1.RightToLeft = RightToLeft.Yes;
+            button1.RightToLeft = RightToLeft.Yes;
+            labelErrorLogin.RightToLeft = RightToLeft.Yes;
+            Program.isArabic = true;
+        }
     }
 }

@@ -30,6 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             panel1 = new Panel();
+            buttonBackUp = new Button();
             BTNUpdateAdminData = new Button();
             BTNReport = new Button();
             BTNStudents = new Button();
@@ -48,7 +49,6 @@
             userControlUsers1 = new controls.UserControlUsers();
             userControlUpdateAdminData1 = new controls.UserControlUpdateAdminData();
             userControlClasses1 = new controls.UserControlClasses();
-            buttonBackUp = new Button();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
@@ -71,6 +71,18 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(256, 587);
             panel1.TabIndex = 0;
+            // 
+            // buttonBackUp
+            // 
+            buttonBackUp.BackColor = Color.Green;
+            buttonBackUp.ForeColor = Color.White;
+            buttonBackUp.Location = new Point(80, 388);
+            buttonBackUp.Name = "buttonBackUp";
+            buttonBackUp.Size = new Size(94, 29);
+            buttonBackUp.TabIndex = 5;
+            buttonBackUp.Text = "Backup data";
+            buttonBackUp.UseVisualStyleBackColor = false;
+            buttonBackUp.Click += buttonBackUp_Click;
             // 
             // BTNUpdateAdminData
             // 
@@ -229,9 +241,9 @@
             // BTNLogout
             // 
             BTNLogout.Anchor = AnchorStyles.Right;
-            BTNLogout.Location = new Point(834, 28);
+            BTNLogout.Location = new Point(787, 28);
             BTNLogout.Name = "BTNLogout";
-            BTNLogout.Size = new Size(94, 29);
+            BTNLogout.Size = new Size(141, 40);
             BTNLogout.TabIndex = 5;
             BTNLogout.Text = "logout";
             BTNLogout.UseVisualStyleBackColor = true;
@@ -264,18 +276,6 @@
             userControlClasses1.Name = "userControlClasses1";
             userControlClasses1.Size = new Size(940, 494);
             userControlClasses1.TabIndex = 4;
-            // 
-            // buttonBackUp
-            // 
-            buttonBackUp.BackColor = Color.Green;
-            buttonBackUp.ForeColor = Color.White;
-            buttonBackUp.Location = new Point(80, 388);
-            buttonBackUp.Name = "buttonBackUp";
-            buttonBackUp.Size = new Size(94, 29);
-            buttonBackUp.TabIndex = 5;
-            buttonBackUp.Text = "Backup data";
-            buttonBackUp.UseVisualStyleBackColor = false;
-            buttonBackUp.Click += buttonBackUp_Click;
             // 
             // FormAdmin
             // 

@@ -33,22 +33,4 @@
     <password>12345678</password>
     <role>student</role>
   </user>
-  <user>
-    <id>99934532169010</id>
-    <name>mohamed alaa</name>
-    <email>mo@yahoo.com</email>
-    <age>30</age>
-    <phone>01065632156</phone>
-    <password>12345678*k</password>
-    <role>student</role>
-  </user>
-  <user>
-    <id>11111511111111</id>
-    <name>Ali</name>
-    <email>ali@yahoo.com</email>
-    <age>3</age>
-    <phone>01065632156</phone>
-    <password>12345678k*</password>
-    <role>teacher</role>
-  </user>
 </users>

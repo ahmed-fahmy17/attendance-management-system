@@ -55,6 +55,16 @@ namespace attendance_management_system
             stusentReport.Visible = false;
            
             chooseFormType = new ChooseFormType();
+            if(Program.isArabic)
+            {
+                Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("ar-EG");
+                UpdateUIWithLanguage();
+            }
+            LanguageComboBox.Hide();
+            chooseLanglabel.Hide();
+            pictureBox7.Hide();
+
+
         }
         private void TeacherForm_Load(object sender, EventArgs e)
         {
@@ -117,10 +127,9 @@ namespace attendance_management_system
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (result == DialogResult.OK)
             {
+                login.myDictionary = null;
                 loginForm.Show();
-                TeacherForm form = new TeacherForm();
-                form.Dispose();
-                form.Close();
+                this.Close();
             }
             else
             {
@@ -142,10 +151,11 @@ namespace attendance_management_system
             {
                 // Load the XML file containing language preferences
                 XmlDocument doc = new XmlDocument();
-                doc.Load("C:\\Users\\USER\\Desktop\\c#project4\\attendance-management-system\\xml\\Language.xml"); // Adjust the path as needed
+                doc.Load("D:\\iti\\projects\\c# and XML project\\attendance-management-system\\xml\\Language.xml"); // Adjust the path as needed
 
                 // Find the language node with the selected attribute set to true
-                string selected = LanguageComboBox.SelectedItem?.ToString(); // Ensure selected item is not null
+                //string selected = LanguageComboBox.SelectedItem?.ToString();
+                string selected = Program.isArabic ? "Arabic" : "English";
                 if (selected != null)
                 {
                     XmlNode? selectedLanguageNode = doc.SelectSingleNode($"Languages/language[code='{selected}']");

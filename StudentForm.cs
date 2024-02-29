@@ -21,6 +21,17 @@ namespace attendance_management_system
           studentAttendanceUserControl1.Visible = false;
             loginForm = new login();
             editUserProfile = new editUserProfile();
+            if(Program.isArabic)
+            {
+                Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("ar-EG");
+                StudentAttendanceButton.Text = "حضوري";
+                StudentProfileButton.Text = "تعديل صفحتك الشخصيه";
+                StudentLogOutbutton.Text = "تسجيل الخروج";
+
+                StudentAttendanceButton.RightToLeft = RightToLeft.Yes;
+                StudentProfileButton.RightToLeft = RightToLeft.Yes;
+                StudentLogOutbutton.RightToLeft = RightToLeft.Yes;
+            }
         }
         private void StudentAttendanceButton_Click(object sender, EventArgs e)
         {
@@ -31,7 +42,26 @@ namespace attendance_management_system
         }
         private void StudentLogOutbutton_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show(
+            if(Program.isArabic)
+            {
+                DialogResult result = MessageBox.Show(
+                           "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+                                             "تسجيل خروج!",
+                            MessageBoxButtons.OKCancel,
+                           MessageBoxIcon.Question,
+                         MessageBoxDefaultButton.Button1,
+                          MessageBoxOptions.DefaultDesktopOnly);
+                if (result == DialogResult.OK)
+                {
+                    StudentForm studentForm = new StudentForm();
+
+                    loginForm.Show();
+                    Close();
+                }
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show(
                            "Are you sure you want to logout?",
                                              "LOG OUT!",
                             MessageBoxButtons.OKCancel,
@@ -39,13 +69,15 @@ namespace attendance_management_system
                          MessageBoxDefaultButton.Button1,
                           MessageBoxOptions.DefaultDesktopOnly);
 
-            if (result == DialogResult.OK)
-            {
-                StudentForm studentForm = new StudentForm();
+                if (result == DialogResult.OK)
+                {
+                    StudentForm studentForm = new StudentForm();
 
-                loginForm.Show();
-                Close();
+                    loginForm.Show();
+                    Close();
+                }
             }
+            
 
         }
         private void StudentProfileButton_Click(object sender, EventArgs e)
